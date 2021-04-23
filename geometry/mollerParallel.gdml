@@ -29,7 +29,7 @@
   <tube
     name="collarVirtualPlane_solid"
     startphi="0" deltaphi="360" aunit="deg"
-    rmax="1200" rmin="0" z="1" lunit="mm"/>
+    rmax="1900" rmin="0" z="1" lunit="mm"/>
 
   <tube
     name="dumpVirtualPlane_solid"
@@ -158,6 +158,56 @@
     <auxiliary auxtype="DetNo" auxvalue="60"/>
   </volume>
 
+  <volume name="Col4Ent_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="67"/>
+  </volume>
+
+  <volume name="Col4Exit_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="68"/>
+  </volume>
+
+  <volume name="LintelEnt_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="69"/>
+  </volume>
+
+  <volume name="LintelExit_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="70"/>
+  </volume>
+
+  <volume name="Collar1Exit_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="71"/>
+  </volume>
+
+  <volume name="Collar2Exit_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="72"/>
+  </volume>
+
+  <volume name="Collar1Bellow_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="73"/>
+  </volume>
+
+
   <volume name="ParallelWorld_logical">
     <materialref ref="G4_Galactic"/>
     <solidref ref="parallel_solid"/>
@@ -257,6 +307,41 @@
     <physvol name="sieveVirtualPlane_phys">
       <volumeref ref="sieveVirtualPlane_log"/>
       <positionref ref="sieveVirtualPlane_pos"/>
+    </physvol>
+
+    <physvol name="Col4Ent_phys">
+      <volumeref ref="Col4Ent_log"/>
+      <position name="Col4Ent_pos" unit="mm" x="0" y="0" z="3225-0.5"/>
+    </physvol>
+
+    <physvol name="Col4Exit_phys">
+      <volumeref ref="Col4Exit_log"/>
+      <position name="Col4Exit_pos" unit="mm" x="0" y="0" z="3225+150+0.5"/>
+    </physvol>
+
+    <physvol name="LintelEnt_phys">
+      <volumeref ref="LintelEnt_log"/>
+      <position name="LintelEnt_pos" unit="mm" x="0" y="0" z="7785-0.5"/>
+    </physvol>
+
+    <physvol name="LintelExit_phys">
+      <volumeref ref="LintelExit_log"/>
+      <position name="LintelExit_pos" unit="mm" x="0" y="0" z="7785+100+0.5"/>
+    </physvol>
+
+    <physvol name="Collar1Exit_phys">
+      <volumeref ref="Collar1Exit_log"/>
+      <position name="Collar1Exit_pos" unit="mm" x="0" y="0" z="11875.09+150+0.5"/>
+    </physvol>
+
+    <physvol name="Collar2Exit_phys">
+      <volumeref ref="Collar2Exit_log"/>
+      <position name="Collar2Exit_pos" unit="mm" x="0" y="0" z="18941.09+150+0.5"/>
+    </physvol>
+
+    <physvol name="Collar1Bellow_phys">
+      <volumeref ref="Collar1Bellow_log"/>
+      <position name="Collar1Bellow_pos" unit="mm" x="0" y="0" z="12500"/>
     </physvol>
 
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>

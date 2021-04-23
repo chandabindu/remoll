@@ -537,10 +537,10 @@
       <!-- <solidref ref="tubeDownstream"/> -->
       <solidref ref="boxDownstream_1"/>
 
-      <physvol name="Driftpipe">
+<!--      <physvol name="Driftpipe">
           <volumeref ref="logicDriftpipe"/>
 	  <position name="Driftpipe_pos" x="0" y="0" z="boxDSMother_length/2-6595"/>
-        </physvol>
+        </physvol>-->
 
       <!--
       <physvol name="DStracker">
@@ -549,7 +549,7 @@
       </physvol>
       -->
 
-      <physvol name="collar1">
+   <!--   <physvol name="collar1">
         <volumeref ref="logicCollar1"/>
         <position unit="mm" name="collar1pos" x="0" y="0" z="17350-25-DOFFSET"/>
         <rotation unit="rad" name="collar1rot" x="0" y="0" z="0"/>
@@ -595,7 +595,7 @@
        <volumeref ref="logicLintel7"/>
        <position name="lintel7pos" x="-337.931472607" y="423.752663498" z="12835-DOFFSET"/>
        <rotation name="lintel7rot" x="0" y="0" z="-8.52718005974"/>
-      </physvol>
+      </physvol>-->
 
 <!-- Downstream of coll4 central collimating beampipe -->
       <physvol>
@@ -610,10 +610,10 @@
 
 
 <!-- Collimator 4 -->
-      <physvol name="DScoll_6">
+<!--      <physvol name="DScoll_6">
 	<volumeref ref="logicPDScollunion_1"/>
         <positionref ref="posPCOLL2"/>
-      </physvol>
+      </physvol>-->
 
 
       <physvol>

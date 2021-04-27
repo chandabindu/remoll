@@ -48,7 +48,7 @@ remollDetectorConstruction::remollDetectorConstruction(const G4String& name, con
 : fVerboseLevel(0),
   fGDMLParser(0),
   fGDMLValidate(false),
-  fGDMLOverlapCheck(false),
+  fGDMLOverlapCheck(true),
   fGDMLPath(""),
   fGDMLFile(""),
   fMessenger(0),
@@ -523,13 +523,13 @@ G4VPhysicalVolume* remollDetectorConstruction::ParseGDMLFile()
     // Clear parser
     fGDMLParser->Clear();
 
-    // Print GDML warning
-    PrintGDMLWarning();
-
     // Print parsing options
     G4cout << "Reading " << fGDMLFile << G4endl;
     G4cout << "- schema validation " << (fGDMLValidate? "on": "off") << G4endl;
     G4cout << "- overlap check " << (fGDMLOverlapCheck? "on": "off") << G4endl;
+
+    // Print GDML warning when validation
+    if (fGDMLValidate) PrintGDMLWarning();
 
     // Get remollIO instance before chdir since remollIO creates root file
     remollIO* io = remollIO::GetInstance();
@@ -547,7 +547,8 @@ G4VPhysicalVolume* remollDetectorConstruction::ParseGDMLFile()
 
     // Parse GDML file
     fGDMLParser->SetOverlapCheck(fGDMLOverlapCheck);
-    // hide output if not validating or checking ovelaps
+    // hide output if not validating or checking overlaps
+    // https://bugzilla-geant4.kek.jp/show_bug.cgi?id=2358
     if (! fGDMLOverlapCheck && ! fGDMLValidate)
       G4cout.setstate(std::ios_base::failbit);
     fGDMLParser->Read(fGDMLFile,fGDMLValidate);

@@ -52,8 +52,10 @@
     <constant name="COLL2_R2_U" value ="35"/>
     <constant name="COLL2_R2_D" value ="35"/>
     <!-- coll sep, outer rad, adjust this -->
-    <constant name="COLL2_R3_U" value ="101"/>
-    <constant name="COLL2_R3_D" value ="101"/>
+    <constant name="COLL2_R3_U_CW" value ="99.6"/>
+    <constant name="COLL2_R3_U_Cu" value ="101.5"/>
+    <constant name="COLL2_R3_D_CW" value ="101.5"/>
+    <constant name="COLL2_R3_D_Cu" value ="102.4"/>
     <constant name="COLL2_R4_U" value ="150"/>
     <constant name="COLL2_R4_D" value ="150"/>
 
@@ -318,8 +320,8 @@
     <box lunit="mm" name="COLL_BOX"  x="1000" y="1000" z="1000"/>
 
     <cone aunit="deg" deltaphi="SEPTANT/2" lunit="mm" name="cons_1" 
-          rmax1="COLL2_R3_U" 
-          rmax2="COLL2_R3_D" 
+          rmax1="COLL2_R3_U_CW" 
+          rmax2="COLL2_R3_D_CW" 
           rmin1="COLL2_R2_U" 
           rmin2="COLL2_R2_D" startphi="-SEPTANT/4" z="COLL2_THICK_CW+DELTAT*2"/>
 
@@ -332,8 +334,8 @@
     </polycone>
 
     <cone aunit="deg" deltaphi="SEPTANT/2" lunit="mm" name="cons_2" 
-          rmax1="COLL2_R3_U" 
-          rmax2="COLL2_R3_D" 
+          rmax1="COLL2_R3_U_Cu" 
+          rmax2="COLL2_R3_D_Cu" 
           rmin1="COLL2_R2_U" 
           rmin2="COLL2_R2_D" startphi="-SEPTANT/4" z="COLL2_THICK_CW+DELTAT*2"/>
 

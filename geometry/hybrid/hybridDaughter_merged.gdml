@@ -61,12 +61,13 @@
     <constant name="DSShield_local_length" value="250"/>
     <constant name="DSShield_local_width" value="2400"/>
     <constant name="DSShield_local_inner_rmax" value="boxDSShieldColl1_inner_rmax"/>
-    <position name="boxDSShield_local_center" unit="mm" x="0" y="0" z="9020-DOFFSET - coll4shield_shift/2 + DSConcreteShield1_length/2 + DSShield_local_length/2 + 10"/>
     <position name="boxDSShield_local_trans" unit="mm" x="0" y="0" z="0"/>
 
     <constant name="boxDSMother_width" value="2700"/>
     <constant name="boxDSMother_height" value="2700"/>
     <constant name="boxDSMother_length" value="7865.68 + 2*950 + 900+5300.59+8.73"/> 
+    <!--<position name="boxDSShield_local_center" unit="mm" x="0" y="0" z="9020-DOFFSET - coll4shield_shift/2 + DSConcreteShield1_length/2 + DSShield_local_length/2 + 10"/>-->
+    <position name="boxDSShield_local_center" unit="mm" x="0" y="0" z="-boxDSMother_length/2+854.25+250./2"/>
 
     <position name="SubCoil1EpoxyShield1_center" unit="mm" x="0" y="0" z="posPCOLL2_z  + PCOLL2_THICK/2+1425"/>
 
@@ -615,11 +616,11 @@
         <positionref ref="posPCOLL2"/>
       </physvol>-->
 
-
-      <physvol>
+<!-- Concrete Shield -->
+<!--      <physvol>
         <volumeref ref="boxDSConcreteShield1_logic"/>
         <positionref ref="boxDSConcreteShield1_center"/>
-      </physvol>
+      </physvol> -->
 
       <!-- Lead wall DS of collimator 4 -->
       <physvol>

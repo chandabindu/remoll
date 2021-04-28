@@ -207,6 +207,20 @@
     <auxiliary auxtype="DetNo" auxvalue="73"/>
   </volume>
 
+  <volume name="PbWallEnt_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="74"/>
+  </volume>
+
+  <volume name="PbWallExit_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="75"/>
+  </volume>
+
 
   <volume name="ParallelWorld_logical">
     <materialref ref="G4_Galactic"/>
@@ -342,6 +356,16 @@
     <physvol name="Collar1Bellow_phys">
       <volumeref ref="Collar1Bellow_log"/>
       <position name="Collar1Bellow_pos" unit="mm" x="0" y="0" z="12500"/>
+    </physvol>
+
+    <physvol name="PbWallEnt_phys">
+      <volumeref ref="PbWallEnt_log"/>
+      <position name="PbWallEnt_pos" unit="mm" x="0" y="0" z="3879.25-0.5"/>
+    </physvol>
+
+    <physvol name="PbWallExit_phys">
+      <volumeref ref="PbWallExit_log"/>
+      <position name="PbWallExit_pos" unit="mm" x="0" y="0" z="3879.25+250+0.5"/>
     </physvol>
 
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>

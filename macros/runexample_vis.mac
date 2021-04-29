@@ -1,10 +1,11 @@
 # Use this open statement to create an OpenGL view:
 /vis/open OGL 600x600-0+0  
 
-/remoll/physlist/optical/enable
+#/remoll/physlist/optical/enable
 
 # This is the current working geometry
-/remoll/setgeofile geometry/mollerMother.gdml
+#/remoll/setgeofile geometry/mollerMother.gdml
+/remoll/setgeofile geometry/upstream/upstreamDaughter_merged.gdml
 
 #/remoll/likekryptonite  true
 

@@ -13,7 +13,7 @@
 <position name="targetCenter" x="0.0" y="0.0" z="-4500.00" unit="mm"/>
 
 <!-- Upstream spectrometer position -->
-<position name="upstreamCenter" x="0.0" y="0.0" z="2000.00" unit="mm"/>
+<position name="upstreamCenter" x="0.0" y="0.0" z="0.00" unit="mm"/>
 
 <!-- Hybrid spectrometer position -->
 <position name="hybridCenter" x="0.0" y="0.0" z="11016.865-8.73/2" unit="mm"/>

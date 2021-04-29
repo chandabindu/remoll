@@ -137,7 +137,7 @@ int main(int argc, char** argv) {
     // Parallel world geometry
     G4String parallel_name = "parallel"; // Note: name must correspond with name of G4ParallelWorldPhysics
     remollParallelConstruction* parallel = new remollParallelConstruction(parallel_name, parallel_gdmlfile);
-    detector->RegisterParallelWorld(parallel);
+    //detector->RegisterParallelWorld(parallel);
     runManager->SetUserInitialization(detector);
 
     // Physics list

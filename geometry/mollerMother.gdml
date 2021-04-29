@@ -25,23 +25,23 @@
     <solidref ref="world_solid"/>
 
     <!-- Target region -->
-    <physvol>
+    <!-- <physvol>
       <file name="target/subTargetRegion.gdml"/>
       <positionref ref="targetCenter"/>
-    </physvol>
+    </physvol>-->
 
     <!-- Hall -->
-    <physvol>
+    <!-- <physvol>
       <file name="hall/hallDaughter_dump.gdml"/>
       <positionref ref="hallCenter"/>
-    </physvol>
+    </physvol>-->
 
     <!-- SBS Bunker -->
-    <physvol>
+    <!-- <physvol>
       <file name="electronics/subSBSbunker.gdml"/>
       <position name="sbsBunker_pos" x="8740" y="-3000 + 2000" z="-15180."/>
       <rotation name="rot_y30" unit="deg" y="30"/>
-    </physvol>
+    </physvol>-->
  
     <!-- Upstream region -->
     <physvol>
@@ -50,30 +50,30 @@
     </physvol>
 
     <!-- Hybrid region -->
-    <physvol>
+    <!--<physvol>
       <file name="hybrid/hybridDaughter_merged.gdml"/>
       <positionref ref="hybridCenter"/>
-    </physvol>
+    </physvol>-->
 
     <!-- Downstream beampipe -->
-    <physvol>
+    <!--    <physvol>
       <file name="beampipe/premoller/beampipeRaster.gdml"/>
     </physvol>
     <physvol>
       <file name="beampipe/downstream/beampipeDSMother.gdml"/>
-    </physvol>
+    </physvol>-->
 
     <!-- Front Tracking Detectors -->
-    <physvol>
+    <!--<physvol>
       <file name="tracking/trackingDaughter.gdml"/>
       <positionref ref="trackingDetectorVirtualPlaneFront1_pos"/>
-    </physvol>
+    </physvol>-->
 
     <!-- Back Tracking Detectors -->
-    <physvol>
+    <!--  <physvol>
       <file name="tracking/trackingDaughter.gdml"/>
       <positionref ref="trackingDetectorVirtualPlaneBack1_pos"/>
-    </physvol>
+    </physvol>-->
 
     <!-- Main Detectors -->
     <!--
@@ -85,29 +85,29 @@
     -->
 
     <!-- electronics hut for left side --> 
-    <physvol>
+    <!-- <physvol>
       <file name="huts/lefthut.gdml"/>
       <positionref ref="lefthut_pos"/>
       <rotation name="lefthut_rot" unit="deg" y="-45"/>
-    </physvol>
+    </physvol>-->
 
     <!-- ShowerMax Detectors -->
-    <physvol>
+    <!-- <physvol>
       <file name="showermax/showerMaxGen.gdml"/>
       <positionref ref="showerMaxDetectorCenter"/>
-    </physvol>
+    </physvol>-->
     
     <!-- Lead Donut -->
-    <physvol>
+    <!-- <physvol>
       <file name="donut/donutConcreteLead.gdml"/>
       <positionref ref="donutConcreteLeadFaceUS"/>
-    </physvol>
+    </physvol>-->
    
     <!-- Pion Detectors -->
-    <physvol>
+    <!-- <physvol>
       <file name="pion/pionDetectorSystem.gdml"/>
       <positionref ref="pionDetectorSystemFaceUS"/>
-    </physvol>
+    </physvol>-->
 
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>
   </volume>

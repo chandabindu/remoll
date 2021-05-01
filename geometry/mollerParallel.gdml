@@ -158,6 +158,20 @@
     <auxiliary auxtype="DetNo" auxvalue="60"/>
   </volume>
 
+  <volume name="Col2Ent_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="76"/>
+  </volume>
+
+  <volume name="Col2Exit_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="77"/>
+  </volume>
+
   <volume name="Col4Ent_log">
     <materialref ref="G4_Galactic"/>
     <solidref ref="VirtualPlane_solid"/>
@@ -321,6 +335,16 @@
     <physvol name="sieveVirtualPlane_phys">
       <volumeref ref="sieveVirtualPlane_log"/>
       <positionref ref="sieveVirtualPlane_pos"/>
+    </physvol>
+
+    <physvol name="Col2Ent_phys">
+      <volumeref ref="Col2Ent_log"/>
+      <position name="Col2Ent_pos" unit="mm" x="0" y="0" z="750-0.5"/>
+    </physvol>
+
+    <physvol name="Col2Exit_phys">
+      <volumeref ref="Col2Exit_log"/>
+      <position name="Col2Exit_pos" unit="mm" x="0" y="0" z="1000"/>
     </physvol>
 
     <physvol name="Col4Ent_phys">

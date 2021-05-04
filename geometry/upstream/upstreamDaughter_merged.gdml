@@ -396,18 +396,18 @@
     </subtraction>
 
 <!-- this is the second part of CW -->
-    <arb8 name="Coll2_CW2_S" v1x="34*sin(SEPTANT*pi/(4*180))" v1y="34*cos(SEPTANT*pi/(4*180))" 
-	v2x="-34*sin(SEPTANT*pi/(4*180.))" v2y="34*cos(SEPTANT*pi/(4*180.))" 
-        v3x="-102*tan(SEPTANT*pi/(4*180))" v3y="102" 
-        v4x="102*tan(SEPTANT*pi/(4*180))" v4y="102" 
-        v5x="34*sin((SEPTANT/4+0.5)*pi/180)" v5y="34*cos((SEPTANT/4+0.5)*pi/180)" 
-        v6x="-34*sin((SEPTANT/4+0.5)*pi/180)" v6y="34*cos((SEPTANT/4+0.5)*pi/180)" 
-        v7x="-105*tan((SEPTANT/4.+0.5)*pi/180)" v7y="105" 
-        v8x="105*tan((SEPTANT/4.+0.5)*pi/180)" v8y="105" 
+    <arb8 name="Coll2_CW2_S" v1x="33*tan(SEPTANT*pi/(4*180))" v1y="33" 
+	v2x="-33*tan(SEPTANT*pi/(4*180.))" v2y="33" 
+        v3x="-103*tan(SEPTANT*pi/(4*180.))" v3y="103" 
+        v4x="103*tan(SEPTANT*pi/(4*180))" v4y="103" 
+        v5x="33*tan(SEPTANT*pi/(4*180.))+52*tan(0.5*pi/180.)" v5y="33" 
+        v6x="-(33*tan(SEPTANT*pi/(4*180.))+52*tan(0.5*pi/180.))" v6y="33" 
+        v7x="-(52*tan(0.5*pi/180.)+105*tan(SEPTANT*pi/(4*180.)))" v7y="105" 
+        v8x="52*tan(0.5*pi/180.)+105*tan(SEPTANT*pi/(4*180.))" v8y="105" 
         dz="26" lunit="mm"/>
 
-    <cone aunit="deg" deltaphi="SEPTANT/2.+2." lunit="mm" name="Coll2_CW2_R1_S" rmax1="35" rmax2="35" rmin1="30" rmin2="30" startphi="-SEPTANT/4-1.0" z="54"/>
-    <cone aunit="deg" deltaphi="SEPTANT/2.+2." lunit="mm" name="Coll2_CW2_R2_S" rmax1="110" rmax2="110" rmin1="101" rmin2="102.3" startphi="-SEPTANT/4-1.0" z="54"/>
+    <cone aunit="deg" deltaphi="SEPTANT/2.+4." lunit="mm" name="Coll2_CW2_R1_S" rmax1="35" rmax2="35" rmin1="30" rmin2="30" startphi="-SEPTANT/4-2.0" z="54"/>
+    <cone aunit="deg" deltaphi="SEPTANT/2.+4." lunit="mm" name="Coll2_CW2_R2_S" rmax1="110" rmax2="110" rmin1="101" rmin2="102.31" startphi="-SEPTANT/4-2.0" z="54"/>
 
         <subtraction name ="Coll2_CW2_S1">
         <first ref="Coll2_CW2_S"/>
@@ -471,18 +471,18 @@
         </subtraction>
 
 <!-- this is the part of Cu of Collimator2 -->
-    <arb8 name="Coll2_Cu_S" v1x="34*sin((SEPTANT/4.+0.5)*pi/180.)" v1y="34*cos((SEPTANT/4.+0.5)*pi/180.)" 
-	v2x="-34*sin((SEPTANT/4.+0.5)*pi/180.)" v2y="34*cos((SEPTANT/4.+0.5)*pi/180.)" 
-        v3x="-105*tan((SEPTANT/4.+0.5)*pi/180.)" v3y="105" 
-        v4x="105*tan((SEPTANT/4.+0.5)*pi/180.)" v4y="105" 
-        v5x="34*sin((SEPTANT/4.+1.)*pi/180.)" v5y="34*cos((SEPTANT/4.+1.)*pi/180.)" 
-        v6x="-34*sin((SEPTANT/4.+1.)*pi/180.)" v6y="34*cos((SEPTANT/4.+1.)*pi/180.)" 
-        v7x="-105*tan((SEPTANT/4.+1.)*pi/180.)" v7y="105" 
-        v8x="105*tan((SEPTANT/4.+1.)*pi/180.)" v8y="105" 
+    <arb8 name="Coll2_Cu_S" v1x="33*tan(SEPTANT*pi/(4*180.))+50*tan(0.5*pi/180.)" v1y="33" 
+	v2x="-(33*tan(SEPTANT*pi/(4*180.))+50*tan(0.5*pi/180.))" v2y="33" 
+        v3x="-(105*tan(SEPTANT*pi/(4*180.))+50*tan(0.5*pi/180.))" v3y="105" 
+        v4x="105*tan(SEPTANT*pi/(4*180.))+50*tan(0.5*pi/180.)" v4y="105" 
+        v5x="33*tan(SEPTANT*pi/(4*180.))+102*tan(0.5*pi/180.)" v5y="33" 
+        v6x="-(33*tan(SEPTANT*pi/(4*180.))+102*tan(0.5*pi/180.))" v6y="33" 
+        v7x="-(105*tan(SEPTANT*pi/(4*180.))+102*tan(0.5*pi/180.))" v7y="105" 
+        v8x="105*tan(SEPTANT*pi/(4*180.))+102*tan(0.5*pi/180.)" v8y="105" 
         dz="26" lunit="mm"/>
 
-    <cone aunit="deg" deltaphi="SEPTANT/2.+4." lunit="mm" name="Coll2_Cu_R1_S" rmax1="35" rmax2="35" rmin1="25" rmin2="25" startphi="-SEPTANT/4-2.0" z="54"/>
-    <cone aunit="deg" deltaphi="SEPTANT/2.+4." lunit="mm" name="Coll2_Cu_R2_S" rmax1="115" rmax2="115" rmin1="102.3" rmin2="103.6" startphi="-SEPTANT/4-2.0" z="54"/>
+    <cone aunit="deg" deltaphi="SEPTANT/2.+6." lunit="mm" name="Coll2_Cu_R1_S" rmax1="35" rmax2="35" rmin1="25" rmin2="25" startphi="-SEPTANT/4-3.0" z="54"/>
+    <cone aunit="deg" deltaphi="SEPTANT/2.+6." lunit="mm" name="Coll2_Cu_R2_S" rmax1="115" rmax2="115" rmin1="102.31" rmin2="103.62" startphi="-SEPTANT/4-3.0" z="54"/>
 
         <subtraction name ="Coll2_Cu_S1">
         <first ref="Coll2_Cu_S"/>

@@ -623,10 +623,10 @@
       </physvol> -->
 
       <!-- Lead wall DS of collimator 4 -->
-      <physvol>
+<!--      <physvol>
         <volumeref ref="boxDSShield_local_logic"/>
         <positionref ref="boxDSShield_local_center"/>
-      </physvol>
+      </physvol>-->
 
       <!-- this part of the downstream beampipe -->
     <physvol name="DSwindow">

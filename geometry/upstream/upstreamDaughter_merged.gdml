@@ -3,13 +3,12 @@
 <!DOCTYPE gdml [
 <!ENTITY matrices SYSTEM "../matrices.xml">
 <!ENTITY materials SYSTEM "../materials.xml">
-<!ENTITY positions SYSTEM "../positions.xml">
 ]>
 
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
 <define>
-    &positions;
+	<!-- &positions;-->
     &matrices;
     
     <constant name="PI" value="1.*pi"/>
@@ -101,16 +100,69 @@
 
 <solids>
 
-	<trap name = "accep"  z="10" theta="1" phi="1" y1="15" x1="10" x2="10" alpha1="1" y2="15" x3="10" x4="10" alpha2="1" aunit="rad" lunit="mm"/> 
-	<trd name = "accep1" x1="100" x2="100" y1="2*35*sin(SEPTANT/4.)" y2="2*35*sin((SEPTANT+1.0)/4.)" z="64.6" lunit="mm"/> 
-	<cone aunit="deg" deltaphi="(SEPTANT+1)/2." lunit="mm" name="LowR_cut_S" rmax1="35" rmax2="35" rmin1="31" rmin2="31" startphi="0" z="100"/>
+	<trap name = "accep_try1"  z="100" theta="20" phi="50" y1="50" x1="20" x2="20" alpha1="0" y2="50" x3="20" x4="20" alpha2="0" aunit="deg" lunit="mm"/> 
+	<trd name = "acceptry2" x1="100" x2="100" y1="2*35*sin(SEPTANT/4.)" y2="2*35*sin((SEPTANT+1.0)/4.)" z="64.6" lunit="mm"/> 
+	<trd name = "acceptry3" x1="100" x2="100" y1="2*35*sin(SEPTANT/4.)" y2="2*35*sin((SEPTANT+1.0)/4.)" z="64.6" lunit="mm"/> 
+	<cone aunit="deg" deltaphi="(SEPTANT+1)/2." lunit="mm" name="accep_S1" rmax1="101.5" rmax2="101.5" rmin1="35" rmin2="35" startphi="0" z="100"/>
+	<cone aunit="deg" deltaphi="(SEPTANT+1)/2.+2" lunit="mm" name="Radial_Cut_S" rmax1="103" rmax2="103.0" rmin1="99.6" rmin2="101.5" startphi="0" z="100.5"/>
+    <box lunit="mm" name="Coll2_Side_S"  x="68" y="2" z="101"/>
 
-	<!--    <subtraction name ="accep">
+
+    <!--    <arb8 name="second_accep_s" v1x="32*sin((SEPTANT/4.+0.5)*pi/180.)" v1y="32*cos((SEPTANT/4.+0.5)*pi/180.)" 
+	    v2x="-32*sin((SEPTANT/4.+0.5)*pi/180.)" v2y="32*cos((SEPTANT/4+0.5)*pi/180.)" 
+	    v3x="-104*tan((SEPTANT/4.+0.5)*pi/180.)" v3y="104" 
+	    v4x="104*tan((SEPTANT/4.+0.5)*pi/180.)" v4y="104" 
+	    	v5x="32*sin((SEPTANT/4.+1.)*pi/180.)" v5y="32*cos((SEPTANT/4.+1.)*pi/180.)" 
+	    	v6x="-32*sin((SEPTANT/4.+1.)*pi/180.)" v6y="32*cos((SEPTANT/4.+1.)*pi/180.)" 
+	     	v7x="-107*tan((SEPTANT/4.+1.)*pi/180.)" v7y="107" 
+	     	v8x="107*tan((SEPTANT/4.+1.)*pi/180.)" v8y="107" 
+    dz="51" lunit="mm"/>-->
+
+    <arb8 name="second_accep_s" v1x="34*sin((SEPTANT/4.+0.5)*pi/180.)" v1y="34*cos((SEPTANT/4.+0.5)*pi/180.)" 
+	    v2x="-34*sin((SEPTANT/4.+0.5)*pi/180.)" v2y="34*cos((SEPTANT/4.+0.5)*pi/180.)" 
+	    v3x="-105*tan((SEPTANT/4.+0.5)*pi/180.)" v3y="105" 
+	    v4x="105*tan((SEPTANT/4.+0.5)*pi/180.)" v4y="105" 
+	    	v5x="34*sin((SEPTANT/4.+1.)*pi/180.)" v5y="34*cos((SEPTANT/4.+1.)*pi/180.)" 
+	    	v6x="-34*sin((SEPTANT/4.+1.)*pi/180.)" v6y="34*cos((SEPTANT/4.+1.)*pi/180.)" 
+	     	v7x="-105*tan((SEPTANT/4.+1.)*pi/180.)" v7y="105" 
+	     	v8x="105*tan((SEPTANT/4.+1.)*pi/180.)" v8y="105" 
+	    	dz="51" lunit="mm"/>
+    
+    <cone aunit="deg" deltaphi="SEPTANT/2.+4." lunit="mm" name="Radial_Cut_low" rmax1="35" rmax2="35" rmin1="25" rmin2="25" startphi="-SEPTANT/4-2.0" z="104"/>
+    <cone aunit="deg" deltaphi="SEPTANT/2.+4." lunit="mm" name="Radial_Cut_high" rmax1="115" rmax2="115" rmin1="102.3" rmin2="103.6" startphi="-SEPTANT/4-2.0" z="104"/>
+
+	<subtraction name ="newaccep1">
+        <first ref="second_accep_s"/>
+        <second ref="Radial_Cut_low"/>
+	<rotation name="Cut_rot1" x="0" y="0" z="90" unit="deg"/>
+        </subtraction>
+
+	<subtraction name ="newaccep2">
+        <first ref="newaccep1"/>
+        <second ref="Radial_Cut_high"/>
+	<rotation name="Cut_rot2_largeR" x="0" y="0" z="90" unit="deg"/>
+        </subtraction>
+
+	<subtraction name ="accep1">
+        <first ref="accep_S1"/>
+        <second ref="Radial_Cut_S"/>
+	<position name="cut_pos1" x="0" y="0" z="0"/>
+        <rotation name="Cut_rot1" x="0" y="0" z="-1" unit="deg"/>
+        </subtraction>
+
+	<subtraction name ="accep2">
         <first ref="accep1"/>
-        <second ref="LowR_cut_S"/>
-	<position name="cut1_pos" x="0" y="0" z="50"/>
-        <rotation name="Cutrot1" x="0" y="0" z="SEPTANT*(0+0.5)" unit="deg"/>
-</subtraction>-->
+        <second ref="Coll2_Side_S"/>
+	<position name="Cut_pos2" x="68.0" y="-1.+50*tan(0.5*pi/180.)" z="0" lunit="mm"/>
+	<rotation name="Cut_rot2" x="0.5" y="0" z="0" unit="deg"/>
+        </subtraction>
+
+	<subtraction name ="accep">
+        <first ref="accep2"/>
+        <second ref="Coll2_Side_S"/>
+	<position name="Cut_pos3" x="67.5*cos((SEPTANT+1.)*pi/360.)" y="67.5*sin((SEPTANT+1.)*pi/360.)+1./cos((SEPTANT+1.)*pi/360.)-50*tan(0.5*pi/180.)" z="0" lunit="mm"/>
+	<rotation name="Cut_rot3" x="-0.5" y="0" z="(SEPTANT+1.)/2." unit="deg"/>
+        </subtraction>
 
     <!--<polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="col1_h20_solid2"> 
       <zplane rmin="22" rmax="25.4" z="0"/> 
@@ -142,6 +194,13 @@
 	    <zplane rmin="COLL2_R1_CW_U2" rmax="COLL2_R4_U" z="COLL2_THICK_CW/2"/>
 	    <zplane rmin="COLL2_R1_CW_D2" rmax="COLL2_R4_D" z="COLL2_THICK_CW"/>
     </polycone>
+    
+	<subtraction name ="newaccep3">
+        <first ref="uscyl_1"/>
+        <second ref="newaccep2"/>
+        <position name="accep_cut_new" x="0" y="0" z="50" lunit="mm"/>
+	<!--	<rotation name="Cut_rot2_largeR" x="0" y="0" z="SEPTANT/4" unit="deg"/>-->
+        </subtraction>
 
     <cone aunit="deg" deltaphi="SEPTANT/2" lunit="mm" name="cons_2" 
           rmax1="COLL2_R3_U" 
@@ -161,9 +220,9 @@
 
     <subtraction name ="uscoll2_CW_0">
         <first ref="uscyl_1"/>
-        <second ref="cons_1"/>
+        <second ref="accep"/>
 	<positionref ref="posCOLL2_CW_sub" />
-        <rotation name="uscoll_CW_rot1" x="0" y="0" z="SEPTANT*(0+0.5)" unit="deg"/>
+        <rotation name="uscoll_CW_rot1" x="0" y="0" z="SEPTANT*(0-0.5)" unit="deg"/>
     </subtraction>
     <subtraction name ="uscoll2_CW_1">
         <first ref="uscoll2_CW_0"/>
@@ -258,19 +317,86 @@
   
     <volume name="logicAccep">
       <materialref ref="G4_Fe"/>
-      <solidref ref="accep"/>
+      <!--<solidref ref="uscoll2_CW_0"/>--> 
+	    <!--<solidref ref="accep_S1"/>-->
+      <solidref ref="second_accep_s"/>
       <auxiliary auxtype="Color" auxvalue="magenta"/>
       <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
       <auxiliary auxtype="DetNo" auxvalue="91111"/>
     </volume>
+  
+    <volume name="logicAccep_lowR">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="Radial_Cut_low"/>
+      <auxiliary auxtype="Color" auxvalue="blue"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="91121"/>
+    </volume>
+  
+    <volume name="logicAccep_highR">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="Radial_Cut_high"/>
+      <auxiliary auxtype="Color" auxvalue="red"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="91131"/>
+    </volume>
+  
+    <volume name="logicAccep_new">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="newaccep2"/>
+      <auxiliary auxtype="Color" auxvalue="gray"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="91151"/>
+    </volume>
+     
+    <volume name="logicAccep_new_cut">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="newaccep3"/>
+      <auxiliary auxtype="Color" auxvalue="blue"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="91161"/>
+    </volume>
+    
+    <volume name="logicCyl">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="uscyl_1"/>
+      <auxiliary auxtype="Color" auxvalue="magenta"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="91161"/>
+    </volume>
 
     <volume name="logicCut1">
       <materialref ref="G4_Fe"/>
-      <solidref ref="LowR_cut_S"/>
+      <solidref ref="Radial_Cut_S"/>
       <auxiliary auxtype="Color" auxvalue="blue"/>
       <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
       <auxiliary auxtype="DetNo" auxvalue="91485"/>
     </volume>
+
+    <volume name="logicSide">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="Coll2_Side_S"/>
+      <auxiliary auxtype="Color" auxvalue="gray"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="91121"/>
+    </volume>
+
+    <volume name="logicSide1">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="Coll2_Side_S"/>
+      <auxiliary auxtype="Color" auxvalue="blue"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="91131"/>
+    </volume>
+
+    <volume name="logicAccept1">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="accep"/>
+      <auxiliary auxtype="Color" auxvalue="green"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="91141"/>
+    </volume>
+
     <volume name="logicUScollunion_1">
       <materialref ref="CW95"/>
       <solidref ref="uscoll2_CW_6"/>
@@ -295,17 +421,73 @@
       <materialref ref="VacuumColl"/>
       <solidref ref="boxUpstream"/>
 
-      <physvol name="physAccep">
+      <physvol name="physAcceptest1">
         <volumeref ref="logicAccep"/>
         <positionref ref="posCOLL2_CW"/>
       </physvol>
+
+      <physvol name="physAccept_lowR">
+        <volumeref ref="logicAccep_lowR"/>
+        <positionref ref="posCOLL2_CW"/>
+	<rotation name="Cut_rot_lowR" x="0" y="0" z="-90" unit="deg"/>
+      </physvol>
+
+      <physvol name="physAccept_highR">
+        <volumeref ref="logicAccep_highR"/>
+        <positionref ref="posCOLL2_CW"/>
+	<rotation name="Cut_rot_highR" x="0" y="0" z="-90" unit="deg"/>
+      </physvol>
+
+      <physvol name="physAccep_new">
+        <volumeref ref="logicAccep_new"/>
+        <positionref ref="posCOLL2_CW"/>
+      </physvol>
+     
+      <physvol name="physAccep_new">
+        <volumeref ref="logicAccep_new_cut"/>
+        <positionref ref="posCOLL2_CW"/>
+      </physvol>
+    
+      <physvol name="physCyl">
+        <volumeref ref="logicCyl"/>
+        <positionref ref="posCOLL2_CW"/>
+      </physvol>
+
+      
       <!--
+      <physvol name="physAcceptest2">
+        <volumeref ref="logicAccept1"/>
+        <positionref ref="posCOLL2_CW"/>
+      </physvol>
+      <physvol name="physAccep">
+        <volumeref ref="logicAccept1"/>
+        <positionref ref="posCOLL2_CW"/>
+      </physvol>
+
+      <physvol name="physAccep1">
+        <volumeref ref="logicAccep"/>
+        <positionref ref="posCOLL2_CW"/>
+      </physvol>
+      
       <physvol name="physCut1">
         <volumeref ref="logicCut1"/>
-        <position name="pos_lowR" x=/>
-	<rotation name="Cutrot1" x="0" y="90" z="SEPTANT/4." unit="deg"/>
-      </physvol>-->
-	      <!--<physvol name="UScollunion_1">
+	<rotation name="Cutrot1_1" x="0" y="0" z="1" unit="deg"/>
+      </physvol>
+	       
+      <physvol name="physSide">
+        <volumeref ref="logicSide"/>
+	<position name="pos_side1" x="68.0" y="-1.+50*tan(0.5*pi/180.)" z="0" lunit="mm"/>
+	<rotation name="Cutrot1" x="-0.5" y="0" z="0" unit="deg"/>
+      </physvol>
+     
+      <physvol name="physSide1">
+        <volumeref ref="logicSide1"/>
+	<position name="pos_side2" x="67.5*cos((SEPTANT+1.)*pi/360.)" y="67.5*sin((SEPTANT+1.)*pi/360.)+1./cos((SEPTANT+1.)*pi/360.)-50*tan(0.5*pi/180.)" z="0" lunit="mm"/>
+	<rotation name="Cutrot2" x="0.5" y="0" z="-(SEPTANT+1.)/2." unit="deg"/>
+</physvol>
+
+      -->
+<!--<physvol name="UScollunion_1">
         <volumeref ref="logicUScollunion_1"/>
         <positionref ref="posCOLL2_CW"/>
 </physvol>-->

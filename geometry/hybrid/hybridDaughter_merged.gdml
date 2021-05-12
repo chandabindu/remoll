@@ -26,7 +26,8 @@
     <!-- main collimator number 4, adjust this -->
     <constant name="col4shift" value ="1500"/>
     <constant name="posPCOLL2_z" value ="9825-DOFFSET-col4shift-50.0/2"/> <!--subtracting 50/2 from z to compensate for increased thickness so that downstream end still ends at the same point as before-->
-    <position name="posPCOLL2" unit="mm" x="0" y="0" z="posPCOLL2_z"/>
+	<!--<position name="posPCOLL2" unit="mm" x="0" y="0" z="posPCOLL2_z"/>-->
+    <position name="posPCOLL2" unit="mm" x="0" y="0" z="0"/>
     <constant name="PCOLL2_R1_U" value ="30.861"/> <!-- Was 38.0" for no good reason, then 30 -->
     <constant name="PCOLL2_R1_D" value ="30.861"/> <!-- 8.0"/> -->
     <!-- coll sep, inner rad, adjust this -->
@@ -64,9 +65,12 @@
     <position name="boxDSShield_local_center" unit="mm" x="0" y="0" z="9020-DOFFSET - coll4shield_shift/2 + DSConcreteShield1_length/2 + DSShield_local_length/2 + 10"/>
     <position name="boxDSShield_local_trans" unit="mm" x="0" y="0" z="0"/>
 
-    <constant name="boxDSMother_width" value="2700"/>
+    <!--    <constant name="boxDSMother_width" value="2700"/>
     <constant name="boxDSMother_height" value="2700"/>
-    <constant name="boxDSMother_length" value="7865.68 + 2*950 + 900+5300.59+8.73"/> 
+    <constant name="boxDSMother_length" value="7865.68 + 2*950 + 900+5300.59+8.73"/>--> 
+    <constant name="boxDSMother_width" value="500"/>
+    <constant name="boxDSMother_height" value="500"/>
+    <constant name="boxDSMother_length" value="500"/> 
 
     <position name="SubCoil1EpoxyShield1_center" unit="mm" x="0" y="0" z="posPCOLL2_z  + PCOLL2_THICK/2+1425"/>
 
@@ -227,7 +231,35 @@
 	<first ref="pdscoll_union_5"/>
 	<second ref="pcons_sculpt_2"/> 
 	<rotation name="pdscoll_rot7" x="0" y="0" z="SEPTANT*(6+0.5)" unit="deg"/>
-    </subtraction>
+</subtraction>
+
+
+    <arb8 name="Col4_accep1_s" v1x="51*tan(12.58*pi/180.)" v1y="51" 
+            v2x="-51*tan(12.58*pi/180.)" v2y="51" 
+            v3x="-87*tan(12.58*pi/180.)" v3y="87" 
+            v4x="87*tan(12.58*pi/180.)" v4y="87" 
+	    v5x="51*tan(12.58*pi/180.)+52*tan(0.5*pi/180.)" v5y="51" 
+	    v6x="-(51*tan(12.58*pi/180.)+52*tan(0.5*pi/180.))" v6y="51" 
+	    v7x="-(188*tan(12.58*pi/180.)+52*tan(0.5*pi/180.))" v7y="188" 
+	    v8x="188*tan(12.58*pi/180.)+52*tan(0.5*pi/180.)" v8y="188" 
+                dz="26" lunit="mm"/>
+
+    <cone aunit="deg" deltaphi="12.58*2+4." lunit="mm" name="Col4_Radial_Cut_low" rmax1="53" rmax2="53" rmin1="50" rmin2="50" startphi="-12.58-2.0" z="53"/>
+    <cone aunit="deg" deltaphi="16.63*2.+4." lunit="mm" name="Radial_Cut_high" rmax1="190" rmax2="190" rmin1="185" rmin2="185" startphi="-16.63-2.0" z="53"/>
+
+        <subtraction name ="newaccep1">
+        <first ref="second_accep_s"/>
+        <second ref="Radial_Cut_low"/>
+        <rotation name="Cut_rot1" x="0" y="0" z="90" unit="deg"/>
+        </subtraction>
+
+        <subtraction name ="newaccep2">
+        <first ref="newaccep1"/>
+        <second ref="Radial_Cut_high"/>
+        <rotation name="Cut_rot2_largeR" x="0" y="0" z="90" unit="deg"/>
+        </subtraction>
+
+
 
     <!--concrete shield -->
     <box lunit="mm" name="boxDSConcreteShield1_solid_1" x="DSConcreteShield1_height" y="DSConcreteShield1_height" z="DSConcreteShield1_length"/>
@@ -537,10 +569,10 @@
       <!-- <solidref ref="tubeDownstream"/> -->
       <solidref ref="boxDownstream_1"/>
 
-      <physvol name="Driftpipe">
+      <!--      <physvol name="Driftpipe">
           <volumeref ref="logicDriftpipe"/>
 	  <position name="Driftpipe_pos" x="0" y="0" z="boxDSMother_length/2-6595"/>
-        </physvol>
+      </physvol>-->
 
       <!--
       <physvol name="DStracker">
@@ -549,7 +581,7 @@
       </physvol>
       -->
 
-      <physvol name="collar1">
+      <!--    <physvol name="collar1">
         <volumeref ref="logicCollar1"/>
         <position unit="mm" name="collar1pos" x="0" y="0" z="17350-25-DOFFSET"/>
         <rotation unit="rad" name="collar1rot" x="0" y="0" z="0"/>
@@ -595,10 +627,10 @@
        <volumeref ref="logicLintel7"/>
        <position name="lintel7pos" x="-337.931472607" y="423.752663498" z="12835-DOFFSET"/>
        <rotation name="lintel7rot" x="0" y="0" z="-8.52718005974"/>
-      </physvol>
+      </physvol>-->
 
 <!-- Downstream of coll4 central collimating beampipe -->
-      <physvol>
+      <!--    <physvol>
         <volumeref ref="SubCoil1EpoxyShield1_logic"/>
         <positionref ref="SubCoil1EpoxyShield1_center"/>
       </physvol>
@@ -606,7 +638,7 @@
       <physvol name="DScoil">
         <file name="hybrid/hybridToroid.gdml"/>
         <position name="pos_hybridToroid" x="0" y="0" z="13335.194-DOFFSET"/>
-      </physvol>
+</physvol>-->
 
 
 <!-- Collimator 4 -->
@@ -616,19 +648,19 @@
       </physvol>
 
 
-      <physvol>
+      <!-- <physvol>
         <volumeref ref="boxDSConcreteShield1_logic"/>
         <positionref ref="boxDSConcreteShield1_center"/>
-      </physvol>
+</physvol>-->
 
       <!-- Lead wall DS of collimator 4 -->
-      <physvol>
+      <!--<physvol>
         <volumeref ref="boxDSShield_local_logic"/>
         <positionref ref="boxDSShield_local_center"/>
-      </physvol>
+</physvol>-->
 
       <!-- this part of the downstream beampipe -->
-    <physvol name="DSwindow">
+      <!--  <physvol name="DSwindow">
       <volumeref ref="logicDSwindow"/>
       <position name="DSwindow_pos" x="0" y="0" z="boxDSMother_length/2-484.88"/>
     </physvol>
@@ -661,7 +693,7 @@
     <physvol name="DSpipe2_DSpipe2_1">
       <volumeref ref="logic_DSpipe2_1"/>
       <position name="DSpipe1_DSpipe2_1_pos" x="0" y="0" z="boxDSMother_length/2-36.0"/>
-    </physvol>
+    </physvol>-->
 
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>
    </volume>

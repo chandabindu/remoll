@@ -611,10 +611,10 @@
 
 
 <!-- Collimator 4 -->
-<!--      <physvol name="DScoll_6">
+      <physvol name="DScoll_6">
 	<volumeref ref="logicPDScollunion_1"/>
         <positionref ref="posPCOLL2"/>
-      </physvol>-->
+      </physvol>
 
 <!-- Concrete Shield -->
 <!--      <physvol>

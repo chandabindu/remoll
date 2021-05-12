@@ -32,7 +32,7 @@
 
     <!-- Hall -->
     <physvol>
-      <file name="hall/hallDaughter_dump.gdml"/>
+      <file name="hall/hallDaughter_merged.gdml"/>
       <positionref ref="hallCenter"/>
     </physvol>
 
@@ -92,16 +92,16 @@
     </physvol>
 
     <!-- ShowerMax Detectors -->
-    <physvol>
+<!--    <physvol>
       <file name="showermax/showerMaxGen.gdml"/>
       <positionref ref="showerMaxDetectorCenter"/>
-    </physvol>
+    </physvol>-->
     
     <!-- Lead Donut -->
-    <physvol>
+ <!--   <physvol>
       <file name="donut/donutConcreteLead.gdml"/>
       <positionref ref="donutConcreteLeadFaceUS"/>
-    </physvol>
+    </physvol>-->
    
     <!-- Pion Detectors -->
     <physvol>

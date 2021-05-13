@@ -180,54 +180,89 @@
 	rmin1="PCOLL2_R2_U-DELTAT*((PCOLL2_R2_D-PCOLL2_R2_U)/PCOLL2_THICK)" 
 	rmin2="PCOLL2_R2_D+DELTAT*((PCOLL2_R2_D-PCOLL2_R2_U)/PCOLL2_THICK)" startphi="-SEPTANT/4" z="PCOLL2_THICK+DELTAT*2"/>
 
-    <cone aunit="deg" deltaphi="360" lunit="mm" name="pdscyl" rmax1="PCOLL2_R4_U" rmax2="PCOLL2_R4_D" rmin1="PCOLL2_R1_U" rmin2="PCOLL2_R1_D" startphi="0" z="PCOLL2_THICK"/>
+    <cone aunit="deg" deltaphi="360" lunit="mm" name="pdscyl" rmax1="PCOLL2_R4_U" rmax2="PCOLL2_R4_D" rmin1="PCOLL2_R1_U" rmin2="PCOLL2_R1_D" startphi="0" z="50"/>
 
 
-    <subtraction name ="pcons_sculpt_1">
-	<first ref="pcons_1"/> 
-	<second ref="leftpcolcut"/> 
-    </subtraction>
+    <arb8 name="Col4_accep1_s" v1x="50*tan(12.58*pi/180.)" v1y="50" 
+            v2x="-50*tan(12.58*pi/180.)" v2y="50" 
+            v3x="-87*tan(12.58*pi/180.)" v3y="87" 
+            v4x="87*tan(12.58*pi/180.)" v4y="87" 
+            v5x="50*tan(12.58*pi/180.)" v5y="50" 
+            v6x="-50*tan(12.58*pi/180.)" v6y="50" 
+            v7x="-87*tan(12.58*pi/180.)" v7y="87" 
+            v8x="87*tan(12.58*pi/180.)" v8y="87" 
+                dz="26" lunit="mm"/>
+    <arb8 name="Col4_accep2_s" v1x="85*tan(12.58*pi/180.)" v1y="85" 
+            v2x="-85*tan(12.58*pi/180.)" v2y="85" 
+            v3x="-190*tan(16.63*pi/180.)" v3y="190" 
+            v4x="190*tan(16.63*pi/180.)" v4y="190" 
+            v5x="85*tan(12.58*pi/180.)" v5y="85" 
+            v6x="-85*tan(12.58*pi/180.)" v6y="85" 
+            v7x="-190*tan(16.63*pi/180.)" v7y="190" 
+            v8x="190*tan(16.63*pi/180.)" v8y="190" 
+                dz="26" lunit="mm"/>
 
-    <subtraction name ="pcons_sculpt_2">
-	<first ref="pcons_sculpt_1"/> 
-	<second ref="rightpcolcut"/> 
-    </subtraction>
+    <cone aunit="deg" deltaphi="12.58*2+4." lunit="mm" name="Col4_Radial_Cut_low" rmax1="51.5" rmax2="51.5" rmin1="45" rmin2="45" startphi="-12.58-2.0" z="54"/>
+    <cone aunit="deg" deltaphi="16.63*2.+4." lunit="mm" name="Col4_Radial_Cut_high" rmax1="205" rmax2="205" rmin1="185" rmin2="185" startphi="-16.63-2.0" z="54"/>
+
+        <subtraction name ="newaccep1">
+        <first ref="Col4_accep1_s"/>
+        <second ref="Col4_Radial_Cut_low"/>
+        <rotation name="Cut_rot111" x="0" y="0" z="90" unit="deg"/>
+        </subtraction>
+
+        <subtraction name ="newaccep2">
+        <first ref="Col4_accep2_s"/>
+        <second ref="Col4_Radial_Cut_high"/>
+        <rotation name="Cut_rot211" x="0" y="0" z="90" unit="deg"/>
+        </subtraction>
+
+        <union name="accep_col4">
+                <first ref="newaccep1"/>
+                <second ref="newaccep2"/>
+        </union>
 
     <subtraction name ="pdscoll_union_0">
 	<first ref="pdscyl"/>
-	<second ref="pcons_sculpt_2"/> 
-	<rotation name="pdscoll_rot1" x="0" y="0" z="SEPTANT*(0+0.5)" unit="deg"/>
+	<second ref="accep_col4"/> 
+	<position name="pdscoll_pos1" x="0" y="0" z="0" lunit="mm"/>
+	<rotation name="pdscoll_rot1" x="0" y="0" z="SEPTANT*(0+0.75)" unit="deg"/>
     </subtraction>
 
     <subtraction name ="pdscoll_union_1">
 	<first ref="pdscoll_union_0"/>
-	<second ref="pcons_sculpt_2"/> 
-	<rotation name="pdscoll_rot2" x="0" y="0" z="SEPTANT*(1+0.5)" unit="deg"/>
+	<second ref="accep_col4"/> 
+	<position name="pdscoll_pos2" x="0" y="0" z="0" lunit="mm"/>
+	<rotation name="pdscoll_rot2" x="0" y="0" z="SEPTANT*(1+0.75)" unit="deg"/>
     </subtraction>
     <subtraction name ="pdscoll_union_2">
 	<first ref="pdscoll_union_1"/>
-	<second ref="pcons_sculpt_2"/> 
-	<rotation name="pdscoll_rot3" x="0" y="0" z="SEPTANT*(2+0.5)" unit="deg"/>
+	<second ref="accep_col4"/> 
+	<position name="pdscoll_pos3" x="0" y="0" z="0" lunit="mm"/>
+	<rotation name="pdscoll_rot3" x="0" y="0" z="SEPTANT*(2+0.75)" unit="deg"/>
     </subtraction>
     <subtraction name ="pdscoll_union_3">
 	<first ref="pdscoll_union_2"/>
-	<second ref="pcons_sculpt_2"/> 
-	<rotation name="pdscoll_rot4" x="0" y="0" z="SEPTANT*(3+0.5)" unit="deg"/>
+	<second ref="accep_col4"/> 
+	<position name="pdscoll_pos4" x="0" y="0" z="0" lunit="mm"/>
+	<rotation name="pdscoll_rot4" x="0" y="0" z="SEPTANT*(3+0.75)" unit="deg"/>
     </subtraction>
     <subtraction name ="pdscoll_union_4">
 	<first ref="pdscoll_union_3"/>
-	<second ref="pcons_sculpt_2"/> 
-	<rotation name="pdscoll_rot5" x="0" y="0" z="SEPTANT*(4+0.5)" unit="deg"/>
+	<second ref="accep_col4"/> 
+	<position name="pdscoll_pos5" x="0" y="0" z="0" lunit="mm"/>
+	<rotation name="pdscoll_rot5" x="0" y="0" z="SEPTANT*(4+0.75)" unit="deg"/>
     </subtraction>
     <subtraction name ="pdscoll_union_5">
 	<first ref="pdscoll_union_4"/>
-	<second ref="pcons_sculpt_2"/> 
-	<rotation name="pdscoll_rot6" x="0" y="0" z="SEPTANT*(5+0.5)" unit="deg"/>
+	<second ref="accep_col4"/> 
+	<position name="pdscoll_pos6" x="0" y="0" z="0" lunit="mm"/>
+	<rotation name="pdscoll_rot6" x="0" y="0" z="SEPTANT*(5+0.75)" unit="deg"/>
     </subtraction>
     <subtraction name ="pdscoll_union_6">
 	<first ref="pdscoll_union_5"/>
-	<second ref="pcons_sculpt_2"/> 
-	<rotation name="pdscoll_rot7" x="0" y="0" z="SEPTANT*(6+0.5)" unit="deg"/>
+	<second ref="accep_col4"/> 
+	<rotation name="pdscoll_rot7" x="0" y="0" z="SEPTANT*(6+0.75)" unit="deg"/>
     </subtraction>
 
     <!--concrete shield -->
@@ -404,7 +439,8 @@
     <volume name="logicPDScollunion_1">
       <materialref ref="CW95"/>
       <!--  <materialref ref="Kryptonite"/> -->
-      <solidref ref="pdscoll_union_6"/> 
+     <!-- <solidref ref="accep_col4"/>--> 
+      <solidref ref="pdscoll_union_3"/> 
       <auxiliary auxtype="SensDet" auxvalue="collDet"/>
       <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/> 
       <auxiliary auxtype="DetNo" auxvalue="2004"/>

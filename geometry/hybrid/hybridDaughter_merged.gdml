@@ -68,9 +68,9 @@
     <!--    <constant name="boxDSMother_width" value="2700"/>
     <constant name="boxDSMother_height" value="2700"/>
     <constant name="boxDSMother_length" value="7865.68 + 2*950 + 900+5300.59+8.73"/>--> 
-    <constant name="boxDSMother_width" value="500"/>
-    <constant name="boxDSMother_height" value="500"/>
-    <constant name="boxDSMother_length" value="500"/> 
+    <constant name="boxDSMother_width" value="800"/>
+    <constant name="boxDSMother_height" value="800"/>
+    <constant name="boxDSMother_length" value="800"/> 
 
     <position name="SubCoil1EpoxyShield1_center" unit="mm" x="0" y="0" z="posPCOLL2_z  + PCOLL2_THICK/2+1425"/>
 
@@ -84,6 +84,29 @@
     <constant name="PCOLL2_SCULPT_P4_X" value ="187.22"/>
     <constant name="PCOLL2_SCULPT_P4_Y" value ="45.04"/>
 
+    <constant name="x1_lowR" value ="51.5*sin(12.40*pi/180.)+50*tan(0.5*pi/180.)"/>
+    <constant name="y1_lowR" value ="sqrt(51.5*51.5-x1_lowR*x1_lowR)"/>
+
+    <constant name="x1_lowR1" value ="51.5*sin(12.40*pi/180.)+52*tan(0.5*pi/180.)"/>
+    <constant name="y1_lowR1" value ="sqrt(51.5*51.5-x1_lowR1*x1_lowR1)"/>
+
+    <constant name="x1_highR" value ="185*sin(16.63*pi/180.)+50*tan(0.5*pi/180.)"/>
+    <constant name="y1_highR" value ="sqrt(185*185-x1_highR*x1_highR)"/>
+
+    <constant name="x1_highR1" value ="185*sin(16.63*pi/180.)+52*tan(0.5*pi/180.)"/>
+    <constant name="y1_highR1" value ="sqrt(185*185-x1_highR1*x1_highR1)"/>
+
+    <constant name="x2_lowR" value ="51.5*sin(12.40*pi/180.)+100*tan(0.5*pi/180.)"/>
+    <constant name="y2_lowR" value ="sqrt(51.5*51.5-x2_lowR*x2_lowR)"/>
+
+    <constant name="x2_lowR1" value ="51.5*sin(12.40*pi/180.)+102*tan(0.5*pi/180.)"/>
+    <constant name="y2_lowR1" value ="sqrt(51.5*51.5-x2_lowR1*x2_lowR1)"/>
+
+    <constant name="x2_highR" value ="185*sin(16.63*pi/180.)+100*tan(0.5*pi/180.)"/>
+    <constant name="y2_highR" value ="sqrt(185*185-x2_highR*x2_highR)"/>
+
+    <constant name="x2_highR1" value ="185*sin(16.63*pi/180.)+102*tan(0.5*pi/180.)"/>
+    <constant name="y2_highR1" value ="sqrt(185*185-x2_highR1*x2_highR1)"/>
 
     <position name="PCOLL2_lcut1" unit="mm" x="PCOLL2_SCULPT_P1_X" y="-PCOLL2_SCULPT_P1_Y" z="-PCOLL2_THICK/2-5"/> 
     <position name="PCOLL2_lcut2" unit="mm" x="PCOLL2_SCULPT_P2_X" y="-PCOLL2_SCULPT_P2_Y" z="-PCOLL2_THICK/2-5"/> 
@@ -234,24 +257,43 @@
 </subtraction>-->
 
 
-    <arb8 name="Col4_accep1_s" v1x="50*tan(12.58*pi/180.)" v1y="50" 
-            v2x="-50*tan(12.58*pi/180.)" v2y="50" 
-            v3x="-87*tan(12.58*pi/180.)" v3y="87" 
-            v4x="87*tan(12.58*pi/180.)" v4y="87" 
-	    v5x="50*tan(12.58*pi/180.)" v5y="50" 
-	    v6x="-50*tan(12.58*pi/180.)" v6y="50" 
-	    v7x="-87*tan(12.58*pi/180.)" v7y="87" 
-	    v8x="87*tan(12.58*pi/180.)" v8y="87" 
-                dz="26" lunit="mm"/>
-    <arb8 name="Col4_accep2_s" v1x="85*tan(12.58*pi/180.)" v1y="85" 
-            v2x="-85*tan(12.58*pi/180.)" v2y="85" 
-            v3x="-190*tan(16.63*pi/180.)" v3y="190" 
-            v4x="190*tan(16.63*pi/180.)" v4y="190" 
-	    v5x="85*tan(12.58*pi/180.)" v5y="85" 
-	    v6x="-85*tan(12.58*pi/180.)" v6y="85" 
-	    v7x="-190*tan(16.63*pi/180.)" v7y="190" 
-	    v8x="190*tan(16.63*pi/180.)" v8y="190" 
-                dz="26" lunit="mm"/>
+<arb8 name="Col4_accep1_s" v1x="51.5*sin(12.40*pi/180.)" v1y="51.5*cos(12.40*pi/180.)" 
+	v2x="-51.5*sin(12.40*pi/180.)" v2y="51.5*cos(12.40*pi/180.)" 
+	v3x="-85*tan(12.40*pi/180.)" v3y="85" 
+	v4x="85*tan(12.40*pi/180.)" v4y="85" 
+	v5x="x1_lowR" v5y="y1_lowR" 
+	v6x="-x1_lowR" v6y="y1_lowR" 
+	v7x="-(85*tan(12.40*pi/180.)+50*tan(0.5*pi/180.))" v7y="85" 
+	v8x="85*tan(12.40*pi/180.)+50*tan(0.5*pi/180.)" v8y="85" 
+                dz="25" lunit="mm"/>
+    <arb8 name="Col4_accep2_s" v1x="85*tan(12.40*pi/180.)" v1y="85" 
+            v2x="-85*tan(12.40*pi/180.)" v2y="85" 
+	    v3x="-185*sin(16.63*pi/180.)" v3y="185*cos(16.63*pi/180.)" 
+	    v4x="185*sin(16.63*pi/180.)" v4y="185*cos(16.63*pi/180.)" 
+	    v5x="85*tan(12.40*pi/180.)+50*tan(0.5*pi/180.)" v5y="85" 
+	    v6x="-(85*tan(12.40*pi/180.)+50*tan(0.5*pi/180.))" v6y="85" 
+	    v7x="-x1_highR" v7y="y1_highR" 
+	    v8x="x1_highR" v8y="y1_highR" 
+	    dz="25" lunit="mm"/>
+
+    <!--<arb8 name="Col4_accep1_s" v1x="51.5*sin(12.40*pi/180.)" v1y="51.5*cos(12.40*pi/180.)" 
+	v2x="-51.5*sin(12.40*pi/180.)" v2y="51.5*cos(12.40*pi/180.)" 
+	v3x="-85*tan(12.40*pi/180.)" v3y="85" 
+	v4x="85*tan(12.40*pi/180.)" v4y="85" 
+	v5x="51.5*sin(12.40*pi/180.)+50*tan(0.5*pi/180)" v5y="51.5*cos(12.40*pi/180.)" 
+	v6x="-(51.5*sin(12.40*pi/180.)+50*tan(0.5*pi/180))" v6y="51.5*cos(12.40*pi/180.)" 
+	v7x="-(85*tan(12.40*pi/180.)+50*tan(0.5*pi/180.))" v7y="85" 
+	v8x="85*tan(12.40*pi/180.)+50*tan(0.5*pi/180.)" v8y="85" 
+                dz="25" lunit="mm"/>
+    <arb8 name="Col4_accep2_s" v1x="85*tan(12.40*pi/180.)" v1y="85" 
+            v2x="-85*tan(12.40*pi/180.)" v2y="85" 
+	    v3x="-185*sin(16.63*pi/180.)" v3y="185*cos(16.63*pi/180.)" 
+	    v4x="185*sin(16.63*pi/180.)" v4y="185*cos(16.63*pi/180.)" 
+	    v5x="85*tan(12.40*pi/180.)+50*tan(0.5*pi/180.)" v5y="85" 
+	    v6x="-(85*tan(12.40*pi/180.)+50*tan(0.5*pi/180.))" v6y="85" 
+	    v7x="-(185*sin(16.63*pi/180.)+50*tan(0.5*pi/180.))" v7y="185*cos(16.63*pi/180.)" 
+	    v8x="185*sin(16.63*pi/180.)+50*tan(0.5*pi/180.)" v8y="185*cos(16.63*pi/180.)" 
+	    dz="25" lunit="mm"/>-->
 
     <arb8 name="Col4_accep3_s" v1x="51*tan(12.58*pi/180.)" v1y="51" 
             v2x="-51*tan(12.58*pi/180.)" v2y="51" 
@@ -337,6 +379,41 @@
 	<rotation name="pdscoll_rot7" x="0" y="0" z="SEPTANT*(6+0.5)" unit="deg"/>
 </subtraction>
 
+	    <!--<box lunit="mm" name="cut_lowerR_box" y="2*y1_lowR" x="51.5*2+2" z="52"/>-->
+    <arb8 name="cut_lowerR_box" v1x="30" v1y="40" 
+            v2x="-30" v2y="40" 
+	    v3x="-30" v3y="51.5*cos(12.4*pi/180)" 
+	    v4x="30" v4y="51.5*cos(12.4*pi/180)" 
+	    v5x="30" v5y="40" 
+	    v6x="-30" v6y="40" 
+	    v7x="-30" v7y="y1_lowR1" 
+	    v8x="30" v8y="y1_lowR1" 
+                dz="26" lunit="mm"/>
+    <tube aunit="deg" deltaphi="30" lunit="mm" name="cut_lowerR_tube" rmax="51.5" rmin="45" startphi="75" z="50"/>
+	    <!--<box lunit="mm" name="cut_largeR_box" y="2*y1_highR" x="185*2+2" z="52"/>-->
+	    <arb8 name="cut_largeR_box" v1x="90" v1y="150" 
+		    v2x="-90" v2y="150" 
+		    v3x="-90" v3y="185*cos(16.63*pi/180)" 
+		    v4x="90" v4y="185*cos(16.63*pi/180)" 
+	    v5x="90" v5y="150" 
+	    v6x="-90" v6y="150" 
+	    v7x="-90" v7y="y1_highR1" 
+	    v8x="90" v8y="y1_highR1" 
+                dz="26" lunit="mm"/>
+    <tube aunit="deg" deltaphi="50" lunit="mm" name="cut_largeR_tube" rmax="185" rmin="175" startphi="65" z="50"/>
+    <!--    <box lunit="mm" name="cut_lowerR_box" y="2*51.5*cos(12.40*pi/180.)" x="51.5*2+2" z="52"/>
+    <tube aunit="deg" deltaphi="180" lunit="mm" name="cut_lowerR_tube" rmax="51.5" rmin="0" startphi="0" z="50"/>
+    <box lunit="mm" name="cut_largeR_box" y="2*185*cos(16.63*pi/180.)" x="185*2+2" z="52"/>
+    <tube aunit="deg" deltaphi="180" lunit="mm" name="cut_largeR_tube" rmax="185" rmin="0" startphi="0" z="50"/>-->
+    <subtraction name ="lowerR_accep_S">
+	<first ref="cut_lowerR_tube"/>
+	<second ref="cut_lowerR_box"/> 
+    </subtraction>
+
+    <subtraction name ="largeR_accep_S">
+	<first ref="cut_largeR_tube"/>
+	<second ref="cut_largeR_box"/> 
+    </subtraction>
 
     <!--concrete shield -->
     <box lunit="mm" name="boxDSConcreteShield1_solid_1" x="DSConcreteShield1_height" y="DSConcreteShield1_height" z="DSConcreteShield1_length"/>
@@ -502,34 +579,11 @@
 </solids>
 
 <structure>
-    <volume name="logic_Col4_accep1">
-      <materialref ref="G4_Fe"/>
-      <solidref ref="Col4_accep1_s"/>
-      <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="92"/>
-    </volume>
-
-    <volume name="logic_Col4_accep2">
-      <materialref ref="G4_Fe"/>
-      <solidref ref="Col4_accep2_s"/>
-      <auxiliary auxtype="Color" auxvalue="Yellow"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="92"/>
-    </volume>
 
     <volume name="logic_Col4_accep3">
       <materialref ref="G4_Fe"/>
       <solidref ref="newaccep2"/>
       <auxiliary auxtype="Color" auxvalue="magenta"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="92"/>
-    </volume>
-
-    <volume name="logic_Col4_accep6">
-      <materialref ref="G4_Fe"/>
-      <solidref ref="pdscyl"/>
-      <auxiliary auxtype="Color" auxvalue="blue"/>
       <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
       <auxiliary auxtype="DetNo" auxvalue="92"/>
     </volume>
@@ -566,6 +620,175 @@
       <auxiliary auxtype="DetNo" auxvalue="92"/>
     </volume>
 
+    <volume name="logic_cut_lowerR_box">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="cut_lowerR_box"/>
+      <auxiliary auxtype="Color" auxvalue="Blue"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92"/>
+    </volume>
+
+    <volume name="logic_cut_lowerR_tube">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="cut_lowerR_tube"/>
+      <auxiliary auxtype="Color" auxvalue="magenta"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92"/>
+    </volume>
+
+    <volume name="logic_lowerR_accep">
+      <materialref ref="Vacuum"/>
+      <solidref ref="lowerR_accep_S"/>
+      <auxiliary auxtype="Color" auxvalue="gray"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92"/>
+    </volume>
+
+    <volume name="logic_cut_largeR_box">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="cut_largeR_box"/>
+      <auxiliary auxtype="Color" auxvalue="Blue"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92"/>
+    </volume>
+
+    <volume name="logic_cut_largeR_tube">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="cut_largeR_tube"/>
+      <auxiliary auxtype="Color" auxvalue="magenta"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92"/>
+    </volume>
+
+    <volume name="logic_largeR_accep">
+      <materialref ref="Vacuum"/>
+      <solidref ref="largeR_accep_S"/>
+      <auxiliary auxtype="Color" auxvalue="gray"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92"/>
+    </volume>
+
+    <volume name="logic_Col4_accep1">
+      <materialref ref="Vacuum"/>
+      <solidref ref="Col4_accep1_s"/>
+      <auxiliary auxtype="Color" auxvalue="pink"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92324242"/>
+      <!--<physvol name="phy_lowerR_accep">
+        <volumeref ref="logic_lowerR_accep"/>
+      </physvol>-->
+    </volume>
+
+    <volume name="logic_Col4_accep2">
+      <materialref ref="Vacuum"/>
+      <solidref ref="Col4_accep2_s"/>
+      <auxiliary auxtype="Color" auxvalue="Yellow"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92"/>
+    </volume>
+    <!--
+    <volume name="logic_Col4_accep6">
+      <materialref ref="CW95"/>
+      <solidref ref="pdscyl"/>
+      <auxiliary auxtype="Color" auxvalue="blue"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92"/>
+      <physvol name="phy_lowerR_accep1">
+        <volumeref ref="logic_Col4_accep1"/>
+	<rotation name="accep_rot1" unit="deg" x="0" y="0" z="SEPTANT*(0+0.25)"/>
+      </physvol>
+      <physvol name="phy_Col4_accep2_1">
+        <volumeref ref="logic_Col4_accep2"/>
+	<rotation name="accep_rot1" unit="deg" x="0" y="0" z="SEPTANT*(0+0.25)"/>
+      </physvol>
+      <physvol name="phy_largeR_accep1">
+        <volumeref ref="logic_largeR_accep"/>
+	<rotation name="accep_rot1" unit="deg" x="0" y="0" z="SEPTANT*(0+0.25)"/>
+      </physvol>
+      <physvol name="phy_lowerR_accep2">
+        <volumeref ref="logic_Col4_accep1"/>
+	<rotation name="accep_rot2" unit="deg" x="0" y="0" z="SEPTANT*(1+0.25)"/>
+      </physvol>
+      <physvol name="phy_Col4_accep2_2">
+        <volumeref ref="logic_Col4_accep2"/>
+	<rotation name="accep_rot2" unit="deg" x="0" y="0" z="SEPTANT*(1+0.25)"/>
+      </physvol>
+      <physvol name="phy_largeR_accep2">
+        <volumeref ref="logic_largeR_accep"/>
+	<rotation name="accep_rot2" unit="deg" x="0" y="0" z="SEPTANT*(1+0.25)"/>
+      </physvol>
+      <physvol name="phy_lowerR_accep3">
+        <volumeref ref="logic_Col4_accep1"/>
+	<rotation name="accep_rot3" unit="deg" x="0" y="0" z="SEPTANT*(2+0.25)"/>
+      </physvol>
+      <physvol name="phy_Col4_accep2_3">
+        <volumeref ref="logic_Col4_accep2"/>
+	<rotation name="accep_rot3" unit="deg" x="0" y="0" z="SEPTANT*(2+0.25)"/>
+      </physvol>
+      <physvol name="phy_largeR_accep3">
+        <volumeref ref="logic_largeR_accep"/>
+	<rotation name="accep_rot3" unit="deg" x="0" y="0" z="SEPTANT*(2+0.25)"/>
+      </physvol>
+      <physvol name="phy_lowerR_accep4">
+        <volumeref ref="logic_Col4_accep1"/>
+	<rotation name="accep_rot4" unit="deg" x="0" y="0" z="SEPTANT*(3+0.25)"/>
+      </physvol>
+      <physvol name="phy_Col4_accep2_4">
+        <volumeref ref="logic_Col4_accep2"/>
+	<rotation name="accep_rot4" unit="deg" x="0" y="0" z="SEPTANT*(3+0.25)"/>
+      </physvol>
+      <physvol name="phy_largeR_accep4">
+        <volumeref ref="logic_largeR_accep"/>
+	<rotation name="accep_rot4" unit="deg" x="0" y="0" z="SEPTANT*(3+0.25)"/>
+      </physvol>
+      <physvol name="phy_lowerR_accep5">
+        <volumeref ref="logic_Col4_accep1"/>
+	<rotation name="accep_rot5" unit="deg" x="0" y="0" z="SEPTANT*(4+0.25)"/>
+      </physvol>
+      <physvol name="phy_Col4_accep2_5">
+        <volumeref ref="logic_Col4_accep2"/>
+	<rotation name="accep_rot5" unit="deg" x="0" y="0" z="SEPTANT*(4+0.25)"/>
+      </physvol>
+      <physvol name="phy_largeR_accep5">
+        <volumeref ref="logic_largeR_accep"/>
+	<rotation name="accep_rot5" unit="deg" x="0" y="0" z="SEPTANT*(4+0.25)"/>
+      </physvol>
+      <physvol name="phy_lowerR_accep6">
+        <volumeref ref="logic_Col4_accep1"/>
+	<rotation name="accep_rot6" unit="deg" x="0" y="0" z="SEPTANT*(5+0.25)"/>
+      </physvol>
+      <physvol name="phy_Col4_accep2_6">
+        <volumeref ref="logic_Col4_accep2"/>
+	<rotation name="accep_rot6" unit="deg" x="0" y="0" z="SEPTANT*(5+0.25)"/>
+      </physvol>
+      <physvol name="phy_largeR_accep6">
+        <volumeref ref="logic_largeR_accep"/>
+	<rotation name="accep_rot6" unit="deg" x="0" y="0" z="SEPTANT*(5+0.25)"/>
+      </physvol>
+      <physvol name="phy_lowerR_accep7">
+        <volumeref ref="logic_Col4_accep1"/>
+	<rotation name="accep_rot7" unit="deg" x="0" y="0" z="SEPTANT*(6+0.25)"/>
+      </physvol>
+      <physvol name="phy_Col4_accep2_7">
+        <volumeref ref="logic_Col4_accep2"/>
+	<rotation name="accep_rot7" unit="deg" x="0" y="0" z="SEPTANT*(6+0.25)"/>
+      </physvol>
+      <physvol name="phy_largeR_accep7">
+        <volumeref ref="logic_largeR_accep"/>
+	<rotation name="accep_rot7" unit="deg" x="0" y="0" z="SEPTANT*(6+0.25)"/>
+      </physvol>
+    </volume>-->
+
+	<!--    <volume name="logic_Col4_accep61">
+      <materialref ref="G4_Fe"/>
+      <solidref ref="pdscyl"/>
+      <auxiliary auxtype="Color" auxvalue="blue"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="92"/>
+	      <physvol name="lowerR_accep">
+	      	      <volumeref="logic_lowerR_accep"/>
+              </physvol>
+	</volume>-->
 
     <volume name="logicDSTracker">
       <materialref ref="G4_Fe"/>
@@ -712,9 +935,15 @@
       <!-- <solidref ref="tubeDownstream"/> -->
       <solidref ref="boxDownstream_1"/>
 
+	     
+
       <physvol name="phy_Col4_accep1">
         <volumeref ref="logic_Col4_accep1"/>
         <position name="Col4_accep1_pos" unit="mm" x="0" y="0" z="0"/>
+     </physvol>
+
+      <physvol name="phy_lowerR_accep">
+        <volumeref ref="logic_lowerR_accep"/>
       </physvol>
 
       <physvol name="phy_Col4_accep2">
@@ -722,20 +951,42 @@
         <position name="Col4_accep2_pos" unit="mm" x="0" y="0" z="0"/>
       </physvol>
 
-      <physvol name="phy_Col4_accep3">
+      <physvol name="phy_largeR_accep">
+        <volumeref ref="logic_largeR_accep"/>
+      </physvol>
+
+      <physvol name="phy_cut_lowerR_box">
+        <volumeref ref="logic_cut_lowerR_box"/>
+      </physvol>
+
+      <physvol name="phy_cut_lowerR_tube">
+        <volumeref ref="logic_cut_lowerR_tube"/>
+      </physvol>
+
+      <physvol name="phy_cut_largeR_box">
+        <volumeref ref="logic_cut_largeR_box"/>
+      </physvol>
+
+      <physvol name="phy_cut_largeR_tube">
+        <volumeref ref="logic_cut_largeR_tube"/>
+      </physvol>
+
+
+    
+      <!--
+      <physvol name="phy_Col4_accep6">
+        <volumeref ref="logic_Col4_accep6"/>
+        <position name="Col4_accep6_pos" unit="mm" x="0" y="0" z="0"/>
+      </physvol>-->
+
+      <!--<physvol name="phy_Col4_accep3">
         <volumeref ref="logic_Col4_accep3"/>
         <position name="Col4_accep3_pos" unit="mm" x="0" y="0" z="0"/>
-	<!--	<rotation name="Col4_accep3_rot" aunit="deg" x="0" y="0" z="-67.5"/>-->
       </physvol>
 
       <physvol name="phy_Col4_accep4">
         <volumeref ref="logic_Col4_accep4"/>
         <position name="Col4_accep2_pos" unit="mm" x="0" y="0" z="0"/>
-      </physvol>
-
-      <physvol name="phy_Col4_accep6">
-        <volumeref ref="logic_Col4_accep6"/>
-        <position name="Col4_accep6_pos" unit="mm" x="0" y="0" z="0"/>
       </physvol>
 
       <physvol name="phy_Cut1">
@@ -753,7 +1004,7 @@
       <physvol name="phy_Col4_accep23">
         <volumeref ref="logic_Col4_accep23"/>
         <position name="Col4_accep23_pos" unit="mm" x="0" y="0" z="0"/>
-      </physvol>
+</physvol>-->
 
 
       <!--      <physvol name="Driftpipe">
@@ -829,12 +1080,12 @@
 
 
 <!-- Collimator 4 -->
-      <physvol name="DScoll_6">
+<!--  <physvol name="DScoll_6">
 	<volumeref ref="logicPDScollunion_1"/>
         <positionref ref="posPCOLL2"/>
         <rotation name="Col4_accep3_rot11" unit="deg" x="0" y="0" z="-90"/>
       </physvol>
-
+      -->
 
       <!-- <physvol>
         <volumeref ref="boxDSConcreteShield1_logic"/>
@@ -883,6 +1134,11 @@
       <position name="DSpipe1_DSpipe2_1_pos" x="0" y="0" z="boxDSMother_length/2-36.0"/>
     </physvol>-->
 
+
+    <!--<physvol name="phy_Col4_accep61">
+        <volumeref ref="logic_Col4_accep61"/>
+	       <position name="Col4_accep6_pos" unit="mm" x="0" y="0" z="0"/>
+	       </physvol>-->
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>
    </volume>
 </structure>

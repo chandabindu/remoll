@@ -22,6 +22,7 @@
 #/remoll/optical true
 #/remoll/addfield CLEO_rm.dat
 /control/execute vis/vis.mac
+#/vis/viewer/set/lineSegmentsPerCircle 300
 #/gun/position 0.0 0.0 -0.1 m
 #/gun/momentum 0.5 1.0 2.0 GeV
 

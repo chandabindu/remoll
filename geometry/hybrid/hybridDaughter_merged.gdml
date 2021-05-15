@@ -71,27 +71,27 @@
     <constant name="x1_lowR" value ="51.5*sin(12.40*pi/180.)+50*tan(0.5*pi/180.)"/>
     <constant name="y1_lowR" value ="sqrt(51.5*51.5-x1_lowR*x1_lowR)"/>
 
-    <constant name="x1_lowR1" value ="51.5*sin(12.40*pi/180.)+52*tan(0.5*pi/180.)"/>
+    <constant name="x1_lowR1" value ="51.5*sin(12.40*pi/180.)+25.005*2*tan(0.5*pi/180.)"/>
     <constant name="y1_lowR1" value ="sqrt(51.5*51.5-x1_lowR1*x1_lowR1)"/>
 
     <constant name="x1_highR" value ="185*sin(16.63*pi/180.)+50*tan(0.5*pi/180.)"/>
     <constant name="y1_highR" value ="sqrt(185*185-x1_highR*x1_highR)"/>
     <constant name="angle1" value ="atan(x1_highR/y1_highR)"/>
 
-    <constant name="x1_highR1" value ="185*sin(16.63*pi/180.)+52*tan(0.5*pi/180.)"/>
+    <constant name="x1_highR1" value ="185*sin(16.63*pi/180.)+25.005*2*tan(0.5*pi/180.)"/>
     <constant name="y1_highR1" value ="sqrt(185*185-x1_highR1*x1_highR1)"/>
 
     <constant name="x2_lowR" value ="51.5*sin(12.40*pi/180.)+100*tan(0.5*pi/180.)"/>
     <constant name="y2_lowR" value ="sqrt(51.5*51.5-x2_lowR*x2_lowR)"/>
 
-    <constant name="x2_lowR1" value ="51.5*sin(12.40*pi/180.)+102*tan(0.5*pi/180.)"/>
+    <constant name="x2_lowR1" value ="51.5*sin(12.40*pi/180.)+(100+0.005/2.)*tan(0.5*pi/180.)"/>
     <constant name="y2_lowR1" value ="sqrt(51.5*51.5-x2_lowR1*x2_lowR1)"/>
 
     <constant name="x2_highR" value ="185*sin(16.63*pi/180.)+100*tan(0.5*pi/180.)"/>
     <constant name="y2_highR" value ="sqrt(185*185-x2_highR*x2_highR)"/>
     <constant name="angle2" value ="atan(x2_highR/y2_highR)"/>
 
-    <constant name="x2_highR1" value ="185*sin(16.63*pi/180.)+102*tan(0.5*pi/180.)"/>
+    <constant name="x2_highR1" value ="185*sin(16.63*pi/180.)+(100+0.005/2.)*tan(0.5*pi/180.)"/>
     <constant name="y2_highR1" value ="sqrt(185*185-x2_highR1*x2_highR1)"/>
 
    <rotation name="accep_rot1" unit="deg" x="0" y="0" z="SEPTANT*(0+0.25)"/>
@@ -138,16 +138,31 @@
             v8x="185*sin(16.63*pi/180.)" v8y="185*cos(16.63*pi/180.)" 
                 dz="25" lunit="mm"/>
 
-    <box lunit="mm" name="cut_lowerR_box1" y="2*51.5*cos(12.40*pi/180.)" x="51.5*2+2" z="52"/>
-    <tube aunit="deg" deltaphi="180" lunit="mm" name="cut_lowerR_tube1" rmax="51.5" rmin="0" startphi="0" z="50"/>
+    <arb8 name="cut_lowerR_box1" v1x="30" v1y="40" 
+            v2x="-30" v2y="40" 
+            v3x="-30" v3y="51.5*cos(12.4*pi/180)" 
+            v4x="30" v4y="51.5*cos(12.4*pi/180)" 
+            v5x="30" v5y="40" 
+            v6x="-30" v6y="40" 
+            v7x="-30" v7y="51.5*cos(12.4*pi/180)" 
+            v8x="30" v8y="51.5*cos(12.4*pi/180)" 
+                dz="25.005" lunit="mm"/>
+    <cone aunit="deg" deltaphi="30" lunit="mm" name="cut_lowerR_tube1" rmax1="51.5" rmin1="45" rmax2="51.5" rmin2="45" startphi="75" z="50"/>
+            <arb8 name="cut_largeR_box1" v1x="90" v1y="150" 
+                    v2x="-90" v2y="150" 
+                    v3x="-90" v3y="185*cos(16.63*pi/180)" 
+                    v4x="90" v4y="185*cos(16.63*pi/180)" 
+            v5x="90" v5y="150" 
+            v6x="-90" v6y="150" 
+                    v7x="-90" v7y="185*cos(16.63*pi/180)" 
+            v8x="90" v8y="185*cos(16.63*pi/180)" 
+                dz="25.005" lunit="mm"/>
+    <cone aunit="deg" deltaphi="50" lunit="mm" name="cut_largeR_tube1" rmax1="185" rmin1="175" rmax2="185" rmin2="175" startphi="65" z="50"/>
 
     <subtraction name ="lowerR_accep1_S">
         <first ref="cut_lowerR_tube1"/>
         <second ref="cut_lowerR_box1"/>
     </subtraction>
-
-    <box lunit="mm" name="cut_largeR_box1" y="2*185*cos(16.63*pi/180.)" x="185*2+2" z="52"/>
-    <tube aunit="deg" deltaphi="180" lunit="mm" name="cut_largeR_tube1" rmax="185" rmin="0" startphi="0" z="50"/>
 
     <subtraction name ="largeR_accep1_S">
         <first ref="cut_largeR_tube1"/>
@@ -181,7 +196,7 @@
             v6x="-30" v6y="40" 
             v7x="-30" v7y="y1_lowR1" 
             v8x="30" v8y="y1_lowR1" 
-                dz="26" lunit="mm"/>
+                dz="25.005" lunit="mm"/>
     <cone aunit="deg" deltaphi="30" lunit="mm" name="cut_lowerR_tube2" rmax1="51.5" rmin1="45" rmax2="51.5" rmin2="45" startphi="75" z="50"/>
             <arb8 name="cut_largeR_box2" v1x="90" v1y="150" 
                     v2x="-90" v2y="150" 
@@ -191,7 +206,7 @@
             v6x="-90" v6y="150" 
                     v7x="-90" v7y="y1_highR1+50*tan(3.5*pi/180)*cos(angle1)" 
             v8x="90" v8y="y1_highR1+50*tan(3.5*pi/180)*cos(angle1)" 
-                dz="26" lunit="mm"/>
+                dz="25.005" lunit="mm"/>
     <cone aunit="deg" deltaphi="50" lunit="mm" name="cut_largeR_tube2" rmax1="185" rmin1="175" rmax2="185+50*tan(3.5*pi/180.)" rmin2="175" startphi="65" z="50"/>
 
     <subtraction name ="lowerR_accep2_S">
@@ -232,7 +247,7 @@
             v6x="-30" v6y="40" 
             v7x="-30" v7y="y2_lowR1" 
             v8x="30" v8y="y2_lowR1" 
-                dz="26" lunit="mm"/>
+                dz="25.005" lunit="mm"/>
     <cone aunit="deg" deltaphi="30" lunit="mm" name="cut_lowerR_tube3" rmax1="51.5" rmin1="45" rmax2="51.5" rmin2="45" startphi="75" z="50"/>
             <arb8 name="cut_largeR_box3" v1x="90" v1y="150" 
                     v2x="-90" v2y="150" 
@@ -242,7 +257,7 @@
             v6x="-90" v6y="150" 
                     v7x="-90" v7y="y2_highR1+100*tan(3.5*pi/180)*cos(angle2)" 
             v8x="90" v8y="y2_highR1+100*tan(3.5*pi/180)*cos(angle2)" 
-                dz="26" lunit="mm"/>
+                dz="25.005" lunit="mm"/>
             <cone aunit="deg" deltaphi="50" lunit="mm" name="cut_largeR_tube3" rmax1="185+50*tan(3.5*pi/180.)" rmin1="175" rmax2="185+100*tan(3.5*pi/180.)" rmin2="175" startphi="65" z="50"/>
 
     <subtraction name ="lowerR_accep3_S">

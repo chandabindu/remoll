@@ -112,7 +112,7 @@
     <constant name="USBoxmother_length" value="6500+USBoxmother_extensionUS"/>
 
     <constant name="USBoxmothersubtract_length" value="2225+(USBoxmother_extensionUS)/2"/>
-    <position name="USmothersubtract_center_2" unit="mm" x="0" y="0" z="USBoxmother_length/2 - USBoxmothersubtract_length/2+610./2+500./2"/>
+    <position name="USmothersubtract_center_2" unit="mm" x="0" y="0" z="USBoxmother_length/2 - USBoxmothersubtract_length/2 + 610./2+500./2"/>
 
     <constant name="shield_US_beampipe_length" value="2100"/>
     <constant name="shield_US_beampipe_center_z" value="shield_US_beampipe_length/2 + posCOLL2z + COLL2_THICK/2+0.001-50/2-75"/>
@@ -133,13 +133,16 @@
 
 <solids>
 
-    <box lunit="mm" name="boxUpstream_1" x="USBoxmother_width" y="USBoxmother_height" z="USBoxmother_length"/>
-    <box lunit="mm" name="boxUpstream_2" x="USBoxmother_width + 1" y="USBoxmother_height + 1" z="USBoxmothersubtract_length"/>
-    <subtraction name="boxUpstream"> <!-- originally was _4"> -->
-      <first ref="boxUpstream_1"/>
-      <second ref="boxUpstream_2"/>
-      <positionref ref="USmothersubtract_center_2" />
-    </subtraction>
+      <tube aunit="deg" deltaphi="360" lunit="mm" name="tubeUpstream_1" rmax="550" rmin="0" startphi="0" z="USBoxmother_length"/>
+      <tube aunit="deg" deltaphi="360" lunit="mm" name="tubeUpstream_2" rmax="550+1" rmin="0" startphi="0" z="USBoxmothersubtract_length - 610 - 500"/>
+      <subtraction name="tubeUpstream">
+        <first ref="tubeUpstream_1"/>
+        <second ref="tubeUpstream_2"/>
+        <positionref ref="USmothersubtract_center_2" />
+      </subtraction>
+      
+    <!-- Lead shielding solids -->
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="boxDSShield1_local_solid" rmin="265" rmax="540" z="250"/>
 
     <!-- Feb 2020 New Collimator1 (combined Coll1 & Coll2) -->
     <!--  V1   
@@ -341,7 +344,9 @@
       <zplane rmin="24" rmax="25.4" z="30"/> 
     </polycone>
 
-    <cone aunit="deg" deltaphi="360" lunit="mm" name="col1_h20_CW_solid" rmax1="25.4" rmax2="25.4" rmin1="22" rmin2="22" startphi="0" z="522"/>
+    <cone aunit="deg" deltaphi="360" lunit="mm" name="col1_h20_CW_solid" 
+	  rmax1="25.4" rmax2="25.4" rmin1="22" rmin2="22" 
+	  startphi="0" z="522"/>
 
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="col1_jacket_solid"> 
       <zplane rmin="25.4" rmax="27.5" z="0"/> 
@@ -534,16 +539,17 @@
 
 
 <structure>
-  
-    <volume name="logicUSTracker">
-      <materialref ref="G4_Fe"/>
-      <solidref ref="solUSTracker"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="91"/>
+    
+    <volume name="boxDSShield_local_logic">
+      <materialref ref="Lead"/>
+      <solidref ref="boxDSShield1_local_solid"/>
+      <auxiliary auxtype="Color" auxvalue="gray"/>
+      <!--<auxiliary auxtype="Alpha" auxvalue="0.1"/>-->
+      <auxiliary auxtype="SensDet" auxvalue="Shielding_Block_Local_poly"/> <!-- NEW Sensitive detector FIXME -->
+      <auxiliary auxtype="DetNo" auxvalue="6031"/>
     </volume>
-
+    
     <volume name="logicUScoll_1">
-      <!-- <materialref ref="Tungsten"/> -->
       <materialref ref="CW95"/>
       <solidref ref="Coll1_solid1"/>
       <auxiliary auxtype="SensDet" auxvalue="collDet"/>
@@ -922,8 +928,8 @@
     </volume>
 
     <volume name="logicUpstream">
-      <materialref ref="VacuumColl"/>
-      <solidref ref="boxUpstream"/>
+      <materialref ref="G4_Galactic"/>
+      <solidref ref="tubeUpstream"/>
 
       <physvol name="UScoll_1">
         <volumeref ref="logicUScoll_1"/>
@@ -975,11 +981,6 @@
       </physvol>
 
       <physvol>
-        <volumeref ref="boxUSShieldColl1_logic"/>
-        <position name="bosUSShieldColl1_pos" unit="mm" x="0" y="0" z="- USBoxmothersubtract_length/2"/>
-      </physvol>
-
-      <physvol>
         <file name="upstream/upstreamBeampipe.gdml"/>
         <positionref ref="shield_US_beampipe_center"/>
       </physvol>
@@ -999,7 +1000,7 @@
 </structure>
 
 <setup name="Default" version="1.0">
-	<world ref="logicUpstream"/>
+	<world ref="upstreamTorusRegion"/>
 </setup>
 
 </gdml>

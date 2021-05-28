@@ -78,7 +78,7 @@
 # Specify random number seed
 /remoll/seed 123456
 
-/remoll/filename remollout.root
+#/remoll/filename remollout.root
 
 #/tracking/verbose 2
 /remoll/target/print

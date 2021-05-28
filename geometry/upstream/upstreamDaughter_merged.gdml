@@ -24,7 +24,7 @@
     <position name="posCOLL1" unit="mm" x="0" y="0" z="-1825"/>
 
     <!-- main coll, adjust this -->
-    <position name="posCOLL2_CW" unit="mm" x="0" y="0" z="5925-UOFFSET-50-75-50"/> <!-- upstream end of CW piece is 5250mm with respect to target center -->
+    <position name="posCOLL2_CW" unit="mm" x="0" y="0" z="5925-UOFFSET-50-75-50"/> <!-- upstream end of CW piece is 5250mm with respect to targetrcenter -->
     <position name="posCOLL2_CW_1" unit="mm" x="0" y="0" z="5925-UOFFSET-50-75-50+50"/> <!-- upstream end of CW piece is 5250mm with respect to target center -->
     <position name="posCOLL2_Cu" unit="mm" x="0" y="0" z="5925-UOFFSET-50-75+75-25"/> <!-- upstream end of Cu piece is 5350mm with respect to target center -->
     <!--Shielding beam pipe overlap with col-2 so I increased to bore radius in col-2 from 26.0 to 29.55 -->
@@ -107,12 +107,12 @@
     <!-- Default value before check3 -->
     <constant name="USBoxmother_extensionUS" value="120"/>
 
-    <constant name="USBoxmother_width" value="4200 + 300"/>
-    <constant name="USBoxmother_height" value="4000 + 300"/>
+    <constant name="USBoxmother_width" value="4500"/>
+    <constant name="USBoxmother_height" value="5800"/>
     <constant name="USBoxmother_length" value="6500+USBoxmother_extensionUS"/>
 
     <constant name="USBoxmothersubtract_length" value="2225+(USBoxmother_extensionUS)/2"/>
-    <position name="USmothersubtract_center_2" unit="mm" x="0" y="0" z="USBoxmother_length/2 - USBoxmothersubtract_length/2"/>
+    <position name="USmothersubtract_center_2" unit="mm" x="0" y="0" z="USBoxmother_length/2 - USBoxmothersubtract_length/2+610./2+500./2"/>
 
     <constant name="shield_US_beampipe_length" value="2100"/>
     <constant name="shield_US_beampipe_center_z" value="shield_US_beampipe_length/2 + posCOLL2z + COLL2_THICK/2+0.001-50/2-75"/>

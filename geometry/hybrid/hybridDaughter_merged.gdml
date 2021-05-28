@@ -15,7 +15,7 @@
     <constant name="DEGRAD" value="PI/180."/>
     <constant name="SEPTANT" value ="360./7"/>
     <position name="CENTER" unit="mm" x="0" y="0" z="0"/>
-
+    <position name="boxDownstream_center" unit="mm" x="0" y="0" z="-7435"/>
 
     <constant name="DELTAT" value ="1.0"/>
 
@@ -118,6 +118,12 @@
     <tube aunit="deg" deltaphi="360" lunit="mm" name="tubeDownstream" rmax="4500" rmin="0" startphi="0" z="7865.68 + 2*950"/>
     
     <box lunit="mm" name="boxDownstream_1" x="boxDSMother_width" y="boxDSMother_height" z="boxDSMother_length"/> <!-- Define the placement of the mother volume box here - centered at union_2_center -->
+    <box lunit="mm" name="boxDownstream_3" x="boxDSMother_width + 1" y="boxDSMother_height + 1" z="1115"/>
+      <subtraction name="boxDownstream">
+        <first ref="boxDownstream_1"/>
+        <second ref="boxDownstream_3"/>
+        <positionref ref="boxDownstream_center"/>
+      </subtraction>
 
     <!--this is one bounce photon shield -->
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="SubCoil1EpoxyShield1_solid"> 
@@ -981,7 +987,7 @@
     <volume name="logicDownstream">
       <materialref ref="VacuumColl"/>
       <!-- <solidref ref="tubeDownstream"/> -->
-      <solidref ref="boxDownstream_1"/>
+      <solidref ref="boxDownstream"/>
 
       <physvol name="Driftpipe">
           <volumeref ref="logicDriftpipe"/>

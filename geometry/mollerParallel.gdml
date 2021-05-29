@@ -361,10 +361,10 @@
       <positionref ref="collar2VirtualPlane_pos"/>
     </physvol>
 
-    <physvol name="gemVirtualPlane_phys">
+    <!--    <physvol name="gemVirtualPlane_phys">
       <volumeref ref="gemVirtualPlane_log"/>
       <positionref ref="gemVirtualPlane_pos"/>
-    </physvol>
+    </physvol>-->
 
 
    <physvol name="dumpEntranceVirtualPlane_phys">
@@ -416,11 +416,11 @@
       <volumeref ref="DS_MagCan_log"/>
       <position name="DSMagCan_pos" unit="mm" x="0" y="0" z="4130.85"/>
     </physvol>
-    <!--
+    
     <physvol name="DS_MagCan1_phys">
       <volumeref ref="DS_MagCan1_log"/>
       <position name="DSMagCan1_pos" unit="mm" x="0" y="0" z="4130.85"/>
-    </physvol>-->
+    </physvol>
 
     <physvol name="DSCoil1_phys">
       <volumeref ref="DSCoil1_log"/>
@@ -464,7 +464,7 @@
 
     <physvol name="Collar1Bellow_phys">
       <volumeref ref="Collar1Bellow_log"/>
-      <position name="Collar1Bellow_pos" unit="mm" x="0" y="0" z="12500"/>
+      <position name="Collar1Bellow_pos" unit="mm" x="0" y="0" z="12500-55"/>
     </physvol>
 
     <physvol name="PbWallEnt_phys">

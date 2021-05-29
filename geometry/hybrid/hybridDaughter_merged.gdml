@@ -65,7 +65,8 @@
 
     <constant name="bellows5_eps" value="0.1"/>
     <constant name="bellows5_IR" value="500+bellows5_eps/2"/>
-    <constant name="bellows5flange_length" value="48-bellows5_eps"/>
+	<!--<constant name="bellows5flange_length" value="48-bellows5_eps"/> -->
+    <constant name="bellows5flange_length" value="20-bellows5_eps"/>
     <constant name="bellows5flange_Rthickness" value="29.9-bellows5_eps"/>
     <constant name="bellows5_length" value="100"/>
     <constant name="bellows5_Rthickness" value="28.4"/>
@@ -502,6 +503,7 @@
       <positionref ref="bellows5flangeDS_pos"/>
     </physvol>
 
+    <!--
       <physvol name="collar1">
         <volumeref ref="logicCollar1"/>
         <position unit="mm" name="collar1pos" x="0" y="0" z="17350-25-DOFFSET"/>
@@ -513,6 +515,7 @@
         <position unit="mm" name="collar2pos" x="0" y="0" z="23950-25-DOFFSET"/>
         <rotation unit="rad" name="collar2rot" x="0" y="0" z="0"/>
       </physvol>
+    
 
       <physvol name="lintel1">
        <volumeref ref="logicLintel1"/>
@@ -548,7 +551,7 @@
        <volumeref ref="logicLintel7"/>
        <position name="lintel7pos" x="-337.931472607" y="423.752663498" z="12835-DOFFSET"/>
        <rotation name="lintel7rot" x="0" y="0" z="-8.52718005974"/>
-      </physvol>
+    </physvol>-->
 
 <!-- Downstream of coll4 central collimating beampipe -->
       <physvol>

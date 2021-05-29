@@ -416,11 +416,11 @@
       <volumeref ref="DS_MagCan_log"/>
       <position name="DSMagCan_pos" unit="mm" x="0" y="0" z="4130.85"/>
     </physvol>
-
+    <!--
     <physvol name="DS_MagCan1_phys">
       <volumeref ref="DS_MagCan1_log"/>
       <position name="DSMagCan1_pos" unit="mm" x="0" y="0" z="4130.85"/>
-    </physvol>
+    </physvol>-->
 
     <physvol name="DSCoil1_phys">
       <volumeref ref="DSCoil1_log"/>

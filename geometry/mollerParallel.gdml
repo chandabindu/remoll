@@ -24,7 +24,7 @@
   <tube
     name="trackingVirtualPlane_solid"
     startphi="0" deltaphi="360" aunit="deg"
-    rmax="1400" rmin="0" z="1" lunit="mm"/>
+    rmax="1800" rmin="0" z="1" lunit="mm"/>
 
   <tube
     name="collarVirtualPlane_solid"
@@ -61,6 +61,16 @@
       <zplane rmin="599.5" rmax="600" z="7743."/>
   </polycone>
 
+  <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Drift_virtual_solid">
+      <zplane rmin="1249.5" rmax="1250" z="0"/>
+      <zplane rmin="1249.5" rmax="1250" z="6310."/>
+  </polycone>
+
+  <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Bellow4_solid">
+      <zplane rmin="648.05" rmax="650" z="0"/>
+      <zplane rmin="648.05" rmax="650" z="249.5"/>
+  </polycone>
+
 </solids>
 
 <structure>
@@ -85,6 +95,20 @@
     <auxiliary auxtype="DetNo" auxvalue="79"/>
   </volume>
 
+  <volume name="Bellow4_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="Bellow4_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="84"/>
+  </volume>
+
+  <volume name="Drift_virtual_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="Drift_virtual_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="85"/>
+  </volume>
+
   <volume name="mainDetectorVirtualPlane_log">
     <materialref ref="G4_Galactic"/>
     <solidref ref="VirtualPlane_solid"/>
@@ -101,7 +125,7 @@
 
   <volume name="collar1VirtualPlane_log">
     <materialref ref="G4_Galactic"/>
-    <solidref ref="VirtualPlane1_solid"/>
+    <solidref ref="VirtualPlane_solid"/>
     <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
     <auxiliary auxtype="DetNo" auxvalue="40"/>
   </volume>
@@ -255,7 +279,7 @@
     <auxiliary auxtype="DetNo" auxvalue="70"/>
   </volume>
 
-  <volume name="Collar1Exit_log">
+  <volume name="Collar1Ent_log">
     <materialref ref="G4_Galactic"/>
     <solidref ref="VirtualPlane_solid"/>
     <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
@@ -421,6 +445,16 @@
       <volumeref ref="DS_MagCan1_log"/>
       <position name="DSMagCan1_pos" unit="mm" x="0" y="0" z="4130.85"/>
     </physvol>
+    
+    <physvol name="Bellow4_phys">
+      <volumeref ref="Bellow4_log"/>
+      <position name="Bellow4_pos" unit="mm" x="0" y="0" z="12575-124.75"/>
+    </physvol>
+    
+    <physvol name="Drift_virtual_phys">
+      <volumeref ref="Drift_virtual_log"/>
+      <position name="Drift_virtual_pos" unit="mm" x="0" y="0" z="12575-124.75"/>
+    </physvol>
 
     <physvol name="DSCoil1_phys">
       <volumeref ref="DSCoil1_log"/>
@@ -452,9 +486,9 @@
       <position name="Col6Exit_pos" unit="mm" x="0" y="0" z="10100+0.5"/>
     </physvol>
 
-    <physvol name="Collar1Exit_phys">
-      <volumeref ref="Collar1Exit_log"/>
-      <position name="Collar1Exit_pos" unit="mm" x="0" y="0" z="11875.09+150+0.5"/>
+    <physvol name="Collar1Ent_phys">
+      <volumeref ref="Collar1Ent_log"/>
+      <position name="Collar1Ent_pos" unit="mm" x="0" y="0" z="11875.09+150+0.5"/>
     </physvol>
 
     <physvol name="Collar2Exit_phys">

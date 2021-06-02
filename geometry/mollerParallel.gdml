@@ -67,8 +67,18 @@
   </polycone>
 
   <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Bellow4_solid">
-      <zplane rmin="648.05" rmax="650" z="0"/>
-      <zplane rmin="648.05" rmax="650" z="249.5"/>
+      <zplane rmin="648.05" rmax="762" z="0"/>
+      <zplane rmin="648.05" rmax="762" z="249.5"/>
+  </polycone>
+
+  <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Bellow5_solid">
+      <zplane rmin="500.05" rmax="530" z="0"/>
+      <zplane rmin="500.05" rmax="530" z="196"/>
+  </polycone>
+
+  <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Bellow6_solid">
+      <zplane rmin="525.05" rmax="553.5" z="0"/>
+      <zplane rmin="525.05" rmax="553.5" z="180"/>
   </polycone>
 
 </solids>
@@ -100,6 +110,20 @@
     <solidref ref="Bellow4_solid"/>
     <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
     <auxiliary auxtype="DetNo" auxvalue="84"/>
+  </volume>
+
+  <volume name="Bellow5_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="Bellow5_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="86"/>
+  </volume>
+
+  <volume name="Bellow6_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="Bellow6_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="87"/>
   </volume>
 
   <volume name="Drift_virtual_log">
@@ -449,6 +473,16 @@
     <physvol name="Bellow4_phys">
       <volumeref ref="Bellow4_log"/>
       <position name="Bellow4_pos" unit="mm" x="0" y="0" z="12575-124.75"/>
+    </physvol>
+    
+    <physvol name="Bellow5_phys">
+      <volumeref ref="Bellow5_log"/>
+      <position name="Bellow5_pos" unit="mm" x="0" y="0" z="18832"/>
+    </physvol>
+    
+    <physvol name="Bellow6_phys">
+      <volumeref ref="Bellow6_log"/>
+      <position name="Bellow6_pos" unit="mm" x="0" y="0" z="19690"/>
     </physvol>
     
     <physvol name="Drift_virtual_phys">

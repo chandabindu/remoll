@@ -489,7 +489,7 @@
     <physvol name="bellows4flangeDS_phys">
       <volumeref ref="bellows4flangeDS_log"/>
       <positionref ref="bellows4flangeDS_pos"/>
-    </physvol>-->
+    </physvol>
 
     <physvol name="bellows5physical_phys">
       <volumeref ref="bellows5physical_log"/>
@@ -502,7 +502,7 @@
     <physvol name="bellows5flangeDS_phys">
       <volumeref ref="bellows5flangeDS_log"/>
       <positionref ref="bellows5flangeDS_pos"/>
-    </physvol>
+    </physvol>-->
 
     <!--
       <physvol name="collar1">

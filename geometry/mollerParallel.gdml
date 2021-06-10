@@ -522,7 +522,7 @@
 
     <physvol name="Collar1Ent_phys">
       <volumeref ref="Collar1Ent_log"/>
-      <position name="Collar1Ent_pos" unit="mm" x="0" y="0" z="11875.09+150+0.5"/>
+      <position name="Collar1Ent_pos" unit="mm" x="0" y="0" z="11875.09-0.5"/>
     </physvol>
 
     <physvol name="Collar2Exit_phys">

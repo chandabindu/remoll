@@ -576,7 +576,8 @@
 		<second ref="solid_outer_E4_tb"/>
 		<position name="position"  x="0" y="36.214" z="-25.7573"/>
 	</union>
-	<tube name="solid_DS_toroidMother" rmin="0"  rmax="420.97" z="6967.488" startphi="0" deltaphi="360" aunit="deg" lunit="mm"/>
+		<!--<tube name="solid_DS_toroidMother" rmin="0"  rmax="420.97" z="6967.488" startphi="0" deltaphi="360" aunit="deg" lunit="mm"/>-->
+	<tube name="solid_DS_toroidMother" rmin="0"  rmax="615" z="6967.488" startphi="0" deltaphi="360" aunit="deg" lunit="mm"/>
 
 	<polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="SubCoil1EpoxyShield2_solid">
 	   <zplane rmin="32.6715" rmax="38.6715" z="0"/>
@@ -589,13 +590,13 @@
 	</polycone>
 
 	<polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Coll6Ring_solid">
-	   <zplane rmin="52" rmax="55.0" z="0"/>
-	   <zplane rmin="52" rmax="55.0" z="100"/>
+	   <zplane rmin="55" rmax="58.0" z="0"/>
+	   <zplane rmin="55" rmax="58.0" z="100"/>
 	</polycone>
 
         <box lunit="mm" name="Coll6Box_solid" x="132" y="34" z="100"/>
 
-	<cone aunit="deg" deltaphi="360" lunit="mm" name="Coll6Cylinder_solid" rmax1="55" rmax2="55" rmin1="0" rmin2="0" startphi="0" z="101"/>
+	<cone aunit="deg" deltaphi="360" lunit="mm" name="Coll6Cylinder_solid" rmax1="58" rmax2="58" rmin1="0" rmin2="0" startphi="0" z="101"/>
 
 	<subtraction name="Coll6_solid">
 	   <first ref="Coll6Box_solid"/>
@@ -603,13 +604,51 @@
 	   <position name="Coll6Sub_pos" unit="mm" x="66" y="0" z="0" />
 	</subtraction>
 
-        <box lunit="mm" name="EPShieldAtColl5_solid" x="74.22-44" y="10" z="70"/>
+        <box lunit="mm" name="EPShieldAtColl5_solid" x="74.22-46" y="10" z="70"/>
 
+	            <!-- Lintels solid -->
+    <arb8 name="Lintel_s1" v1x="-401" v1y="-110"
+          v2x="-600" v2y="-110"
+          v3x="-600" v3y="0"
+          v4x="-396" v4y="0"
+          v5x="-405" v5y="-110"
+          v6x="-600" v6y="-110"
+          v7x="-600" v7y="0"
+          v8x="-400" v8y="0"
+          dz="50" lunit="mm"/>
+
+    <arb8 name="Lintel_s2" v1x="-396" v1y="0"
+          v2x="-600" v2y="0"
+          v3x="-600" v3y="110"
+          v4x="-401" v4y="110"
+          v5x="-400" v5y="0"
+          v6x="-600" v6y="0"
+          v7x="-600" v7y="110"
+          v8x="-400" v8y="110"
+    dz="50" lunit="mm"/>
 
 </solids>
 
 
 <structure>
+
+
+        <volume name="Lintel_logic1">
+          <materialref ref="G4_Pb"/>
+          <solidref ref="Lintel_s1"/>
+          <auxiliary auxtype="Color" auxvalue="blue"/>
+          <auxiliary auxtype="SensDet" auxvalue="collDet"/>
+          <auxiliary auxtype="DetNo" auxvalue="2013"/>
+        </volume>
+    
+        <volume name="Lintel_logic2">
+          <materialref ref="G4_Pb"/>
+          <solidref ref="Lintel_s2"/>
+          <auxiliary auxtype="Color" auxvalue="blue"/>
+          <auxiliary auxtype="SensDet" auxvalue="collDet"/>
+          <auxiliary auxtype="DetNo" auxvalue="2013"/>
+        </volume>
+
 
 	<volume name="SubCoil1EpoxyShield2_logic">
 		<materialref ref="G4_CW95"/>
@@ -2407,7 +2446,7 @@
 			<volumeref ref="SubCoil2EpoxyShield_logic"/>
 			<position name="SubCoil2EpoxyShield_pos" unit="mm" x="0" y="0" z="-1335.194"/>
 		</physvol>
-		<!--
+		
 		<physvol name="Coll6Ring_pv">
 			<volumeref ref="Coll6Ring_logic"/>
 			<position name="Coll6Ring_pos" x="0" y="0" z="1664.806"/>
@@ -2457,46 +2496,124 @@
 
 		<physvol name="EPShieldAtColl5_1_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
-			<position name="EPShieldAtColl5_1_pos" unit="mm" x="59.11*cos(pi+0*pi/7.)" y="59.11*sin(pi+0*pi/7.)" z="-500.194"/>
+			<position name="EPShieldAtColl5_1_pos" unit="mm" x="60.11*cos(pi+0*pi/7.)" y="60.11*sin(pi+0*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_1" x="0" y="0" z="0"/>
 		</physvol>
 
 		<physvol name="EPShieldAtColl5_2_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
-			<position name="EPShieldAtColl5_2_pos" unit="mm" x="59.11*cos(pi+2*pi/7.)" y="59.11*sin(pi+2*pi/7.)" z="-500.194"/>
+			<position name="EPShieldAtColl5_2_pos" unit="mm" x="60.11*cos(pi+2*pi/7.)" y="60.11*sin(pi+2*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_2" x="0" y="0" z="-2*pi/7."/>
 		</physvol>
 
 		<physvol name="EPShieldAtColl5_3_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
-			<position name="EPShieldAtColl5_3_pos" unit="mm" x="59.11*cos(pi+4*pi/7.)" y="59.11*sin(pi+4*pi/7.)" z="-500.194"/>
+			<position name="EPShieldAtColl5_3_pos" unit="mm" x="60.11*cos(pi+4*pi/7.)" y="60.11*sin(pi+4*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_3" x="0" y="0" z="-4*pi/7."/>
 		</physvol>
 
 		<physvol name="EPShieldAtColl5_4_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
-			<position name="EPShieldAtColl5_4_pos" unit="mm" x="59.11*cos(pi+6*pi/7.)" y="59.11*sin(pi+6*pi/7.)" z="-500.194"/>
+			<position name="EPShieldAtColl5_4_pos" unit="mm" x="60.11*cos(pi+6*pi/7.)" y="60.11*sin(pi+6*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_4" x="0" y="0" z="-6*pi/7."/>
 		</physvol>
 
 		<physvol name="EPShieldAtColl5_5_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
-			<position name="EPShieldAtColl5_5_pos" unit="mm" x="59.11*cos(pi+8*pi/7.)" y="59.11*sin(pi+8*pi/7.)" z="-500.194"/>
+			<position name="EPShieldAtColl5_5_pos" unit="mm" x="60.11*cos(pi+8*pi/7.)" y="60.11*sin(pi+8*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_5" x="0" y="0" z="-8*pi/7."/>
 		</physvol>
 
 		<physvol name="EPShieldAtColl5_6_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
-			<position name="EPShieldAtColl5_6_pos" unit="mm" x="59.11*cos(pi+10*pi/7.)" y="59.11*sin(pi+10*pi/7.)" z="-500.194"/>
+			<position name="EPShieldAtColl5_6_pos" unit="mm" x="60.11*cos(pi+10*pi/7.)" y="60.11*sin(pi+10*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_6" x="0" y="0" z="-10*pi/7."/>
 		</physvol>
 
 		<physvol name="EPShieldAtColl5_7_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
-			<position name="EPShieldAtColl5_7_pos" unit="mm" x="59.11*cos(pi+12*pi/7.)" y="59.11*sin(pi+12*pi/7.)" z="-500.194"/>
+			<position name="EPShieldAtColl5_7_pos" unit="mm" x="60.11*cos(pi+12*pi/7.)" y="60.11*sin(pi+12*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_7" x="0" y="0" z="-12*pi/7."/>
 		</physvol>
-		-->
+		
+      <physvol name="Lintel_phys11">
+        <volumeref ref="Lintel_logic1"/>
+        <position name="lintelpos11" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot11" unit="deg" x="0" y="0" z="0*360./7."/>
+      </physvol>
+      <physvol name="Lintel_phys21">
+        <volumeref ref="Lintel_logic2"/>
+        <position name="lintelpos21" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot21" unit="deg" x="0" y="0" z="0*360./7."/>
+      </physvol>
+
+      <physvol name="Lintel_phys12">
+        <volumeref ref="Lintel_logic1"/>
+        <position name="lintelpos12" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot12" unit="deg" x="0" y="0" z="1*360./7."/>
+      </physvol>
+      <physvol name="Lintel_phys22">
+        <volumeref ref="Lintel_logic2"/>
+        <position name="lintelpos22" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot22" unit="deg" x="0" y="0" z="1*360./7."/>
+      </physvol>
+
+      <physvol name="Lintel_phys13">
+        <volumeref ref="Lintel_logic1"/>
+        <position name="lintelpos13" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot13" unit="deg" x="0" y="0" z="2*360./7."/>
+      </physvol>
+      <physvol name="Lintel_phys23">
+        <volumeref ref="Lintel_logic2"/>
+        <position name="lintelpos23" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot23" unit="deg" x="0" y="0" z="2*360./7."/>
+      </physvol>
+
+
+      <physvol name="Lintel_phys14">
+        <volumeref ref="Lintel_logic1"/>
+        <position name="lintelpos14" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot14" unit="deg" x="0" y="0" z="3*360./7."/>
+      </physvol>
+      <physvol name="Lintel_phys24">
+        <volumeref ref="Lintel_logic2"/>
+        <position name="lintelpos24" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot24" unit="deg" x="0" y="0" z="3*360./7."/>
+      </physvol>
+
+      <physvol name="Lintel_phys15">
+        <volumeref ref="Lintel_logic1"/>
+        <position name="lintelpos15" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot15" unit="deg" x="0" y="0" z="4*360./7."/>
+      </physvol>
+      <physvol name="Lintel_phys25">
+        <volumeref ref="Lintel_logic2"/>
+        <position name="lintelpos25" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot25" unit="deg" x="0" y="0" z="4*360./7."/>
+      </physvol>
+
+      <physvol name="Lintel_phys16">
+        <volumeref ref="Lintel_logic1"/>
+        <position name="lintelpos16" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot16" unit="deg" x="0" y="0" z="5*360./7."/>
+      </physvol>
+      <physvol name="Lintel_phys26">
+        <volumeref ref="Lintel_logic2"/>
+        <position name="lintelpos26" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot26" unit="deg" x="0" y="0" z="5*360./7."/>
+      </physvol>
+
+      <physvol name="Lintel_phys17">
+        <volumeref ref="Lintel_logic1"/>
+        <position name="lintelpos17" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot17" unit="deg" x="0" y="0" z="6*360./7."/>
+      </physvol>
+      <physvol name="Lintel_phys27">
+        <volumeref ref="Lintel_logic2"/>
+        <position name="lintelpos27" x="0" y="0" z="-500.194"/>
+	<rotation name="lintelrot27" unit="deg" x="0" y="0" z="6*360./7."/>
+      </physvol>
+
 
 	</volume>
 

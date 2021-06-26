@@ -67,8 +67,8 @@
   </polycone>
 
   <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Bellow4_solid">
-      <zplane rmin="648.05" rmax="762" z="0"/>
-      <zplane rmin="648.05" rmax="762" z="249.5"/>
+      <zplane rmin="700" rmax="762" z="0"/>
+      <zplane rmin="700" rmax="762" z="249.5"/>
   </polycone>
 
   <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Bellow5_solid">

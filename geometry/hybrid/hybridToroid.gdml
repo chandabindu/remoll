@@ -607,7 +607,8 @@
         <box lunit="mm" name="EPShieldAtColl5_solid" x="74.22-46" y="10" z="70"/>
 
 	            <!-- Lintels solid -->
-    <arb8 name="Lintel_s1" v1x="-401" v1y="-110"
+	<arb8 name="Lintel_s1"
+	  v1x="-401" v1y="-110"
           v2x="-600" v2y="-110"
           v3x="-600" v3y="0"
           v4x="-396" v4y="0"
@@ -617,15 +618,16 @@
           v8x="-400" v8y="0"
           dz="50" lunit="mm"/>
 
-    <arb8 name="Lintel_s2" v1x="-396" v1y="0"
+	<arb8 name="Lintel_s2"
+	  v1x="-396" v1y="0"
           v2x="-600" v2y="0"
           v3x="-600" v3y="110"
           v4x="-401" v4y="110"
           v5x="-400" v5y="0"
           v6x="-600" v6y="0"
           v7x="-600" v7y="110"
-          v8x="-400" v8y="110"
-    dz="50" lunit="mm"/>
+          v8x="-405" v8y="110"
+    	  dz="50" lunit="mm"/>
 
 </solids>
 

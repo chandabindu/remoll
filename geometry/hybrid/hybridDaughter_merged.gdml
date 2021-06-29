@@ -354,11 +354,11 @@
       <materialref ref="VacuumColl"/>
       <!-- <solidref ref="tubeDownstream"/> -->
       <solidref ref="boxDownstream"/>
-
+      <!--
       <physvol name="Driftpipe">
           <volumeref ref="logicDriftpipe"/>
 	  <position name="Driftpipe_pos" x="0" y="0" z="boxDSMother_length/2-6595"/>
-        </physvol>
+      </physvol>-->
 
       <!--
       <physvol name="DStracker">
@@ -438,11 +438,11 @@
       <volumeref ref="logicDSwindow"/>
       <position name="DSwindow_pos" x="0" y="0" z="boxDSMother_length/2-484.88"/>
     </physvol>
-
+    <!--
     <physvol name="DSwindow_flange">
       <volumeref ref="logic_DSwindow_flange"/>
       <position name="DSwindow_flange_pos" x="0" y="0" z="boxDSMother_length/2-217.0"/>
-    </physvol>
+    </physvol>-->
 
     <physvol name="DSpipe1">
       <volumeref ref="logic_DSpipe1"/>

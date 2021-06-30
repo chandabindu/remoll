@@ -50,39 +50,41 @@
     <constant name="COLL2_THICK_CW" value ="100.0"/>
     <constant name="COLL2_THICK_Cu" value ="50.0"/> 
     <constant name="posCOLL2z" value ="5925-UOFFSET"/>
+    <constant name="Col2_IR" value ="35"/>
+    <constant name="Col2_OR" value ="98"/>
 
     <!-- Dimensions for Collimator 2   -->
-    <constant name="Col2_x0_lowR" value ="35*sin(SEPTANT*pi/(4*180.))"/>
-    <constant name="Col2_y0_lowR" value ="35*cos(SEPTANT*pi/(4*180.))"/>
+    <constant name="Col2_x0_lowR" value ="Col2_IR*sin(SEPTANT*pi/(4*180.))"/>
+    <constant name="Col2_y0_lowR" value ="Col2_IR*cos(SEPTANT*pi/(4*180.))"/>
 
-    <constant name="Col2_x0_highR" value ="101*sin(SEPTANT*pi/(4*180.))"/>
-    <constant name="Col2_y0_highR" value ="101*cos(SEPTANT*pi/(4*180))"/>
+    <constant name="Col2_x0_highR" value ="Col2_OR*sin(SEPTANT*pi/(4*180.))"/>
+    <constant name="Col2_y0_highR" value ="Col2_OR*cos(SEPTANT*pi/(4*180))"/>
 
     <constant name="Col2_x1_lowR" value ="Col2_x0_lowR+50*tan(0.5*pi/180.)"/>
-    <constant name="Col2_y1_lowR" value ="sqrt(35*35-Col2_x1_lowR*Col2_x1_lowR)"/>
+    <constant name="Col2_y1_lowR" value ="sqrt(Col2_IR*Col2_IR-Col2_x1_lowR*Col2_x1_lowR)"/>
 
     <constant name="Col2_x1_lowR1" value ="Col2_x0_lowR+25.005*2*tan(0.5*pi/180.)"/>
-    <constant name="Col2_y1_lowR1" value ="sqrt(35*35-Col2_x1_lowR1*Col2_x1_lowR1)"/>
+    <constant name="Col2_y1_lowR1" value ="sqrt(Col2_IR*Col2_IR-Col2_x1_lowR1*Col2_x1_lowR1)"/>
 
     <constant name="Col2_x1_highR" value ="Col2_x0_highR+50*tan(0.5*pi/180.)"/>
-    <constant name="Col2_y1_highR" value ="sqrt(101*101-Col2_x1_highR*Col2_x1_highR)"/>
+    <constant name="Col2_y1_highR" value ="sqrt(Col2_OR*Col2_OR-Col2_x1_highR*Col2_x1_highR)"/>
     <constant name="Col2_angle1" value ="atan(Col2_x1_highR/Col2_y1_highR)"/>
 
     <constant name="Col2_x1_highR1" value ="Col2_x0_highR+25.005*2*tan(0.5*pi/180.)"/>
-    <constant name="Col2_y1_highR1" value ="sqrt(101*101-Col2_x1_highR1*Col2_x1_highR1)"/>
+    <constant name="Col2_y1_highR1" value ="sqrt(Col2_OR*Col2_OR-Col2_x1_highR1*Col2_x1_highR1)"/>
 
     <constant name="Col2_x2_lowR" value ="Col2_x0_lowR+100*tan(0.5*pi/180.)"/>
-    <constant name="Col2_y2_lowR" value ="sqrt(35*35-Col2_x2_lowR*Col2_x2_lowR)"/>
+    <constant name="Col2_y2_lowR" value ="sqrt(Col2_IR*Col2_IR-Col2_x2_lowR*Col2_x2_lowR)"/>
 
     <constant name="Col2_x2_lowR1" value ="Col2_x0_lowR+(100+0.005/2.)*tan(0.5*pi/180.)"/>
-    <constant name="Col2_y2_lowR1" value ="sqrt(35*35-Col2_x2_lowR1*Col2_x2_lowR1)"/>
+    <constant name="Col2_y2_lowR1" value ="sqrt(Col2_IR*Col2_IR-Col2_x2_lowR1*Col2_x2_lowR1)"/>
 
     <constant name="Col2_x2_highR" value ="Col2_x0_highR+100*tan(0.5*pi/180.)"/>
-    <constant name="Col2_y2_highR" value ="sqrt(101*101-Col2_x2_highR*Col2_x2_highR)"/>
+    <constant name="Col2_y2_highR" value ="sqrt(Col2_OR*Col2_OR-Col2_x2_highR*Col2_x2_highR)"/>
     <constant name="Col2_angle2" value ="atan(Col2_x2_highR/Col2_y2_highR)"/>
 
     <constant name="Col2_x2_highR1" value ="Col2_x0_highR+(100+0.005/2.)*tan(0.5*pi/180.)"/>
-    <constant name="Col2_y2_highR1" value ="sqrt(101*101-Col2_x2_highR1*Col2_x2_highR1)"/>
+    <constant name="Col2_y2_highR1" value ="sqrt(Col2_OR*Col2_OR-Col2_x2_highR1*Col2_x2_highR1)"/>
 
    <position name="Col2_accep_pos" unit="mm" x="0" y="0" z="25.0"/>
 
@@ -451,19 +453,19 @@
             v8x="25" v8y="Col2_y0_lowR" 
             dz="25.005" lunit="mm"/>
 
-    <cone aunit="deg" deltaphi="30" lunit="mm" name="Col2_lowerR_tube1" rmax1="35" rmin1="30" rmax2="35" rmin2="30" startphi="75" z="50"/>
+    <cone aunit="deg" deltaphi="30" lunit="mm" name="Col2_lowerR_tube1" rmax1="Col2_IR" rmin1="30" rmax2="Col2_IR" rmin2="30" startphi="75" z="50"/>
 
     <arb8 name="Col2_largeR_box1" v1x="35" v1y="90" 
-            v2x="-35" v2y="90" 
-            v3x="-35" v3y="Col2_y0_highR" 
-            v4x="35" v4y="Col2_y0_highR" 
-            v5x="35" v5y="90" 
-            v6x="-35" v6y="90" 
-            v7x="-35" v7y="Col2_y0_highR" 
-            v8x="35" v8y="Col2_y0_highR" 
+            v2x="-Col2_IR" v2y="90" 
+            v3x="-Col2_IR" v3y="Col2_y0_highR" 
+            v4x="Col2_IR" v4y="Col2_y0_highR" 
+            v5x="Col2_IR" v5y="90" 
+            v6x="-Col2_IR" v6y="90" 
+            v7x="-Col2_IR" v7y="Col2_y0_highR" 
+            v8x="Col2_IR" v8y="Col2_y0_highR" 
             dz="25.005" lunit="mm"/>
 
-    <cone aunit="deg" deltaphi="30" lunit="mm" name="Col2_largeR_tube1" rmax1="101" rmin1="98" rmax2="101" rmin2="98" startphi="75" z="50"/>
+    <cone aunit="deg" deltaphi="30" lunit="mm" name="Col2_largeR_tube1" rmax1="Col2_OR" rmin1="95" rmax2="Col2_OR" rmin2="95" startphi="75" z="50"/>
 
     <subtraction name ="Col2_lowerR_accep1_S">
         <first ref="Col2_lowerR_tube1"/>
@@ -497,7 +499,7 @@
             v8x="25" v8y="Col2_y1_lowR" 
             dz="25.005" lunit="mm"/>
 
-    <cone aunit="deg" deltaphi="40" lunit="mm" name="Col2_lowerR_tube2" rmax1="35" rmin1="30" rmax2="35" rmin2="30" startphi="70" z="50"/>
+    <cone aunit="deg" deltaphi="40" lunit="mm" name="Col2_lowerR_tube2" rmax1="Col2_IR" rmin1="30" rmax2="Col2_IR" rmin2="30" startphi="70" z="50"/>
 
     <arb8 name="Col2_largeR_box2" v1x="45" v1y="85" 
             v2x="-45" v2y="85" 
@@ -509,7 +511,7 @@
             v8x="45" v8y="Col2_y1_highR1+50*tan(1.5*pi/180.)*cos(Col2_angle1)" 
             dz="25.005" lunit="mm"/>
 
-    <cone aunit="deg" deltaphi="40" lunit="mm" name="Col2_largeR_tube2" rmax1="101" rmin1="98" rmax2="101+50*tan(1.5*pi/180)" rmin2="98" startphi="70" z="50"/>
+    <cone aunit="deg" deltaphi="40" lunit="mm" name="Col2_largeR_tube2" rmax1="Col2_OR" rmin1="95" rmax2="Col2_OR+50*tan(1.5*pi/180)" rmin2="95" startphi="70" z="50"/>
 
     <subtraction name ="Col2_lowerR_accep2_S">
         <first ref="Col2_lowerR_tube2"/>
@@ -542,7 +544,7 @@
             v8x="25" v8y="Col2_y2_lowR" 
             dz="25.005" lunit="mm"/>
 
-    <cone aunit="deg" deltaphi="40" lunit="mm" name="Col2_lowerR_tube3" rmax1="35" rmin1="30" rmax2="35" rmin2="30" startphi="70" z="50"/>
+    <cone aunit="deg" deltaphi="40" lunit="mm" name="Col2_lowerR_tube3" rmax1="Col2_IR" rmin1="30" rmax2="Col2_IR" rmin2="30" startphi="70" z="50"/>
 
     <arb8 name="Col2_largeR_box3" v1x="45" v1y="85" 
             v2x="-45" v2y="85" 
@@ -554,7 +556,7 @@
             v8x="45" v8y="Col2_y2_highR+100*tan(1.5*pi/180.)*cos(Col2_angle2)" 
             dz="25.005" lunit="mm"/>
 
-    <cone aunit="deg" deltaphi="40" lunit="mm" name="Col2_largeR_tube3" rmax1="101+50*tan(1.5*pi/180.)" rmin1="98" rmax2="101+100*tan(1.5*pi/180.)" rmin2="98" startphi="70" z="50"/>
+    <cone aunit="deg" deltaphi="40" lunit="mm" name="Col2_largeR_tube3" rmax1="Col2_OR+50*tan(1.5*pi/180.)" rmin1="95" rmax2="Col2_OR+100*tan(1.5*pi/180.)" rmin2="95" startphi="70" z="50"/>
 
     <subtraction name ="Col2_lowerR_accep3_S">
         <first ref="Col2_lowerR_tube3"/>

@@ -7,6 +7,7 @@
 # Draw both real and parallel worlds
 #
 /vis/drawVolume worlds
+/vis/viewer/set/lineSegmentsPerCircle 1000
 
 #
 # Declare that the world volume should be added to the scene

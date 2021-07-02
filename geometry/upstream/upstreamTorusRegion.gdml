@@ -51,7 +51,7 @@
     <constant name="COLL2_THICK_Cu" value ="50.0"/> 
     <constant name="posCOLL2z" value ="5925-UOFFSET"/>
     <constant name="Col2_IR" value ="35"/>
-    <constant name="Col2_OR" value ="98"/>
+    <constant name="Col2_OR" value ="101"/>
 
     <!-- Dimensions for Collimator 2   -->
     <constant name="Col2_x0_lowR" value ="Col2_IR*sin(SEPTANT*pi/(4*180.))"/>

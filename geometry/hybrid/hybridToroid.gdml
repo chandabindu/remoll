@@ -45,23 +45,23 @@
 	</xtru>
 
 	<arb8 name="Col5_solid1" v1x="74.22" v1y="17.25" 
-             v2x="74.22" v2y="-17.25" 
+             v2x="180.22" v2y="54.15" 
              v3x="180.22" v3y="-54.15" 
-             v4x="180.22" v4y="54.15" 
+             v4x="74.22" v4y="-17.25" 
              v5x="74.22" v5y="17.25" 
-             v6x="74.22" v6y="-17.25" 
+             v6x="180.22" v6y="54.15" 
              v7x="180.22" v7y="-54.15" 
-             v8x="180.22" v8y="54.15" 
+             v8x="74.22" v8y="-17.25" 
              dz="35" lunit="mm"/>
 
 	<arb8 name="Col5_solid2" v1x="116.38" v1y="12.75" 
-             v2x="116.38" v2y="-12.75" 
+             v2x="180.22" v2y="33.5" 
              v3x="180.22" v3y="-33.5" 
-             v4x="180.22" v4y="33.5" 
+             v4x="116.38" v4y="-12.75" 
              v5x="117.85" v5y="13.00" 
-             v6x="117.85" v6y="-13.00" 
+             v6x="180.22" v6y="33.75" 
              v7x="180.22" v7y="-33.75" 
-             v8x="180.22" v8y="33.75" 
+             v8x="117.85" v8y="-13.00" 
              dz="35" lunit="mm"/>
 
 
@@ -625,7 +625,7 @@
 	   <position name="Coll6Sub_pos" unit="mm" x="66" y="0" z="0" />
 	</subtraction>
 
-        <box lunit="mm" name="EPShieldAtColl5_solid" x="74.22-46" y="30" z="70"/>
+        <box lunit="mm" name="EPShieldAtColl5_solid" x="74.22-46" y="10" z="70"/>
 
 	            <!-- Lintels solid -->
 	<arb8 name="Lintel_s1"
@@ -720,11 +720,22 @@
 		<auxiliary auxtype="DetNo" auxvalue="2005"/>
 	</volume>
 
-	<volume name="logic_photon_collimator_1">
+	<volume name="logic_Col5_accep">
+		<materialref ref="Vacuum"/>
+		<solidref ref="Col5_solid2"/>
+		<auxiliary auxtype="Color" auxvalue="Yellow"/>
+		<auxiliary auxtype="SensDet" auxvalue="collDet"/>
+	</volume>
+
+	<volume name="logic_Col5">
 		<materialref ref="G4_CW95"/>
-		<solidref ref="solid_photon_collimator"/>
-		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
+		<solidref ref="Col5_solid1"/>
+		<auxiliary auxtype="Color" auxvalue="Blue"/>
+		<auxiliary auxtype="SensDet" auxvalue="collDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="2005"/>
+		<physvol name="phys_Col5_accep">
+                  <volumeref ref="logic_Col5_accep"/>
+                </physvol>
 	</volume>
 
 	<volume name="logic_inner_E1_1">
@@ -938,13 +949,6 @@
 
 	</volume>
 
-	<volume name="logic_photon_collimator_2">
-		<materialref ref="G4_CW95"/>
-		<solidref ref="solid_photon_collimator"/>
-		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
-		<auxiliary auxtype="DetNo" auxvalue="2005"/>
-	</volume>
-
 	<volume name="logic_inner_E1_2">
 		<materialref ref="G10"/>
 		<solidref ref="solid_inner_E1"/>
@@ -1154,13 +1158,6 @@
 				<position name="pos_logic_C4_botmid_2" y="0" z="-8.5461"/>
 			</physvol>
 
-	</volume>
-
-	<volume name="logic_photon_collimator_3">
-		<materialref ref="G4_CW95"/>
-		<solidref ref="solid_photon_collimator"/>
-		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
-		<auxiliary auxtype="DetNo" auxvalue="2005"/>
 	</volume>
 
 	<volume name="logic_inner_E1_3">
@@ -1374,13 +1371,6 @@
 
 	</volume>
 
-	<volume name="logic_photon_collimator_4">
-		<materialref ref="G4_CW95"/>
-		<solidref ref="solid_photon_collimator"/>
-		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
-		<auxiliary auxtype="DetNo" auxvalue="2005"/>
-	</volume>
-
 	<volume name="logic_inner_E1_4">
 		<materialref ref="G10"/>
 		<solidref ref="solid_inner_E1"/>
@@ -1590,13 +1580,6 @@
 				<position name="pos_logic_C4_botmid_4" y="0" z="-8.5461"/>
 			</physvol>
 
-	</volume>
-
-	<volume name="logic_photon_collimator_5">
-		<materialref ref="G4_CW95"/>
-		<solidref ref="solid_photon_collimator"/>
-		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
-		<auxiliary auxtype="DetNo" auxvalue="2005"/>
 	</volume>
 
 	<volume name="logic_inner_E1_5">
@@ -1810,13 +1793,6 @@
 
 	</volume>
 
-	<volume name="logic_photon_collimator_6">
-		<materialref ref="G4_CW95"/>
-		<solidref ref="solid_photon_collimator"/>
-		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
-		<auxiliary auxtype="DetNo" auxvalue="2005"/>
-	</volume>
-
 	<volume name="logic_inner_E1_6">
 		<materialref ref="G10"/>
 		<solidref ref="solid_inner_E1"/>
@@ -2026,13 +2002,6 @@
 				<position name="pos_logic_C4_botmid_6" y="0" z="-8.5461"/>
 			</physvol>
 
-	</volume>
-
-	<volume name="logic_photon_collimator_7">
-		<materialref ref="G4_CW95"/>
-		<solidref ref="solid_photon_collimator"/>
-		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
-		<auxiliary auxtype="DetNo" auxvalue="2005"/>
 	</volume>
 
 	<volume name="logic_inner_E1_7">
@@ -2274,12 +2243,6 @@
 			<rotation name="rot_dcoil4_1" x="pi/2" y="0.0" z="0"/>
 		</physvol>
 
-		<physvol name="photon_collimator_1">
-			<volumeref ref="logic_photon_collimator_1"/>
-			<position name="pos_photon_collimator_1" x="28.3091132179" y="124.030328988" z="-500.194"/>
-			<rotation name="rot_photon_collimator_1" x="0" y="0" z="-1.34639685154"/>
-		</physvol>
-
 		<physvol name="dcoil1_2">
 			<volumeref ref="logic_outer_E1_2"/>
 			<position name="pos_dcoil1_2" x="66.6822343088" y="83.61687705" z="-3335.194"/>
@@ -2302,12 +2265,6 @@
 			<volumeref ref="logic_outer_E4_2"/>
 			<position name="pos_dcoil4_2" x="117.295577699" y="147.084002218" z="-217.333"/>
 			<rotation name="rot_dcoil4_2" x="pi/2" y="0.897597901026" z="0"/>
-		</physvol>
-
-		<physvol name="photon_collimator_2">
-			<volumeref ref="logic_photon_collimator_2"/>
-			<position name="pos_photon_collimator_2" x="-79.3203725925" y="99.4646011996" z="-500.194"/>
-			<rotation name="rot_photon_collimator_2" x="0" y="0" z="-2.24399475256"/>
 		</physvol>
 
 		<physvol name="dcoil1_3">
@@ -2334,12 +2291,6 @@
 			<rotation name="rot_dcoil4_3" x="pi/2" y="1.79519580205" z="0"/>
 		</physvol>
 
-		<physvol name="photon_collimator_3">
-			<volumeref ref="logic_photon_collimator_3"/>
-			<position name="pos_photon_collimator_3" x="-127.22" y="1.55799565788e-14" z="-500.194"/>
-			<rotation name="rot_photon_collimator_3" x="0" y="0" z="-3.14159265359"/>
-		</physvol>
-
 		<physvol name="dcoil1_4">
 			<volumeref ref="logic_outer_E1_4"/>
 			<position name="pos_dcoil1_4" x="-96.3586204222" y="46.4038658986" z="-3335.194"/>
@@ -2362,12 +2313,6 @@
 			<volumeref ref="logic_outer_E4_4"/>
 			<position name="pos_dcoil4_4" x="-169.497020696" y="81.6254631308" z="-217.333"/>
 			<rotation name="rot_dcoil4_4" x="pi/2" y="2.69279370308" z="0"/>
-		</physvol>
-
-		<physvol name="photon_collimator_4">
-			<volumeref ref="logic_photon_collimator_4"/>
-			<position name="pos_photon_collimator_4" x="-79.3203725925" y="-99.4646011996" z="-500.194"/>
-			<rotation name="rot_photon_collimator_4" x="0" y="0" z="-4.03919055462"/>
 		</physvol>
 
 		<physvol name="dcoil1_5">
@@ -2394,12 +2339,6 @@
 			<rotation name="rot_dcoil4_5" x="pi/2" y="3.5903916041" z="0"/>
 		</physvol>
 
-		<physvol name="photon_collimator_5">
-			<volumeref ref="logic_photon_collimator_5"/>
-			<position name="pos_photon_collimator_5" x="28.3091132179" y="-124.030328988" z="-500.194"/>
-			<rotation name="rot_photon_collimator_5" x="0" y="0" z="-4.93678845564"/>
-		</physvol>
-
 		<physvol name="dcoil1_6">
 			<volumeref ref="logic_outer_E1_6"/>
 			<position name="pos_dcoil1_6" x="-23.7986138866" y="-104.268540208" z="-3335.194"/>
@@ -2424,12 +2363,6 @@
 			<rotation name="rot_dcoil4_6" x="pi/2" y="4.48798950513" z="0"/>
 		</physvol>
 
-		<physvol name="photon_collimator_6">
-			<volumeref ref="logic_photon_collimator_6"/>
-			<position name="pos_photon_collimator_6" x="114.621259375" y="-55.1986892905" z="-500.194"/>
-			<rotation name="rot_photon_collimator_6" x="0" y="0" z="-5.83438635667"/>
-		</physvol>
-
 		<physvol name="dcoil1_7">
 			<volumeref ref="logic_outer_E1_7"/>
 			<position name="pos_dcoil1_7" x="66.6822343088" y="-83.61687705" z="-3335.194"/>
@@ -2452,12 +2385,6 @@
 			<volumeref ref="logic_outer_E4_7"/>
 			<position name="pos_dcoil4_7" x="117.295577699" y="-147.084002218" z="-217.333"/>
 			<rotation name="rot_dcoil4_7" x="pi/2" y="5.38558740615" z="0"/>
-		</physvol>
-
-		<physvol name="photon_collimator_7">
-			<volumeref ref="logic_photon_collimator_7"/>
-			<position name="pos_photon_collimator_7" x="114.621259375" y="55.1986892905" z="-500.194"/>
-			<rotation name="rot_photon_collimator_7" x="0" y="0" z="-6.73198425769"/>
 		</physvol>
 
 		<physvol name="SubCoil1EpoxyShield2_pv">
@@ -2517,10 +2444,22 @@
 			<rotation name="rot_dsshield7" x="0" y="0" z="-12*pi/7."/>
 		</physvol>
 
+		<physvol name="phys_Col5_1">
+			<volumeref ref="logic_Col5"/>
+			<position name="Col5_pos1" unit="mm" x="0" y="0" z="-500.194"/>
+			<rotation name="Col5_rot1" unit="deg" x="0" y="0" z="-(0+0.5)*360./7."/>
+		</physvol>
+
 		<physvol name="EPShieldAtColl5_1_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
 			<position name="EPShieldAtColl5_1_pos" unit="mm" x="60.11*cos(pi+0*pi/7.)" y="60.11*sin(pi+0*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_1" x="0" y="0" z="0"/>
+		</physvol>
+
+		<physvol name="phys_Col5_2">
+			<volumeref ref="logic_Col5"/>
+			<position name="Col5_pos2" unit="mm" x="0" y="0" z="-500.194"/>
+			<rotation name="Col5_rot2" unit="deg" x="0" y="0" z="-(1+0.5)*360./7."/>
 		</physvol>
 
 		<physvol name="EPShieldAtColl5_2_pv">
@@ -2529,10 +2468,22 @@
 			<rotation name="rot_EPshieldAtColl5_2" x="0" y="0" z="-2*pi/7."/>
 		</physvol>
 
+		<physvol name="phys_Col5_3">
+			<volumeref ref="logic_Col5"/>
+			<position name="Col5_pos3" unit="mm" x="0" y="0" z="-500.194"/>
+			<rotation name="Col5_rot3" unit="deg" x="0" y="0" z="-(2+0.5)*360./7."/>
+		</physvol>
+
 		<physvol name="EPShieldAtColl5_3_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
 			<position name="EPShieldAtColl5_3_pos" unit="mm" x="60.11*cos(pi+4*pi/7.)" y="60.11*sin(pi+4*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_3" x="0" y="0" z="-4*pi/7."/>
+		</physvol>
+
+		<physvol name="phys_Col5_4">
+			<volumeref ref="logic_Col5"/>
+			<position name="Col5_pos4" unit="mm" x="0" y="0" z="-500.194"/>
+			<rotation name="Col5_rot4" unit="deg" x="0" y="0" z="-(3+0.5)*360./7."/>
 		</physvol>
 
 		<physvol name="EPShieldAtColl5_4_pv">
@@ -2541,16 +2492,34 @@
 			<rotation name="rot_EPshieldAtColl5_4" x="0" y="0" z="-6*pi/7."/>
 		</physvol>
 
+		<physvol name="phys_Col5_5">
+			<volumeref ref="logic_Col5"/>
+			<position name="Col5_pos5" unit="mm" x="0" y="0" z="-500.194"/>
+			<rotation name="Col5_rot5" unit="deg" x="0" y="0" z="-(4+0.5)*360./7."/>
+		</physvol>
+
 		<physvol name="EPShieldAtColl5_5_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
 			<position name="EPShieldAtColl5_5_pos" unit="mm" x="60.11*cos(pi+8*pi/7.)" y="60.11*sin(pi+8*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_5" x="0" y="0" z="-8*pi/7."/>
 		</physvol>
 
+		<physvol name="phys_Col5_6">
+			<volumeref ref="logic_Col5"/>
+			<position name="Col5_pos6" unit="mm" x="0" y="0" z="-500.194"/>
+			<rotation name="Col5_rot6" unit="deg" x="0" y="0" z="-(5+0.5)*360./7."/>
+		</physvol>
+
 		<physvol name="EPShieldAtColl5_6_pv">
 			<volumeref ref="EPShieldAtColl5_logic"/>
 			<position name="EPShieldAtColl5_6_pos" unit="mm" x="60.11*cos(pi+10*pi/7.)" y="60.11*sin(pi+10*pi/7.)" z="-500.194"/>
 			<rotation name="rot_EPshieldAtColl5_6" x="0" y="0" z="-10*pi/7."/>
+		</physvol>
+
+		<physvol name="phys_Col5_7">
+			<volumeref ref="logic_Col5"/>
+			<position name="Col5_pos7" unit="mm" x="0" y="0" z="-500.194"/>
+			<rotation name="Col5_rot7" unit="deg" x="0" y="0" z="-(6+0.5)*360./7."/>
 		</physvol>
 
 		<physvol name="EPShieldAtColl5_7_pv">

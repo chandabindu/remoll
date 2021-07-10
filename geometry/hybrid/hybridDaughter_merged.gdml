@@ -50,7 +50,7 @@
     <position name="bellows3flangeDS_pos" z="bellows3flangeDS_zpos" unit="mm"/>
 
     <constant name="bellows4_eps" value="0.1"/>
-    <constant name="bellows4_IR" value="648+bellows4_eps/2"/>
+    <constant name="bellows4_IR" value="675+bellows4_eps/2"/>
     <constant name="bellows4flange_length" value="50.75-bellows4_eps"/>
     <constant name="bellows4flange_Rthickness" value="114.3-bellows4_eps"/>
     <constant name="bellows4_length" value="148.0"/>

@@ -44,6 +44,27 @@
 		<section zOrder="2" zPosition="35" xOffset="0" yOffset="0" scalingFactor="1"/>
 	</xtru>
 
+	<arb8 name="Col5_solid1" v1x="74.22" v1y="17.25" 
+             v2x="74.22" v2y="-17.25" 
+             v3x="180.22" v3y="-54.15" 
+             v4x="180.22" v4y="54.15" 
+             v5x="74.22" v5y="17.25" 
+             v6x="74.22" v6y="-17.25" 
+             v7x="180.22" v7y="-54.15" 
+             v8x="180.22" v8y="54.15" 
+             dz="35" lunit="mm"/>
+
+	<arb8 name="Col5_solid2" v1x="116.38" v1y="12.75" 
+             v2x="116.38" v2y="-12.75" 
+             v3x="180.22" v3y="-33.5" 
+             v4x="180.22" v4y="33.5" 
+             v5x="117.85" v5y="13.00" 
+             v6x="117.85" v6y="-13.00" 
+             v7x="180.22" v7y="-33.75" 
+             v8x="180.22" v8y="33.75" 
+             dz="35" lunit="mm"/>
+
+
 	<xtru name="solid_C1_mid"  lunit="mm">
 		<twoDimVertex x="91.28" y="860.0" />
 		<twoDimVertex x="66.27" y="0.0" />
@@ -604,7 +625,7 @@
 	   <position name="Coll6Sub_pos" unit="mm" x="66" y="0" z="0" />
 	</subtraction>
 
-        <box lunit="mm" name="EPShieldAtColl5_solid" x="74.22-46" y="10" z="70"/>
+        <box lunit="mm" name="EPShieldAtColl5_solid" x="74.22-46" y="30" z="70"/>
 
 	            <!-- Lintels solid -->
 	<arb8 name="Lintel_s1"

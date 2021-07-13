@@ -243,7 +243,7 @@
       <auxiliary auxtype="Color" auxvalue="blue"/>
       <auxiliary auxtype="Alpha" auxvalue="0.5"/>
       <auxiliary auxtype="SensDet" auxvalue="coilDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="61"/> 
+	    <!--<auxiliary auxtype="DetNo" auxvalue="61"/> -->
     </volume>
 
     <volume name="logicDriftpipe">

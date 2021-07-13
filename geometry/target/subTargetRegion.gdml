@@ -274,7 +274,7 @@
 
       <physvol>
 	<volumeref ref="ConcreteShieldTop"/>
-	<position name="ConcreteShieldTop_pos" unit="mm" x="0" y="1779" z="0"/>
+	<position name="ConcreteShieldTop_pos" unit="mm" x="0" y="1779+6" z="0"/>
       </physvol>
 
       <physvol>

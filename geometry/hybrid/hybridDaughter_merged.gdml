@@ -15,13 +15,9 @@
     <constant name="DEGRAD" value="PI/180."/>
     <constant name="SEPTANT" value ="360./7"/>
     <position name="CENTER" unit="mm" x="0" y="0" z="0"/>
-    <position name="boxDownstream_center" unit="mm" x="0" y="0" z="-7435"/>
+    <position name="boxDownstream_center" unit="mm" x="0" y="0" z="-7435-75"/>
 
     <constant name="DELTAT" value ="1.0"/>
-
-    <!-- coll at the center of hybrid toriod -->
-    <position name="posCOLL5" unit="mm" x="0" y="0" z="12835-DOFFSET"/>
-    <constant name="COLL5_THICK" value ="70.0"/>
 
     <!-- main collimator number 4, adjust this -->
     <constant name="col4shift" value ="1500"/>
@@ -30,9 +26,9 @@
 
     <constant name="boxDSMother_width" value="2700"/>
     <constant name="boxDSMother_height" value="2700"/>
-    <constant name="boxDSMother_length" value="7865.68 + 2*950 + 900+5300.59+8.73"/> 
+    <constant name="boxDSMother_length" value="7865.68 + 2*950 + 900+5300.59+8.73+150."/> 
 
-    <position name="SubCoil1EpoxyShield1_center" unit="mm" x="0" y="0" z="posPCOLL4_z+75+1425"/>
+    <position name="SubCoil1EpoxyShield1_center" unit="mm" x="0" y="0" z="posPCOLL4_z+75+1425-75"/>
 
 
     <constant name="bellows3_eps" value="0.35"/>
@@ -41,7 +37,7 @@
     <constant name="bellows3flange_Rthickness" value="88.5-bellows3_eps"/>
     <constant name="bellows3_length" value="419.4"/>
     <constant name="bellows3_Rthickness" value="31.0"/>
-    <constant name="bellows3_zpos" value="8946-4500-(11016.865-8.73/2)"/>
+    <constant name="bellows3_zpos" value="8946-4500-(11016.865-8.73/2+75)"/>
     <constant name="bellows3flangeUS_zpos" value="bellows3_zpos - bellows3_length/2 - bellows3flange_length/2 - bellows3_eps/2"/>
     <constant name="bellows3flangeDS_zpos" value="bellows3_zpos + bellows3_length/2 + bellows3flange_length/2 + bellows3_eps/2"/>
 
@@ -55,7 +51,7 @@
     <constant name="bellows4flange_Rthickness" value="114.3-bellows4_eps"/>
     <constant name="bellows4_length" value="148.0"/>
     <constant name="bellows4_Rthickness" value="84.1"/>
-    <constant name="bellows4_zpos" value="17075-4500-(11016.865-8.73/2)"/>
+    <constant name="bellows4_zpos" value="17075-4500-(11016.865-8.73/2+75)"/>
     <constant name="bellows4flangeUS_zpos" value="bellows4_zpos - bellows4_length/2 - bellows4flange_length/2 - bellows4_eps/2"/>
     <constant name="bellows4flangeDS_zpos" value="bellows4_zpos + bellows4_length/2 + bellows4flange_length/2 + bellows4_eps/2"/>
 
@@ -70,7 +66,7 @@
     <constant name="bellows5flange_Rthickness" value="29.9-bellows5_eps"/>
     <constant name="bellows5_length" value="100"/>
     <constant name="bellows5_Rthickness" value="28.4"/>
-    <constant name="bellows5_zpos" value="23430-4500-(11016.865-8.73/2)"/>
+    <constant name="bellows5_zpos" value="23430-4500-(11016.865-8.73/2+75)"/>
     <constant name="bellows5flangeUS_zpos" value="bellows5_zpos - bellows5_length/2 - bellows5flange_length/2 - bellows5_eps/2"/>
     <constant name="bellows5flangeDS_zpos" value="bellows5_zpos + bellows5_length/2 + bellows5flange_length/2 + bellows5_eps/2"/>
 
@@ -83,7 +79,6 @@
 &materials;
 
 <solids>
-    <tube aunit="deg" deltaphi="360" lunit="mm" name="tubeDownstream" rmax="4500" rmin="0" startphi="0" z="7865.68 + 2*950"/>
     
    <!--add bellows -->
    <tube
@@ -144,7 +139,7 @@
 
     <!--collar solids -->
     <cone name="solidCollar1" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="612" rmax1="750" rmin2="621" rmax2="750" z="100+50"/>
-    <cone name="solidCollar2" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="998" rmax1="1200" rmin2="1007" rmax2="1200" z="100+50"/>
+    <cone name="solidCollar2" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="998" rmax1="1300" rmin2="1007" rmax2="1300" z="100+50"/>
 
 
     <!-- drift pipe -->
@@ -239,6 +234,7 @@
     <volume name="logicCollar2">
       <materialref ref="G4_Pb"/>
       <solidref ref="solidCollar2"/>
+      <auxiliary auxtype="Color" auxvalue="blue"/>
     </volume>
 
     <volume name="SubCoil1EpoxyShield1_logic">
@@ -352,7 +348,6 @@
 
     <volume name="logicDownstream">
       <materialref ref="VacuumColl"/>
-      <!-- <solidref ref="tubeDownstream"/> -->
       <solidref ref="boxDownstream"/>
       <!--
       <physvol name="Driftpipe">
@@ -410,15 +405,15 @@
     
       <physvol name="collar1">
         <volumeref ref="logicCollar1"/>
-        <position unit="mm" name="collar1pos" x="0" y="0" z="16950.09-DOFFSET"/>
+	<position unit="mm" name="collar1pos" x="0" y="0" z="16950.09-DOFFSET-150./2."/>
         <rotation unit="rad" name="collar1rot" x="0" y="0" z="0"/>
       </physvol>
 
-      <!--      <physvol name="collar2">
+      <physvol name="collar2">
         <volumeref ref="logicCollar2"/>
-        <position unit="mm" name="collar2pos" x="0" y="0" z="24016.09-DOFFSET"/>
+	<position unit="mm" name="collar2pos" x="0" y="0" z="24016.09-DOFFSET-150./2."/>
         <rotation unit="rad" name="collar2rot" x="0" y="0" z="0"/>
-      </physvol>-->
+      </physvol>
 
 <!-- Downstream of coll4 central collimating beampipe -->
       <physvol>
@@ -428,14 +423,14 @@
 
       <physvol name="DScoil">
         <file name="hybrid/hybridToroid.gdml"/>
-        <position name="pos_hybridToroid" x="0" y="0" z="13335.194-DOFFSET"/>
+	<position name="pos_hybridToroid" x="0" y="0" z="13335.194-DOFFSET-75"/>
       </physvol>
 
 
       <!-- this part of the downstream beampipe -->
     <physvol name="DSwindow">
       <volumeref ref="logicDSwindow"/>
-      <position name="DSwindow_pos" x="0" y="0" z="boxDSMother_length/2-484.88"/>
+      <position name="DSwindow_pos" x="0" y="0" z="boxDSMother_length/2-484.88-150"/>
     </physvol>
     <!--
     <physvol name="DSwindow_flange">
@@ -443,10 +438,10 @@
       <position name="DSwindow_flange_pos" x="0" y="0" z="boxDSMother_length/2-217.0"/>
     </physvol>-->
 
-    <physvol name="DSpipe1">
+    <!--    <physvol name="DSpipe1">
       <volumeref ref="logic_DSpipe1"/>
-      <position name="DSpipe1_pos" x="0" y="0" z="boxDSMother_length/2-490.0"/>
-    </physvol>
+      <position name="DSpipe1_pos" x="0" y="0" z="boxDSMother_length/2-490.0-150"/>
+    </physvol>-->
 
     <!--    <physvol name="DSpipe1_flange">
       <volumeref ref="logic_DSpipe1_flange"/>

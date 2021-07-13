@@ -16,7 +16,7 @@
 <position name="upstreamCenter" x="0.0" y="0.0" z="2000.00" unit="mm"/>
 
 <!-- Hybrid spectrometer position -->
-<position name="hybridCenter" x="0.0" y="0.0" z="11016.865-8.73/2" unit="mm"/>
+<position name="hybridCenter" x="0.0" y="0.0" z="11016.865-8.73/2+75." unit="mm"/>
 
 <!-- Virtual planes in the parallel world -->
 <position name="trackingDetectorVirtualPlaneFront1_pos" z="19.280" unit="m"/>

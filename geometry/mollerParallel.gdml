@@ -386,6 +386,76 @@
     <auxiliary auxtype="DetNo" auxvalue="31"/>
   </volume>
 
+  <volume name="At9p5_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="76"/>
+  </volume>
+
+  <volume name="At9p6_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="77"/>
+  </volume>
+
+  <volume name="At9p7_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="78"/>
+  </volume>
+
+  <volume name="At10p1_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="79"/>
+  </volume>
+
+  <volume name="At10p35_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="80"/>
+  </volume>
+
+  <volume name="At10p6_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="81"/>
+  </volume>
+
+  <volume name="At10p8_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="82"/>
+  </volume>
+
+  <volume name="At11p01_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="83"/>
+  </volume>
+
+  <volume name="At11p11_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="84"/>
+  </volume>
+
+  <volume name="At11p21_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="85"/>
+  </volume>
+
   <volume name="ParallelWorld_logical">
     <materialref ref="G4_Galactic"/>
     <solidref ref="parallel_solid"/>
@@ -410,7 +480,7 @@
       <position name="Col2Exit_pos" unit="mm" x="0" y="0" z="900"/>
     </physvol>
 
-    <physvol name="USCoil1_phys">
+    <!--    <physvol name="USCoil1_phys">
       <volumeref ref="USCoil1_log"/>
       <position  name="USCoil1_pos" unit="mm" x="0" y="0" z="1300"/>
     </physvol>
@@ -419,16 +489,16 @@
       <volumeref ref="USCoil2_log"/>
       <position  name="USCoil2_pos" unit="mm" x="0" y="0" z="1800"/>
     </physvol>
-
+    -->
     <physvol name="USCoil3_phys">
       <volumeref ref="USCoil3_log"/>
       <position  name="USCoil3_pos" unit="mm" x="0" y="0" z="2300"/>
     </physvol>
 
-    <physvol name="USCoil4_phys">
+    <!--    <physvol name="USCoil4_phys">
       <volumeref ref="USCoil4_log"/>
       <position  name="USCoil4_pos" unit="mm" x="0" y="0" z="2800"/>
-    </physvol>
+    </physvol>-->
 
     <physvol name="Col4Ent_phys">
       <volumeref ref="Col4Ent_log"/>
@@ -455,7 +525,7 @@
       <position  name="Bellow3_pos" unit="mm" x="0" y="0" z="4500+0.5"/>
     </physvol>
 
-    <physvol name="DSCoil1_phys">
+    <!--    <physvol name="DSCoil1_phys">
       <volumeref ref="DSCoil1_log"/>
       <position  name="DSCoil1_pos" unit="mm" x="0" y="0" z="4900+0.5"/>
     </physvol>
@@ -463,14 +533,14 @@
     <physvol name="DSCoil2_phys">
       <volumeref ref="DSCoil2_log"/>
       <position  name="DSCoil2_pos" unit="mm" x="0" y="0" z="5200+0.5"/>
-    </physvol>
+    </physvol>-->
 
     <physvol name="DSCoil3_phys">
       <volumeref ref="DSCoil3_log"/>
       <position  name="DSCoil3_pos" unit="mm" x="0" y="0" z="5500+0.5"/>
     </physvol>
 
-    <physvol name="DSCoil4_phys">
+    <!-- <physvol name="DSCoil4_phys">
       <volumeref ref="DSCoil4_log"/>
       <position  name="DSCoil4_pos" unit="mm" x="0" y="0" z="5800+0.5"/>
     </physvol>
@@ -478,14 +548,14 @@
     <physvol name="DSCoil5_phys">
       <volumeref ref="DSCoil5_log"/>
       <position  name="DSCoil5_pos" unit="mm" x="0" y="0" z="6100+0.5"/>
-    </physvol>
+    </physvol>-->
 
     <physvol name="DSCoil6_phys">
       <volumeref ref="DSCoil6_log"/>
       <position  name="DSCoil6_pos" unit="mm" x="0" y="0" z="6400+0.5"/>
     </physvol>
 
-    <physvol name="DSCoil7_phys">
+    <!--    <physvol name="DSCoil7_phys">
       <volumeref ref="DSCoil7_log"/>
       <position  name="DSCoil7_pos" unit="mm" x="0" y="0" z="6700+0.5"/>
     </physvol>
@@ -493,17 +563,17 @@
     <physvol name="DSCoil8_phys">
       <volumeref ref="DSCoil8_log"/>
       <position  name="DSCoil8_pos" unit="mm" x="0" y="0" z="7000+0.5"/>
-    </physvol>
+    </physvol>-->
 
     <physvol name="DSCoil9_phys">
       <volumeref ref="DSCoil9_log"/>
       <position  name="DSCoil9_pos" unit="mm" x="0" y="0" z="7300+0.5"/>
     </physvol>
 
-    <physvol name="DSCoil10_phys">
+    <!--    <physvol name="DSCoil10_phys">
       <volumeref ref="DSCoil10_log"/>
       <position  name="DSCoil10_pos" unit="mm" x="0" y="0" z="7600+0.5"/>
-    </physvol>
+    </physvol>-->
 
     <physvol name="LintelEnt_phys">
       <volumeref ref="LintelEnt_log"/>
@@ -529,7 +599,7 @@
       <volumeref ref="DSCoil13_log"/>
       <position  name="DSCoil13_pos" unit="mm" x="0" y="0" z="9200+0.5"/>
     </physvol>
-
+    <!--
     <physvol name="DSCoil14_phys">
       <volumeref ref="DSCoil14_log"/>
       <position  name="DSCoil14_pos" unit="mm" x="0" y="0" z="9600+0.5"/>
@@ -554,7 +624,7 @@
       <volumeref ref="DSCoil16_log"/>
       <position  name="DSCoil16_pos" unit="mm" x="0" y="0" z="11000+0.5"/>
     </physvol>
-
+    -->
     <physvol name="DSCoil17_phys">
       <volumeref ref="DSCoil17_log"/>
       <position  name="DSCoil17_pos" unit="mm" x="0" y="0" z="11500+0.5"/>
@@ -591,22 +661,22 @@
     </physvol>
 
     <!-- Tracking planes -->
-    <physvol name="trackingDetectorVirtualPlaneFront1_phys">
+    <!--    <physvol name="trackingDetectorVirtualPlaneFront1_phys">
       <volumeref ref="gemVirtualPlane1_log"/>
       <positionref ref="trackingDetectorVirtualPlaneFront1_pos"/>
     </physvol>
     <physvol name="trackingDetectorVirtualPlaneFront2_phys">
       <volumeref ref="gemVirtualPlane2_log"/>
       <positionref ref="trackingDetectorVirtualPlaneFront2_pos"/>
-    </physvol>
+    </physvol>-->
     <physvol name="trackingDetectorVirtualPlaneBack1_phys">
       <volumeref ref="gemVirtualPlane3_log"/>
       <positionref ref="trackingDetectorVirtualPlaneBack1_pos"/>
     </physvol>
-    <physvol name="trackingDetectorVirtualPlaneBack2_phys">
+    <!--    <physvol name="trackingDetectorVirtualPlaneBack2_phys">
       <volumeref ref="gemVirtualPlane4_log"/>
       <positionref ref="trackingDetectorVirtualPlaneBack2_pos"/>
-    </physvol>
+    </physvol>-->
     
     <!-- Main detector plane -->
     <physvol name="mainDetectorVirtualPlane_phys">
@@ -629,6 +699,56 @@
     <physvol name="HallExit_phys">
       <volumeref ref="HallExit_log"/>
       <position  name="HallExit_pos" unit="mm" x="0" y="0" z="26200"/>
+    </physvol>
+
+    <physvol name="At9p5_phys">
+      <volumeref ref="At9p5_log"/>
+      <position  name="At9p5_pos" unit="mm" x="0" y="0" z="9507.3-0.5"/>
+    </physvol>
+
+    <physvol name="At9p6_phys">
+      <volumeref ref="At9p6_log"/>
+      <position  name="At9p6_pos" unit="mm" x="0" y="0" z="9607.3-0.5"/>
+    </physvol>
+
+    <physvol name="At9p7_phys">
+      <volumeref ref="At9p7_log"/>
+      <position  name="At9p7_pos" unit="mm" x="0" y="0" z="9707.3-0.5"/>
+    </physvol>
+
+    <physvol name="At10p1_phys">
+      <volumeref ref="At10p1_log"/>
+      <position  name="At10p1_pos" unit="mm" x="0" y="0" z="10100-0.5"/>
+    </physvol>
+
+    <physvol name="At10p35_phys">
+      <volumeref ref="At10p35_log"/>
+      <position  name="At10p35_pos" unit="mm" x="0" y="0" z="10350-0.5"/>
+    </physvol>
+
+    <physvol name="At10p6_phys">
+      <volumeref ref="At10p6_log"/>
+      <position  name="At10p6_pos" unit="mm" x="0" y="0" z="10600-0.5"/>
+    </physvol>
+
+    <physvol name="At10p8_phys">
+      <volumeref ref="At10p8_log"/>
+      <position  name="At10p8_pos" unit="mm" x="0" y="0" z="10800-0.5"/>
+    </physvol>
+
+    <physvol name="At11p01_phys">
+      <volumeref ref="At11p01_log"/>
+      <position  name="At11p01_pos" unit="mm" x="0" y="0" z="11012.25-0.5"/>
+    </physvol>
+
+    <physvol name="At11p11_phys">
+      <volumeref ref="At11p11_log"/>
+      <position  name="At11p11_pos" unit="mm" x="0" y="0" z="11112.25-0.5"/>
+    </physvol>
+
+    <physvol name="At11p21_phys">
+      <volumeref ref="At11p21_log"/>
+      <position  name="At11p21_pos" unit="mm" x="0" y="0" z="11212.25-0.5"/>
     </physvol>
 
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>

@@ -2384,7 +2384,7 @@
 			<position name="SubCoil2EpoxyShield_pos" unit="mm" x="0" y="0" z="-1335.194"/>
 		</physvol>
 		
-		<physvol name="Coll6Ring_pv">
+		<!--		<physvol name="Coll6Ring_pv">
 			<volumeref ref="Coll6Ring_logic"/>
 			<position name="Coll6Ring_pos" x="0" y="0" z="1664.806"/>
 		</physvol>
@@ -2429,7 +2429,7 @@
 			<volumeref ref="Coll6_logic"/>
 			<position name="Coll6_7_pos" unit="mm" x="66*cos(pi+12*pi/7.)" y="66*sin(pi+12*pi/7.)" z="1664.806+50."/>
 			<rotation name="rot_dsshield7" x="0" y="0" z="-12*pi/7."/>
-		</physvol>
+		</physvol>-->
 
 		<physvol name="phys_Col5_1">
 			<volumeref ref="logic_Col5"/>

@@ -612,12 +612,12 @@
 	   <position name="Coll6_1_Sub_pos" unit="mm" x="90./2" y="0" z="0" />
 	</subtraction>
 
-	<!--        <box lunit="mm" name="Coll6_2_Box_solid" x="125" y="25" z="100"/>
+        <box lunit="mm" name="Coll6_2_Box_solid" x="125" y="25" z="100"/>
 
 	<polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Coll6_2_Ring_solid">
 	   <zplane rmin="62" rmax="125.0" z="0"/>
 	   <zplane rmin="62" rmax="125.0" z="100"/>
-   </polycone> -->
+        </polycone>
 
 	<cone aunit="deg" deltaphi="360" lunit="mm" name="Coll6_2_Cylinder_solid" rmax1="125" rmax2="125" rmin1="62" rmin2="62" startphi="0" z="100"/>
 

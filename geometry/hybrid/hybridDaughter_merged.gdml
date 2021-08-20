@@ -15,7 +15,7 @@
     <constant name="DEGRAD" value="PI/180."/>
     <constant name="SEPTANT" value ="360./7"/>
     <position name="CENTER" unit="mm" x="0" y="0" z="0"/>
-    <position name="boxDownstream_center" unit="mm" x="0" y="0" z="-7435-75"/>
+    <position name="boxDownstream_center" unit="mm" x="0" y="0" z="-7435-75-200"/>
 
     <constant name="DELTAT" value ="1.0"/>
 
@@ -24,11 +24,11 @@
     <constant name="posPCOLL4_z" value ="9825-DOFFSET-col4shift-50.0/2"/> <!--subtracting 50/2 from z to compensate for increased thickness so that downstream end still ends at the same point as before-->
 
 
-    <constant name="boxDSMother_width" value="2700"/>
-    <constant name="boxDSMother_height" value="2700"/>
-    <constant name="boxDSMother_length" value="7865.68 + 2*950 + 900+5300.59+8.73+150."/> 
+    <constant name="boxDSMother_width" value="5800"/>
+    <constant name="boxDSMother_height" value="5800"/>
+    <constant name="boxDSMother_length" value="7865.68 + 2*950 + 900+5300.59+8.73+150.+400"/> 
 
-    <position name="SubCoil1EpoxyShield1_center" unit="mm" x="0" y="0" z="posPCOLL4_z+75+1425-75"/>
+    <position name="SubCoil1EpoxyShield1_center" unit="mm" x="0" y="0" z="posPCOLL4_z+75+1425-75-200"/>
 
 
     <constant name="bellows3_eps" value="0.35"/>
@@ -37,7 +37,7 @@
     <constant name="bellows3flange_Rthickness" value="88.5-bellows3_eps"/>
     <constant name="bellows3_length" value="419.4"/>
     <constant name="bellows3_Rthickness" value="31.0"/>
-    <constant name="bellows3_zpos" value="8946-4500-(11016.865-8.73/2+75)"/>
+    <constant name="bellows3_zpos" value="8946-4500-(11016.865-8.73/2+75+200)"/>
     <constant name="bellows3flangeUS_zpos" value="bellows3_zpos - bellows3_length/2 - bellows3flange_length/2 - bellows3_eps/2"/>
     <constant name="bellows3flangeDS_zpos" value="bellows3_zpos + bellows3_length/2 + bellows3flange_length/2 + bellows3_eps/2"/>
 
@@ -51,7 +51,7 @@
     <constant name="bellows4flange_Rthickness" value="114.3-bellows4_eps"/>
     <constant name="bellows4_length" value="148.0"/>
     <constant name="bellows4_Rthickness" value="84.1"/>
-    <constant name="bellows4_zpos" value="17075-4500-(11016.865-8.73/2+75)"/>
+    <constant name="bellows4_zpos" value="17075-4500-(11016.865-8.73/2+75+200)"/>
     <constant name="bellows4flangeUS_zpos" value="bellows4_zpos - bellows4_length/2 - bellows4flange_length/2 - bellows4_eps/2"/>
     <constant name="bellows4flangeDS_zpos" value="bellows4_zpos + bellows4_length/2 + bellows4flange_length/2 + bellows4_eps/2"/>
 
@@ -66,7 +66,7 @@
     <constant name="bellows5flange_Rthickness" value="29.9-bellows5_eps"/>
     <constant name="bellows5_length" value="100"/>
     <constant name="bellows5_Rthickness" value="28.4"/>
-    <constant name="bellows5_zpos" value="23430-4500-(11016.865-8.73/2+75)"/>
+    <constant name="bellows5_zpos" value="23430-4500-(11016.865-8.73/2+75+200)"/>
     <constant name="bellows5flangeUS_zpos" value="bellows5_zpos - bellows5_length/2 - bellows5flange_length/2 - bellows5_eps/2"/>
     <constant name="bellows5flangeDS_zpos" value="bellows5_zpos + bellows5_length/2 + bellows5flange_length/2 + bellows5_eps/2"/>
 
@@ -139,7 +139,7 @@
 
     <!--collar solids -->
     <cone name="solidCollar1" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="612" rmax1="750" rmin2="621" rmax2="750" z="100+50"/>
-    <cone name="solidCollar2" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="998" rmax1="1300" rmin2="1007" rmax2="1300" z="100+50"/>
+    <cone name="solidCollar2" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="1013" rmax1="1315" rmin2="1022" rmax2="1315" z="100+50"/>
 
 
     <!-- drift pipe -->
@@ -214,6 +214,12 @@
       <zplane rmin="506.1201" rmax="510.8826" z="36"/>
     </polycone>
 
+    <box lunit="mm" name="Barite_Collar2_solid" x="4000" y="4800" z="400"/>
+
+   <tube
+    name="Barite_hole_solid"
+    startphi="0" deltaphi="360" aunit="deg"
+    rmin="0" rmax="1315" z="400" lunit="mm"/>
 
 </solids>
 
@@ -236,6 +242,29 @@
       <solidref ref="solidCollar2"/>
       <auxiliary auxtype="Color" auxvalue="blue"/>
     </volume>
+
+    <volume name="logicBariteHole">
+      <materialref ref="Vacuum"/>
+      <solidref ref="Barite_hole_solid"/>
+      <auxiliary auxtype="Color" auxvalue="yellow"/>
+      <physvol name="phys_Collar2">
+              <volumeref ref="logicCollar2"/>
+	       <position name="Colar2_pos" x="0" y="0" z="125" unit="mm"/>
+      </physvol>
+    </volume>
+
+    <volume name="logic_Barite_Collar2">
+      <materialref ref="BariteConcrete"/>
+      <solidref ref="Barite_Collar2_solid"/>
+      <auxiliary auxtype="Color" auxvalue="brown"/>
+      <auxiliary auxtype="SensDet" auxvalue="collDet"/>
+      <physvol name="phys_BariteHole">
+              <volumeref ref="logicBariteHole"/>
+	       <position name="BariteHole_pos" x="0" y="400" z="0" unit="mm"/>
+      </physvol>
+      </volume>
+
+
 
     <volume name="SubCoil1EpoxyShield1_logic">
       <materialref ref="Tungsten"/>
@@ -405,14 +434,19 @@
     
       <physvol name="collar1">
         <volumeref ref="logicCollar1"/>
-	<position unit="mm" name="collar1pos" x="0" y="0" z="16950.09-DOFFSET-150./2."/>
+	<position unit="mm" name="collar1pos" x="0" y="0" z="16950.09-DOFFSET-150./2.-400./2"/>
         <rotation unit="rad" name="collar1rot" x="0" y="0" z="0"/>
       </physvol>
 
-      <physvol name="collar2">
+      <!--      <physvol name="collar2">
         <volumeref ref="logicCollar2"/>
-	<position unit="mm" name="collar2pos" x="0" y="0" z="24016.09-DOFFSET-150./2."/>
+	<position unit="mm" name="collar2pos" x="0" y="0" z="24016.09-DOFFSET-150./2.+241.6-400/2"/>
         <rotation unit="rad" name="collar2rot" x="0" y="0" z="0"/>
+      </physvol>-->
+
+      <physvol name="Phy_Barite_Collar2">
+        <volumeref ref="logic_Barite_Collar2"/>
+	<position unit="mm" name="BariteCollar2pos" x="0" y="-400" z="24016.09-DOFFSET-125.-150./2.+241.6-400/2"/>
       </physvol>
 
 <!-- Downstream of coll4 central collimating beampipe -->
@@ -423,14 +457,14 @@
 
       <physvol name="DScoil">
         <file name="hybrid/hybridToroid.gdml"/>
-	<position name="pos_hybridToroid" x="0" y="0" z="13335.194-DOFFSET-75"/>
+	<position name="pos_hybridToroid" x="0" y="0" z="13335.194-DOFFSET-75-200"/>
       </physvol>
 
 
       <!-- this part of the downstream beampipe -->
     <physvol name="DSwindow">
       <volumeref ref="logicDSwindow"/>
-      <position name="DSwindow_pos" x="0" y="0" z="boxDSMother_length/2-484.88-150"/>
+      <position name="DSwindow_pos" x="0" y="0" z="boxDSMother_length/2-484.88-150-400"/>
     </physvol>
     <!--
     <physvol name="DSwindow_flange">

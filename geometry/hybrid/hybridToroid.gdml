@@ -2413,7 +2413,7 @@
 			<position name="Coll6_1_Ring_pos" x="0" y="0" z="1172.106"/>
 		</physvol>-->
 
-		<physvol name="Coll6_1_1_pv">
+		<!--		<physvol name="Coll6_1_1_pv">
 			<volumeref ref="Coll6_1_logic"/>
 			<position name="Coll6_1_1_pos" unit="mm" x="45*cos(pi+0*pi/7.)" y="45*sin(pi+0*pi/7.)" z="1172.106+50."/>
 			<rotation name="rot_dsshield1" x="0" y="0" z="0"/>
@@ -2458,7 +2458,7 @@
 		<physvol name="Coll6_2_Ring_pv">
 			<volumeref ref="Coll6_2_Ring_logic"/>
 			<position name="Coll6Ring_pos" x="0" y="0" z="1172.106+1504.95"/>
-		</physvol>
+		</physvol>-->
 
 		<physvol name="phys_Col5_1">
 			<volumeref ref="logic_Col5"/>

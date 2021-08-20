@@ -530,19 +530,19 @@
       <position  name="DSCoil13_pos" unit="mm" x="0" y="0" z="9200+0.5"/>
     </physvol>
 
-    <physvol name="DSCoil14_phys">
-      <volumeref ref="DSCoil14_log"/>
-      <position  name="DSCoil14_pos" unit="mm" x="0" y="0" z="9600+0.5"/>
-    </physvol>
-
     <physvol name="Col6Ent_phys">
       <volumeref ref="Col6Ent_log"/>
-      <position name="Col6Ent_pos" unit="mm" x="0" y="0" z="10000-0.5"/>
+      <position name="Col6Ent_pos" unit="mm" x="0" y="0" z="9507.3-0.5"/>
     </physvol>
 
     <physvol name="Col6Exit_phys">
       <volumeref ref="Col6Exit_log"/>
-      <position name="Col6Exit_pos" unit="mm" x="0" y="0" z="10100+0.5"/>
+      <position name="Col6Exit_pos" unit="mm" x="0" y="0" z="9607.3+0.5"/>
+    </physvol>
+
+    <physvol name="DSCoil14_phys">
+      <volumeref ref="DSCoil14_log"/>
+      <position  name="DSCoil14_pos" unit="mm" x="0" y="0" z="10000+0.5"/>
     </physvol>
 
     <physvol name="DSCoil15_phys">
@@ -552,7 +552,7 @@
 
     <physvol name="DSCoil16_phys">
       <volumeref ref="DSCoil16_log"/>
-      <position  name="DSCoil16_pos" unit="mm" x="0" y="0" z="11000+0.5"/>
+      <position  name="DSCoil16_pos" unit="mm" x="0" y="0" z="11012.25-0.5"/>
     </physvol>
 
     <physvol name="DSCoil17_phys">
@@ -582,12 +582,12 @@
 
     <physvol name="collar2Ent_phys">
       <volumeref ref="collar2Ent_log"/>
-      <position name="Collar2Ent_pos" unit="mm" x="0" y="0" z="18941.09-0.5"/>
+      <position name="Collar2Ent_pos" unit="mm" x="0" y="0" z="19182.69-0.5"/>
     </physvol>
 
     <physvol name="Collar2Exit_phys">
       <volumeref ref="Collar2Exit_log"/>
-      <position name="Collar2Exit_pos" unit="mm" x="0" y="0" z="18941.09+150+0.5"/>
+      <position name="Collar2Exit_pos" unit="mm" x="0" y="0" z="19182.69+150+0.5"/>
     </physvol>
 
     <!-- Tracking planes -->

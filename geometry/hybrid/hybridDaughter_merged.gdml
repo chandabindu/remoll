@@ -138,7 +138,7 @@
 
 
     <!--collar solids -->
-    <cone name="solidCollar1" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="612" rmax1="750" rmin2="621" rmax2="750" z="100+50"/>
+    <cone name="solidCollar1" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="612" rmax1="675" rmin2="621" rmax2="675" z="100+50"/>
     <cone name="solidCollar2" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="1013" rmax1="1315" rmin2="1022" rmax2="1315" z="100+50"/>
 
 
@@ -403,7 +403,7 @@
     </physvol>-->
 
     
-    <!--<physvol name="collar1">
+    <physvol name="collar1">
         <volumeref ref="logicCollar1"/>
 	<position unit="mm" name="collar1pos" x="0" y="0" z="16950.09-DOFFSET-150./2.-400./2"/>
         <rotation unit="rad" name="collar1rot" x="0" y="0" z="0"/>
@@ -413,7 +413,7 @@
         <volumeref ref="logicCollar2"/>
 	<position unit="mm" name="collar2pos" x="0" y="0" z="24016.09-DOFFSET-150./2.+241.6-400/2"/>
         <rotation unit="rad" name="collar2rot" x="0" y="0" z="0"/>
-    </physvol>-->
+    </physvol>
 
 <!-- Downstream of coll4 central collimating beampipe -->
       <physvol>

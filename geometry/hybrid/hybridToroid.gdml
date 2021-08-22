@@ -616,7 +616,7 @@
 
 	<polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="Coll6_2_Ring_solid">
 	   <zplane rmin="62" rmax="125.0" z="0"/>
-	   <zplane rmin="62" rmax="125.0" z="100"/>
+	   <zplane rmin="69.9" rmax="125.0" z="100"/>
         </polycone>
 
 	<cone aunit="deg" deltaphi="360" lunit="mm" name="Coll6_2_Cylinder_solid" rmax1="125" rmax2="125" rmin1="62" rmin2="62" startphi="0" z="100"/>
@@ -2455,10 +2455,10 @@
 			<rotation name="rot_dsshield7" x="0" y="0" z="-12*pi/7."/>
 		</physvol>
 
-		<!--<physvol name="Coll6_2_Ring_pv">
+		<physvol name="Coll6_2_Ring_pv">
 			<volumeref ref="Coll6_2_Ring_logic"/>
 			<position name="Coll6Ring_pos" x="0" y="0" z="1172.106+1504.95"/>
-		</physvol>-->
+		</physvol>
 
 		<physvol name="phys_Col5_1">
 			<volumeref ref="logic_Col5"/>

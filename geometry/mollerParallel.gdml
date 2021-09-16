@@ -9,6 +9,8 @@
 
 <define>
   &positions;
+  <variable name="icount" value="0" />
+  <variable name="num" value="13"/>
 </define>
 
 <materials>
@@ -776,114 +778,227 @@
       <position name="PMT_OR_pos3" x="0" y="0" z="22521.3"/>
     </physvol>
 
-    <physvol name="Cathode_R1_phys1_1">
+    <loop for="icount" from="0" to="num" step="2">
+    <physvol>
       <volumeref ref="Cathode_log_R1_1"/>
-      <position name="Cathode_R1_pos1_1" x="1371*sin(pi/28)" y="1371.*cos(pi/28.)" z="22521.3+712"/>
-      <rotation name="Cathode_R1_rot1_1" aunit="rad" x="pi/2" y="-pi/28" z="0."/>
+      <position name="Cathode_R1_pos1_1" x="1371*sin((2*icount+1)*pi/28)" y="1371.*cos((2*icount+1)*pi/28.)" z="22521.3+712"/>
+      <rotation name="Cathode_R1_rot1_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0."/>
     </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R1_2"/>
+      <position name="Cathode_R1_pos2_1" x="(1371+22)*sin((2*icount+1)*pi/28.)" y="(1371.+22)*cos((2*icount+1)*pi/28)" z="22521.3+712"/>
+      <rotation name="Cathode_R1_rot2_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R1_3"/>
+      <position name="Cathode_R1_pos3_1" x="(1371+46)*sin((2*icount+1)*pi/28)" y="(1371.+46)*cos((2*icount+1)*pi/28)" z="22521.3+712"/>
+      <rotation name="Cathode_R1_rot3_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    </loop>
 
-    <physvol name="Cathode_R1_phys1_2">
+    <loop for="icount" from="1" to="num" step="2">
+    <physvol>
       <volumeref ref="Cathode_log_R1_1"/>
-      <position name="Cathode_R1_pos1_2" x="-1371*sin(pi/28)" y="1371*cos(pi/28)" z="22521.3+588"/>
-      <rotation name="Cathode_R1_rot1_2" aunit="rad" x="pi/2" y="pi/28" z="0"/>
+      <position name="Cathode_R1_pos1_1" x="1371*sin((2*icount+1)*pi/28)" y="1371.*cos((2*icount+1)*pi/28.)" z="22521.3+588"/>
+      <rotation name="Cathode_R1_rot1_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0."/>
     </physvol>
-
-    <physvol name="Cathode_R1_phys2_1">
+    <physvol>
       <volumeref ref="Cathode_log_R1_2"/>
-      <position name="Cathode_R1_pos2_1" x="(1371+22)*sin(pi/28.)" y="(1371.+22)*cos(pi/28)" z="22521.3+712"/>
-      <rotation name="Cathode_R1_rot2_1" aunit="rad" x="pi/2" y="-pi/28" z="0"/>
+      <position name="Cathode_R1_pos2_1" x="(1371+22)*sin((2*icount+1)*pi/28.)" y="(1371.+22)*cos((2*icount+1)*pi/28)" z="22521.3+588"/>
+      <rotation name="Cathode_R1_rot2_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
     </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R1_3"/>
+      <position name="Cathode_R1_pos3_1" x="(1371+46)*sin((2*icount+1)*pi/28)" y="(1371.+46)*cos((2*icount+1)*pi/28)" z="22521.3+588"/>
+      <rotation name="Cathode_R1_rot3_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    </loop>
 
-    <physvol name="Cathode_R1_phys2_2">
+    <loop for="icount" from="0" to="num" step="2">
+    <physvol>
+      <volumeref ref="Cathode_log_R1_1"/>
+      <position name="Cathode_R1_pos1_2" x="-1371*sin((2*icount+1)*pi/28)" y="1371*cos((2*icount+1)*pi/28)" z="22521.3+588"/>
+      <rotation name="Cathode_R1_rot1_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
       <volumeref ref="Cathode_log_R1_2"/>
-      <position name="Cathode_R1_pos2_2" x="-(1371+22)*sin(pi/28)" y="(1371+22)*cos(pi/28)" z="22521.3+588"/>
-      <rotation name="Cathode_R1_rot2_2" aunit="rad" x="pi/2" y="pi/28" z="0"/>
+      <position name="Cathode_R1_pos2_2" x="-(1371+22)*sin((2*icount+1)*pi/28)" y="(1371+22)*cos((2*icount+1)*pi/28)" z="22521.3+588"/>
+      <rotation name="Cathode_R1_rot2_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
     </physvol>
-
-    <physvol name="Cathode_R1_phys3_1">
+    <physvol>
       <volumeref ref="Cathode_log_R1_3"/>
-      <position name="Cathode_R1_pos3_1" x="(1371+46)*sin(pi/28)" y="(1371.+46)*cos(pi/28)" z="22521.3+712"/>
-      <rotation name="Cathode_R1_rot3_1" aunit="rad" x="pi/2" y="-pi/28" z="0"/>
+      <position name="Cathode_R1_pos3_2" x="-(1371+46)*sin((2*icount+1)*pi/28)" y="(1371+46)*cos((2*icount+1)*pi/28)" z="22521.3+588"/>
+      <rotation name="Cathode_R1_rot3_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
     </physvol>
+    </loop>
 
-    <physvol name="Cathode_R1_phys3_2">
+    <loop for="icount" from="1" to="num" step="2">
+    <physvol>
+      <volumeref ref="Cathode_log_R1_1"/>
+      <position name="Cathode_R1_pos1_2" x="-1371*sin((2*icount+1)*pi/28)" y="1371*cos((2*icount+1)*pi/28)" z="22521.3+712"/>
+      <rotation name="Cathode_R1_rot1_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R1_2"/>
+      <position name="Cathode_R1_pos2_2" x="-(1371+22)*sin((2*icount+1)*pi/28)" y="(1371+22)*cos((2*icount+1)*pi/28)" z="22521.3+712"/>
+      <rotation name="Cathode_R1_rot2_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
       <volumeref ref="Cathode_log_R1_3"/>
-      <position name="Cathode_R1_pos3_2" x="-(1371+46)*sin(pi/28)" y="(1371+46)*cos(pi/28)" z="22521.3+588"/>
-      <rotation name="Cathode_R1_rot3_2" aunit="rad" x="pi/2" y="pi/28" z="0"/>
+      <position name="Cathode_R1_pos3_2" x="-(1371+46)*sin((2*icount+1)*pi/28)" y="(1371+46)*cos((2*icount+1)*pi/28)" z="22521.3+712"/>
+      <rotation name="Cathode_R1_rot3_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
     </physvol>
+    </loop>
 
-    <physvol name="Cathode_R3_phys1_1">
+
+
+
+
+    <loop for="icount" from="0" to="num" step="2">
+    <physvol>
       <volumeref ref="Cathode_log_R3_1"/>
-      <position name="Cathode_R3_pos1_1" x="1371*sin(pi/28)" y="1371.*cos(pi/28.)" z="22521.3+216"/>
-      <rotation name="Cathode_R3_rot1_1" aunit="rad" x="pi/2" y="-pi/28" z="0."/>
+      <position name="Cathode_R3_pos1_1" x="1371*sin((2*icount+1)*pi/28)" y="1371.*cos((2*icount+1)*pi/28.)" z="22521.3+216"/>
+      <rotation name="Cathode_R3_rot1_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0."/>
     </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R3_2"/>
+      <position name="Cathode_R3_pos2_1" x="(1371+22)*sin((2*icount+1)*pi/28.)" y="(1371.+22)*cos((2*icount+1)*pi/28)" z="22521.3+216"/>
+      <rotation name="Cathode_R3_rot2_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R3_3"/>
+      <position name="Cathode_R3_pos3_1" x="(1371+46)*sin((2*icount+1)*pi/28)" y="(1371.+46)*cos((2*icount+1)*pi/28)" z="22521.3+216"/>
+      <rotation name="Cathode_R3_rot3_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    </loop>
 
-    <physvol name="Cathode_R3_phys1_2">
+    <loop for="icount" from="1" to="num" step="2">
+    <physvol>
       <volumeref ref="Cathode_log_R3_1"/>
-      <position name="Cathode_R3_pos1_2" x="-1371*sin(pi/28)" y="1371*cos(pi/28)" z="22521.3+92"/>
-      <rotation name="Cathode_R3_rot1_2" aunit="rad" x="pi/2" y="pi/28" z="0"/>
+      <position name="Cathode_R3_pos1_1" x="1371*sin((2*icount+1)*pi/28)" y="1371.*cos((2*icount+1)*pi/28.)" z="22521.3+92"/>
+      <rotation name="Cathode_R3_rot1_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0."/>
     </physvol>
-
-    <physvol name="Cathode_R3_phys2_1">
+    <physvol>
       <volumeref ref="Cathode_log_R3_2"/>
-      <position name="Cathode_R3_pos2_1" x="(1371+22)*sin(pi/28.)" y="(1371.+22)*cos(pi/28)" z="22521.3+216"/>
-      <rotation name="Cathode_R3_rot2_1" aunit="rad" x="pi/2" y="-pi/28" z="0"/>
+      <position name="Cathode_R3_pos2_1" x="(1371+22)*sin((2*icount+1)*pi/28.)" y="(1371.+22)*cos((2*icount+1)*pi/28)" z="22521.3+92"/>
+      <rotation name="Cathode_R3_rot2_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
     </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R3_3"/>
+      <position name="Cathode_R3_pos3_1" x="(1371+46)*sin((2*icount+1)*pi/28)" y="(1371.+46)*cos((2*icount+1)*pi/28)" z="22521.3+92"/>
+      <rotation name="Cathode_R3_rot3_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    </loop>
 
-    <physvol name="Cathode_R3_phys2_2">
+    <loop for="icount" from="0" to="num" step="2">
+    <physvol>
+      <volumeref ref="Cathode_log_R3_1"/>
+      <position name="Cathode_R3_pos1_2" x="-1371*sin((2*icount+1)*pi/28)" y="1371*cos((2*icount+1)*pi/28)" z="22521.3+92"/>
+      <rotation name="Cathode_R3_rot1_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
       <volumeref ref="Cathode_log_R3_2"/>
-      <position name="Cathode_R3_pos2_2" x="-(1371+22)*sin(pi/28)" y="(1371+22)*cos(pi/28)" z="22521.3+92"/>
-      <rotation name="Cathode_R3_rot2_2" aunit="rad" x="pi/2" y="pi/28" z="0"/>
+      <position name="Cathode_R3_pos2_2" x="-(1371+22)*sin((2*icount+1)*pi/28)" y="(1371+22)*cos((2*icount+1)*pi/28)" z="22521.3+92"/>
+      <rotation name="Cathode_R3_rot2_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
     </physvol>
-
-    <physvol name="Cathode_R3_phys3_1">
+    <physvol>
       <volumeref ref="Cathode_log_R3_3"/>
-      <position name="Cathode_R3_pos3_1" x="(1371+46)*sin(pi/28)" y="(1371.+46)*cos(pi/28)" z="22521.3+216"/>
-      <rotation name="Cathode_R3_rot3_1" aunit="rad" x="pi/2" y="-pi/28" z="0"/>
+      <position name="Cathode_R3_pos3_2" x="-(1371+46)*sin((2*icount+1)*pi/28)" y="(1371+46)*cos((2*icount+1)*pi/28)" z="22521.3+92"/>
+      <rotation name="Cathode_R3_rot3_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
     </physvol>
+    </loop>
 
-    <physvol name="Cathode_R3_phys3_2">
+    <loop for="icount" from="1" to="num" step="2">
+    <physvol>
+      <volumeref ref="Cathode_log_R3_1"/>
+      <position name="Cathode_R3_pos1_2" x="-1371*sin((2*icount+1)*pi/28)" y="1371*cos((2*icount+1)*pi/28)" z="22521.3+216"/>
+      <rotation name="Cathode_R3_rot1_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R3_2"/>
+      <position name="Cathode_R3_pos2_2" x="-(1371+22)*sin((2*icount+1)*pi/28)" y="(1371+22)*cos((2*icount+1)*pi/28)" z="22521.3+216"/>
+      <rotation name="Cathode_R3_rot2_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
       <volumeref ref="Cathode_log_R3_3"/>
-      <position name="Cathode_R3_pos3_2" x="-(1371+46)*sin(pi/28)" y="(1371+46)*cos(pi/28)" z="22521.3+92"/>
-      <rotation name="Cathode_R3_rot3_2" aunit="rad" x="pi/2" y="pi/28" z="0"/>
+      <position name="Cathode_R3_pos3_2" x="-(1371+46)*sin((2*icount+1)*pi/28)" y="(1371+46)*cos((2*icount+1)*pi/28)" z="22521.3+216"/>
+      <rotation name="Cathode_R3_rot3_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
     </physvol>
+    </loop>
 
-    <physvol name="Cathode_R5_phys1_1">
+
+
+    <loop for="icount" from="0" to="num" step="2">
+    <physvol>
       <volumeref ref="Cathode_log_R5_1"/>
-      <position name="Cathode_R5_pos1_1" x="1371*sin(pi/28)" y="1371.*cos(pi/28.)" z="22521.3-424"/>
-      <rotation name="Cathode_R5_rot1_1" aunit="rad" x="pi/2" y="-pi/28" z="0."/>
+      <position name="Cathode_R5_pos1_1" x="1371*sin((2*icount+1)*pi/28)" y="1371.*cos((2*icount+1)*pi/28.)" z="22521.3-424"/>
+      <rotation name="Cathode_R5_rot1_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0."/>
     </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R5_2"/>
+      <position name="Cathode_R5_pos2_1" x="(1371+22)*sin((2*icount+1)*pi/28.)" y="(1371.+22)*cos((2*icount+1)*pi/28)" z="22521.3-424"/>
+      <rotation name="Cathode_R5_rot2_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R5_3"/>
+      <position name="Cathode_R5_pos3_1" x="(1371+46)*sin((2*icount+1)*pi/28)" y="(1371.+46)*cos((2*icount+1)*pi/28)" z="22521.3-424"/>
+      <rotation name="Cathode_R5_rot3_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    </loop>
 
-    <physvol name="Cathode_R5_phys1_2">
+    <loop for="icount" from="1" to="num" step="2">
+    <physvol>
       <volumeref ref="Cathode_log_R5_1"/>
-      <position name="Cathode_R5_pos1_2" x="-1371*sin(pi/28)" y="1371*cos(pi/28)" z="22521.3-290"/>
-      <rotation name="Cathode_R5_rot1_2" aunit="rad" x="pi/2" y="pi/28" z="0"/>
+      <position name="Cathode_R5_pos1_1" x="1371*sin((2*icount+1)*pi/28)" y="1371.*cos((2*icount+1)*pi/28.)" z="22521.3-290"/>
+      <rotation name="Cathode_R5_rot1_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0."/>
     </physvol>
-
-    <physvol name="Cathode_R5_phys2_1">
+    <physvol>
       <volumeref ref="Cathode_log_R5_2"/>
-      <position name="Cathode_R5_pos2_1" x="(1371+22)*sin(pi/28.)" y="(1371.+22)*cos(pi/28)" z="22521.3-424"/>
-      <rotation name="Cathode_R5_rot2_1" aunit="rad" x="pi/2" y="-pi/28" z="0"/>
+      <position name="Cathode_R5_pos2_1" x="(1371+22)*sin((2*icount+1)*pi/28.)" y="(1371.+22)*cos((2*icount+1)*pi/28)" z="22521.3-290"/>
+      <rotation name="Cathode_R5_rot2_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
     </physvol>
-
-    <physvol name="Cathode_R5_phys2_2">
+    <physvol>
+      <volumeref ref="Cathode_log_R5_3"/>
+      <position name="Cathode_R5_pos3_1" x="(1371+46)*sin((2*icount+1)*pi/28)" y="(1371.+46)*cos((2*icount+1)*pi/28)" z="22521.3-290"/>
+      <rotation name="Cathode_R5_rot3_1" aunit="rad" x="pi/2" y="-(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    </loop>
+  
+    <loop for="icount" from="0" to="num" step="2">
+    <physvol>
+      <volumeref ref="Cathode_log_R5_1"/>
+      <position name="Cathode_R5_pos1_2" x="-1371*sin((2*icount+1)*pi/28)" y="1371*cos((2*icount+1)*pi/28)" z="22521.3-290"/>
+      <rotation name="Cathode_R5_rot1_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
       <volumeref ref="Cathode_log_R5_2"/>
-      <position name="Cathode_R5_pos2_2" x="-(1371+22)*sin(pi/28)" y="(1371+22)*cos(pi/28)" z="22521.3-290"/>
-      <rotation name="Cathode_R5_rot2_2" aunit="rad" x="pi/2" y="pi/28" z="0"/>
+      <position name="Cathode_R5_pos2_2" x="-(1371+22)*sin((2*icount+1)*pi/28)" y="(1371+22)*cos((2*icount+1)*pi/28)" z="22521.3-290"/>
+      <rotation name="Cathode_R5_rot2_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
     </physvol>
-
-    <physvol name="Cathode_R5_phys3_1">
+    <physvol>
       <volumeref ref="Cathode_log_R5_3"/>
-      <position name="Cathode_R5_pos3_1" x="(1371+46)*sin(pi/28)" y="(1371.+46)*cos(pi/28)" z="22521.3-424"/>
-      <rotation name="Cathode_R5_rot3_1" aunit="rad" x="pi/2" y="-pi/28" z="0"/>
+      <position name="Cathode_R5_pos3_2" x="-(1371+46)*sin((2*icount+1)*pi/28)" y="(1371+46)*cos((2*icount+1)*pi/28)" z="22521.3-290"/>
+      <rotation name="Cathode_R5_rot3_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
     </physvol>
+    </loop>
 
-    <physvol name="Cathode_R5_phys3_2">
+    <loop for="icount" from="1" to="num" step="2">
+    <physvol>
+      <volumeref ref="Cathode_log_R5_1"/>
+      <position name="Cathode_R5_pos1_2" x="-1371*sin((2*icount+1)*pi/28)" y="1371*cos((2*icount+1)*pi/28)" z="22521.3-424"/>
+      <rotation name="Cathode_R5_rot1_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
+      <volumeref ref="Cathode_log_R5_2"/>
+      <position name="Cathode_R5_pos2_2" x="-(1371+22)*sin((2*icount+1)*pi/28)" y="(1371+22)*cos((2*icount+1)*pi/28)" z="22521.3-424"/>
+      <rotation name="Cathode_R5_rot2_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
+    </physvol>
+    <physvol>
       <volumeref ref="Cathode_log_R5_3"/>
-      <position name="Cathode_R5_pos3_2" x="-(1371+46)*sin(pi/28)" y="(1371+46)*cos(pi/28)" z="22521.3-290"/>
-      <rotation name="Cathode_R5_rot3_2" aunit="rad" x="pi/2" y="pi/28" z="0"/>
+      <position name="Cathode_R5_pos3_2" x="-(1371+46)*sin((2*icount+1)*pi/28)" y="(1371+46)*cos((2*icount+1)*pi/28)" z="22521.3-424"/>
+      <rotation name="Cathode_R5_rot3_2" aunit="rad" x="pi/2" y="(2*icount+1)*pi/28" z="0"/>
     </physvol>
-
+    </loop>
 
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>
   </volume>

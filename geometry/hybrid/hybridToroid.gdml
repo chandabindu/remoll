@@ -37,9 +37,9 @@
 <solids>
 
          <xtru name="Coll5_solid1_1" lunit="mm">
-                <twoDimVertex x="42.70" y="-14.21"/>
-		<twoDimVertex x="39.38" y="-21.78"/>
-                <twoDimVertex x="88.90" y="-45.68"/>
+                <twoDimVertex x="42.70" y="-14.20"/>
+		<twoDimVertex x="40.54" y="-19.52"/>
+                <twoDimVertex x="90.09" y="-43.39"/>
                 <twoDimVertex x="94.13" y="-35.01"/>
                 <twoDimVertex x="103.20" y="-33.94"/>
                 <twoDimVertex x="156.30" y="-44.19"/>
@@ -77,8 +77,8 @@
         </subtraction>
 
         <xtru name="Coll5_solid2_1" lunit="mm">
-                <twoDimVertex x="40.28" y="22.22"/>
-                <twoDimVertex x="91.34" y="46.80"/>
+                <twoDimVertex x="38.97" y="24.41"/>
+                <twoDimVertex x="90.12" y="49.03"/>
                 <twoDimVertex x="96.13" y="36.86"/>
                 <twoDimVertex x="105.18" y="35.11"/>
                 <twoDimVertex x="155.87" y="45.10"/>

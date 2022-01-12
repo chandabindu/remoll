@@ -212,8 +212,8 @@
 
 	<!--    Solid for Collimator 6B -->
         <xtru name="Coll6B_solid1" lunit="mm">
-                <twoDimVertex x="61.92" y="2.54"/>
-                <twoDimVertex x="133.35" y="2.54"/>
+                <twoDimVertex x="61.92" y="0"/>
+                <twoDimVertex x="133.35" y="0"/>
                 <twoDimVertex x="133.35" y="-26.98"/>
                 <twoDimVertex x="129.92" y="-26.98"/>
                 <twoDimVertex x="129.92" y="-35.11"/>
@@ -232,8 +232,8 @@
         </subtraction>
 
         <xtru name="Coll6B_solid2" lunit="mm">
-                <twoDimVertex x="68.43" y="-2.54"/>
-                <twoDimVertex x="133.35" y="-2.54"/>
+                <twoDimVertex x="68.28" y="-5.08"/>
+                <twoDimVertex x="133.35" y="-5.08"/>
                 <twoDimVertex x="133.35" y="26.98"/>
                 <twoDimVertex x="129.92" y="26.98"/>
                 <twoDimVertex x="129.92" y="35.11"/>

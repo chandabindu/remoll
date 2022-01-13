@@ -172,9 +172,9 @@
 	<!--    Solid for Collimator 6A -->
         <xtru name="Coll6A_solid1" lunit="mm">
                 <twoDimVertex x="52.77" y="-7.79"/>
-                <twoDimVertex x="46.90" y="-25.41"/>
-                <twoDimVertex x="91.58" y="-46.92"/>
-                <twoDimVertex x="95.25" y="-46.92"/>
+                <twoDimVertex x="48.00" y="-23.12"/>
+                <twoDimVertex x="92.71" y="-44.65"/>
+                <twoDimVertex x="95.25" y="-44.66"/>
                 <twoDimVertex x="95.25" y="-27.87"/>
                 <twoDimVertex x="98.42" y="-27.87"/>
                 <twoDimVertex x="98.42" y="-24.70"/>
@@ -191,15 +191,15 @@
         </subtraction>
 
         <xtru name="Coll6A_solid2" lunit="mm">
-                <twoDimVertex x="46.76" y="26.78"/>
+                <twoDimVertex x="48.50" y="29.0"/>
                 <twoDimVertex x="55.97" y="7.79"/>
                 <twoDimVertex x="70.79" y="7.79"/>
                 <twoDimVertex x="70.79" y="24.70"/>
                 <twoDimVertex x="98.42" y="24.70"/>
                 <twoDimVertex x="98.42" y="27.87"/>
                 <twoDimVertex x="95.25" y="27.87"/>
-                <twoDimVertex x="95.25" y="46.92"/>
-                <twoDimVertex x="91.58" y="46.92"/>
+                <twoDimVertex x="95.25" y="49.22"/>
+                <twoDimVertex x="90.50" y="49.22"/>
                 <section zOrder="1" zPosition="-34.925" xOffset="0" yOffset="0" scalingFactor="1"/>
                 <section zOrder="2" zPosition="34.925" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>

@@ -199,7 +199,7 @@
                 <twoDimVertex x="98.42" y="27.87"/>
                 <twoDimVertex x="95.25" y="27.87"/>
                 <twoDimVertex x="95.25" y="49.22"/>
-                <twoDimVertex x="90.50" y="49.22"/>
+                <twoDimVertex x="90.39" y="49.17"/>
                 <section zOrder="1" zPosition="-34.925" xOffset="0" yOffset="0" scalingFactor="1"/>
                 <section zOrder="2" zPosition="34.925" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>
@@ -212,15 +212,15 @@
 
 	<!--    Solid for Collimator 6B -->
         <xtru name="Coll6B_solid1" lunit="mm">
-                <twoDimVertex x="61.92" y="0"/>
-                <twoDimVertex x="133.35" y="0"/>
+                <twoDimVertex x="61.92" y="2.54"/>
+                <twoDimVertex x="133.35" y="2.54"/>
                 <twoDimVertex x="133.35" y="-26.98"/>
                 <twoDimVertex x="129.92" y="-26.98"/>
                 <twoDimVertex x="129.92" y="-35.11"/>
                 <twoDimVertex x="133.35" y="-35.11"/>
                 <twoDimVertex x="133.35" y="-39.22"/>
-                <twoDimVertex x="122.47" y="-61.80"/>
-                <twoDimVertex x="54.69" y="-29.16"/>
+                <twoDimVertex x="123.59" y="-59.52"/>
+                <twoDimVertex x="55.84" y="-26.89"/>
                 <section zOrder="1" zPosition="-34.925" xOffset="0" yOffset="0" scalingFactor="1"/>
                 <section zOrder="2" zPosition="34.925" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>
@@ -232,15 +232,15 @@
         </subtraction>
 
         <xtru name="Coll6B_solid2" lunit="mm">
-                <twoDimVertex x="68.28" y="-5.08"/>
-                <twoDimVertex x="133.35" y="-5.08"/>
+                <twoDimVertex x="68.28" y="-2.54"/>
+                <twoDimVertex x="133.35" y="-2.54"/>
                 <twoDimVertex x="133.35" y="26.98"/>
                 <twoDimVertex x="129.92" y="26.98"/>
                 <twoDimVertex x="129.92" y="35.11"/>
                 <twoDimVertex x="133.35" y="35.11"/>
                 <twoDimVertex x="133.35" y="39.22"/>
-                <twoDimVertex x="122.47" y="61.80"/>
-                <twoDimVertex x="60.55" y="31.98"/>
+                <twoDimVertex x="121.30" y="64.05"/>
+                <twoDimVertex x="59.31" y="34.20"/>
                 <section zOrder="1" zPosition="-34.925" xOffset="0" yOffset="0" scalingFactor="1"/>
                 <section zOrder="2" zPosition="34.925" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>

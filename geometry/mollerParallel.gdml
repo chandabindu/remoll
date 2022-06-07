@@ -51,7 +51,7 @@
   <tube
     name="PMT_IR_solid"
     startphi="0" deltaphi="360" aunit="deg"
-    rmax="1369" rmin="1368" z="1967.2" lunit="mm"/>
+    rmax="1369" rmin="1368" z="1866.4" lunit="mm"/>
 
   <tube
     name="PMT_OR_solid1"
@@ -61,12 +61,12 @@
   <tube
     name="PMT_OR_solid2"
     startphi="0" deltaphi="360" aunit="deg"
-    rmax="1543" rmin="1542" z="1613.2" lunit="mm"/>
+    rmax="1541" rmin="1540" z="1613.2" lunit="mm"/>
 
   <tube
     name="PMT_OR_solid3"
     startphi="0" deltaphi="360" aunit="deg"
-    rmax="1603" rmin="1602" z="1613.2" lunit="mm"/>
+    rmax="1636" rmin="1635" z="1613.2" lunit="mm"/>
 
   <tube
     name="Cathode_solid"
@@ -629,12 +629,12 @@
 
     <physvol name="DSCoil10_phys">
       <volumeref ref="DSCoil10_log"/>
-      <position  name="DSCoil10_pos" unit="mm" x="0" y="0" z="7600+0.5"/>
+      <position  name="DSCoil10_pos" unit="mm" x="0" y="0" z="7547.93-0.5"/>
     </physvol>
 
     <physvol name="LintelEnt_phys">
       <volumeref ref="LintelEnt_log"/>
-      <position name="LintelEnt_pos" unit="mm" x="0" y="0" z="7800-0.5"/>
+      <position name="LintelEnt_pos" unit="mm" x="0" y="0" z="7760.63+0.5"/>
     </physvol>
 
     <physvol name="LintelExit_phys">

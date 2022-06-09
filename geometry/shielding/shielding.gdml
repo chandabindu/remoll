@@ -42,6 +42,9 @@
   <tube name ="AlPlateHole_solid"
           startphi="0" deltaphi="2*pi" aunit="rad"
       rmax="112/2" rmin="0" z="19.05" lunit="mm"/>
+  <tube name ="AlPlateHole_solid_Al"
+          startphi="0" deltaphi="2*pi" aunit="rad"
+      rmax="112/2" rmin="0" z="2" lunit="mm"/>
   <box lunit="mm" name="SidePlate_solid" x="306" y="250" z="25.4"/>
   
   <!--<box lunit="mm" name="AnglePlateLeft_solid" x="306" y="250-75" z="12.7"/>
@@ -103,12 +106,26 @@
       <!--      <auxiliary auxtype="DetNo" auxvalue="2004"/>-->
   </volume>
 
+  <volume name ="AlPlateHole_Al_log">
+      <materialref ref="G4_Al"/>
+      <solidref ref="AlPlateHole_solid_Al"/>
+      <auxiliary auxtype="Color" auxvalue="red"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <!--<auxiliary auxtype="DetNo" auxvalue="2004"/>-->
+  </volume>
+
   <volume name ="AlPlateHole_log">
       <materialref ref="G4_Galactic"/>
       <solidref ref="AlPlateHole_solid"/>
       <auxiliary auxtype="Color" auxvalue="yellow"/>
       <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
       <!--<auxiliary auxtype="DetNo" auxvalue="2004"/>-->
+      <physvol name="AlPlateHole_Al_phys">
+      <volumeref ref="AlPlateHole_Al_log"/>
+      <position name="AlPlateHole_Al_pos" x="0" y="0" z="-19.05/2+1"/>
+      <rotation name="AlPlateHole_Al_rot" aunit="rad" x="0" y="0" z="0"/>
+      </physvol>
+
   </volume>
 
   <volume name="LeadPlateBottom1_log">

@@ -602,7 +602,7 @@
             <section zOrder="1" zPosition="0" xOffset="0" yOffset="0" scalingFactor="1"/>
             <section zOrder="2" zPosition="69.850" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>
-        <cone aunit="deg" deltaphi="60" lunit="mm" name="Coll6B_Cylinder_solid2" rmax1="64.88" rmax2="67.36" rmin1="55" rmin2="57" startphi="-20" z="71"/>
+        <cone aunit="deg" deltaphi="50" lunit="mm" name="Coll6B_Cylinder_solid2" rmax1="64.88" rmax2="67.36" rmin1="55" rmin2="57" startphi="-10" z="71"/>
         <subtraction name="Coll6B_solid_2">
             <first ref="Coll6B_solid2"/>
             <second ref="Coll6B_Cylinder_solid2"/>

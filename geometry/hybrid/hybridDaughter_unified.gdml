@@ -578,7 +578,7 @@
             <section zOrder="1" zPosition="0" xOffset="0" yOffset="0" scalingFactor="1"/>
             <section zOrder="2" zPosition="69.850" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>
-        <cone aunit="deg" deltaphi="35" lunit="mm" name="Coll6B_Cylinder_solid1" rmax1="59.911" rmax2="65.411" rmin1="50" rmin2="52" startphi="330" z="71"/>
+        <cone aunit="deg" deltaphi="35" lunit="mm" name="Coll6B_Cylinder_solid1" rmax1="62" rmax2="64.48" rmin1="50" rmin2="52" startphi="330" z="71"/>
         <subtraction name="Coll6B_solid_1">
             <first ref="Coll6B_solid1"/>
             <second ref="Coll6B_Cylinder_solid1"/>
@@ -597,11 +597,12 @@
             <twoDimVertex x="113.030" y="37.716"/>
             <twoDimVertex x="115.027" y="37.716"/>
             <twoDimVertex x="105.912" y="56.643"/>
-            <twoDimVertex x="57.455" y="33.307"/>
+            <twoDimVertex x="55.0" y="32.125"/>
+		<!-- <twoDimVertex x="57.455" y="33.307"/>-->
             <section zOrder="1" zPosition="0" xOffset="0" yOffset="0" scalingFactor="1"/>
             <section zOrder="2" zPosition="69.850" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>
-        <cone aunit="deg" deltaphi="50" lunit="mm" name="Coll6B_Cylinder_solid2" rmax1="66.411" rmax2="71.912" rmin1="55" rmin2="56" startphi="-15" z="71"/>
+        <cone aunit="deg" deltaphi="60" lunit="mm" name="Coll6B_Cylinder_solid2" rmax1="64.88" rmax2="67.36" rmin1="55" rmin2="57" startphi="-20" z="71"/>
         <subtraction name="Coll6B_solid_2">
             <first ref="Coll6B_solid2"/>
             <second ref="Coll6B_Cylinder_solid2"/>

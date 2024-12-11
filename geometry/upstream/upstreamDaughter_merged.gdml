@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE gdml [
 <!ENTITY matrices SYSTEM "../matrices.xml">
@@ -7,150 +7,457 @@
 
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
-  <define>
+<define>
+	<!-- &positions;-->
     &matrices;
-    <!-- Shielding collimators dimensions -->
-    <constant name="USBoxmother_extensionUS" value="120"/>
-
-    <constant name="USBoxmother_width" value="4500"/>
-	  <!--<constant name="USBoxmother_height" value="5800"/>-->
-    <constant name="USBoxmother_height" value="5964"/>
-    <constant name="USBoxmother_length" value="6500+USBoxmother_extensionUS"/>
-
-    <constant name="USBoxmothersubtract_length" value="2225+(USBoxmother_extensionUS)/2"/>
-    <position name="boxConcreteShielding_center" unit="mm" x="0" y="0" z="USBoxmother_length/2 - USBoxmothersubtract_length/2 + 1110/2"/>
-
     
-  </define>
-  &materials;
+    <constant name="PI" value="1.*pi"/>
+    <constant name="UOFFSET" value="7000.00"/>
+    <constant name="SEPTANT" value ="360./7"/>
+    <position name="CENTER" unit="mm" x="0" y="0" z="0"/>
 
-  <solids>
-    
-    <box lunit="mm" name="boxConcreteShielding_1" x="USBoxmother_width" y="USBoxmother_height" z="USBoxmother_length"/>
-    <box lunit="mm" name="boxConcreteShielding_2" x="USBoxmother_width + 1" y="USBoxmother_height + 1" z="USBoxmothersubtract_length - 1110"/>
-    <subtraction name="boxConcreteShielding"> <!-- originally was _4"> -->
-      <first ref="boxConcreteShielding_1"/>
-      <second ref="boxConcreteShielding_2"/>
-      <positionref ref="boxConcreteShielding_center" />
+    <constant name="USBoxmother_width" value="1498"/>
+    <constant name="USBoxmother_height" value="1498"/>
+    <constant name="USBoxmother_length" value="1498"/>
+    <constant name="MainCylinderLength" value="572"/>
+<!--    <position name="posMainCylinder" unit="mm" x="0" y="0" z="-MainCylinderLength/2"/>--> <!-- upstream end of CW piece is 5250mm with respect to target center -->
+    <position name="posMainCylinder" unit="mm" x="0" y="0" z="0"/> <!-- upstream end of CW piece is 5250mm with respect to target center -->
+    <constant name="SmallSidePipeL" value="37.85+6+172-sqrt(pow(172,2)-pow(31.88,2))"/>
+    <constant name="BigSidePipeL" value="37.85+6+172-sqrt(pow(172,2)-pow(51.3,2))"/>
+    <constant name="SmallPipeFlangePosR" value="sqrt(pow(172,2)-pow(30.16,2))-6+SmallSidePipeL"/>
+    <constant name="BigPipeFlangePosR" value="sqrt(pow(172,2)-pow(48.4,2))-6+BigSidePipeL"/>
+
+
+     
+</define> 
+
+&materials;
+
+<solids>
+
+    <box lunit="mm" name="boxUpstream" x="USBoxmother_width" y="USBoxmother_height" z="USBoxmother_length"/>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="MainCylinder">
+    <zplane rmin="172" rmax="178" z="0"/>
+    <zplane rmin="172" rmax="178" z="MainCylinderLength"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="SideBigHoleSub">
+    <zplane rmin="0" rmax="51.3" z="0"/>
+    <zplane rmin="0" rmax="51.3" z="30"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="SmallHoleSub">
+    <zplane rmin="0" rmax="31.88" z="0"/>
+    <zplane rmin="0" rmax="31.88" z="20"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="BottomBigHoleSub">
+    <zplane rmin="0" rmax="50.9" z="0"/>
+    <zplane rmin="0" rmax="50.9" z="30"/>
+    </polycone>
+
+    <subtraction name ="MainCylinder1">
+    <first ref="MainCylinder"/>
+    <second ref="SideBigHoleSub"/>
+    <position name="cut_pos1" x="175-30/2" y="0" z="406.4"/>
+    <rotation name="Cut_rot1" x="0" y="90" z="0" unit="deg"/>
     </subtraction>
 
-    <!--shielding concrete-->
-    <box lunit="mm" name="DSconcrete" x="4261" y="5160 + 127.65 + 12.43" z="500"/>
-
-    <tube aunit="deg" deltaphi="360" lunit="mm" name="ShieldDS_tube" rmin="0" rmax="800+1" z="500+1"/>
-
-    <tube aunit="deg" deltaphi="360" lunit="mm" name="dsBarite_solid" rmin="551" rmax="800" z="500"/>
-
-
-    <subtraction name="DSconcreteShielding_sub">
-      <first ref = "DSconcrete"/>
-      <second ref = "ShieldDS_tube"/>
-      <position name ="concreteSub2" lunit="mm" x="0" y="420-127.65/2 - 18 - 12.43/2" z="0" />
+    <subtraction name ="MainCylinder2">
+    <first ref="MainCylinder1"/>
+    <second ref="SmallHoleSub"/>
+    <position name="cut_pos2" x="175-20/2" y="0" z="236.2"/>
+    <rotation name="Cut_rot2" x="0" y="90" z="0" unit="deg"/>
     </subtraction>
 
-    <box lunit="mm" name="coll1SideShielding_solid"
-	 x="800"
-	 y="2*(1287.05)"
-	 z="USBoxmother_length - USBoxmothersubtract_length - 10 + 610"/>
+    <subtraction name ="MainCylinder3">
+    <first ref="MainCylinder2"/>
+    <second ref="SmallHoleSub"/>
+    <position name="cut_pos3" x="175-20/2" y="0" z="101.6"/>
+    <rotation name="Cut_rot3" x="0" y="90" z="0" unit="deg"/>
+    </subtraction>
 
-    <box lunit="mm" name="coll1TopShielding_solid"
-	 x="4261"
-	 y="1400"
-	 z="USBoxmother_length - USBoxmothersubtract_length - 10 + 610"/>
+    <subtraction name ="MainCylinder4">
+    <first ref="MainCylinder3"/>
+    <second ref="SmallHoleSub"/>
+    <position name="cut_pos4" x="-175+20/2" y="0" z="236.2"/>
+    <rotation name="Cut_rot4" x="0" y="-90" z="0" unit="deg"/>
+    </subtraction>
 
-    <box lunit="mm" name="pivotIron_solid"
-	 x="4261"
-	 y="50"
-	 z="USBoxmother_length - USBoxmothersubtract_length - 10 + 610"/>
-    
-  </solids>
+    <subtraction name ="MainCylinder5">
+    <first ref="MainCylinder4"/>
+    <second ref="SideBigHoleSub"/>
+    <position name="cut_pos5" x="-175+30/2" y="0" z="406.4"/>
+    <rotation name="Cut_rot5" x="0" y="-90" z="0" unit="deg"/>
+    </subtraction>
 
-  <structure>
+    <subtraction name ="MainCylinder6">
+    <first ref="MainCylinder5"/>
+    <second ref="SideBigHoleSub"/>
+    <position name="cut_pos6" x="0" y="175-30/2" z="406.4"/>
+    <rotation name="Cut_rot6" x="-90" y="0" z="0" unit="deg"/>
+    </subtraction>
 
-    <!--Concrete Shielding-->
-    <volume name="coll1TopShield_logic">
-      <materialref ref="Concrete"/>
-      <solidref ref="coll1TopShielding_solid"/>
-      <auxiliary auxtype="Color" auxvalue="green"/>
+    <subtraction name ="MainCylinder7">
+    <first ref="MainCylinder6"/>
+    <second ref="SmallHoleSub"/>
+    <position name="cut_pos7" x="0" y="175-20/2" z="236.2"/>
+    <rotation name="Cut_rot7" x="-90" y="0" z="0" unit="deg"/>
+    </subtraction>
+
+    <subtraction name ="MainCylinder8">
+    <first ref="MainCylinder7"/>
+    <second ref="BottomBigHoleSub"/>
+    <position name="cut_pos8" x="0" y="-175+30/2" z="285.8"/>
+    <rotation name="Cut_rot8" x="90" y="0" z="0" unit="deg"/>
+    </subtraction>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="SmallSidePipeS1">
+    <zplane rmin="30.16" rmax="31.88" z="0"/>
+    <zplane rmin="30.16" rmax="31.88" z="37.85+6+172-sqrt(pow(172,2)-pow(31.88,2))"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="-13" deltaphi="26" lunit="mm" name="SmallSidePipeSub">
+    <zplane rmin="160" rmax="178" z="0"/>
+    <zplane rmin="160" rmax="178" z="70"/>
+    </polycone>
+
+    <subtraction name ="SmallSidePipeS2">
+    <first ref="SmallSidePipeS1"/>
+    <second ref="SmallSidePipeSub"/>
+    <position name="cut_pos9" x="35" y="0" z="-sqrt(pow(172,2)-pow(30.16,2))" unit="mm"/>
+    <rotation name="Cut_rot9" x="0" y="-90" z="0" unit="deg"/>
+    </subtraction>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="BigSidePipeS1">
+    <zplane rmin="48.4" rmax="51.3" z="0"/>
+    <zplane rmin="48.4" rmax="51.3" z="37.85+6+172-sqrt(pow(172,2)-pow(51.3,2))"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="-20" deltaphi="40" lunit="mm" name="BigSidePipeSub">
+    <zplane rmin="160" rmax="178" z="0"/>
+    <zplane rmin="160" rmax="178" z="110"/>
+    </polycone>
+
+    <subtraction name ="BigSidePipeS2">
+    <first ref="BigSidePipeS1"/>
+    <second ref="BigSidePipeSub"/>
+    <position name="cut_pos9" x="55" y="0" z="-sqrt(pow(172,2)-pow(48.4,2))" unit="mm"/>
+    <rotation name="Cut_rot9" x="0" y="-90" z="0" unit="deg"/>
+    </subtraction>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="BigBottomPipeS1">
+    <zplane rmin="48.4" rmax="50.9" z="0"/>
+    <zplane rmin="48.4" rmax="50.9" z="37.85+6+172-sqrt(pow(172,2)-pow(50.9,2))"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="-20" deltaphi="40" lunit="mm" name="BigBottomPipeSub">
+    <zplane rmin="160" rmax="178" z="0"/>
+    <zplane rmin="160" rmax="178" z="110"/>
+    </polycone>
+
+    <subtraction name ="BigBottomPipeS2">
+    <first ref="BigBottomPipeS1"/>
+    <second ref="BigBottomPipeSub"/>
+    <position name="cut_pos9" x="55" y="0" z="-sqrt(pow(172,2)-pow(48.4,2))" unit="mm"/>
+    <rotation name="Cut_rot9" x="0" y="-90" z="0" unit="deg"/>
+    </subtraction>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="SmallPipeEndFlange">
+    <zplane rmin="32.64" rmax="56.01" z="0"/>
+    <zplane rmin="32.64" rmax="56.01" z="7.45"/>
+    <zplane rmin="30.16" rmax="56.01" z="7.45"/>
+    <zplane rmin="30.16" rmax="56.01" z="7.45+8.2"/>
+    <zplane rmin="19.94" rmax="56.26" z="7.45+8.2"/>
+    <zplane rmin="19.94" rmax="56.26" z="7.45+8.2+17.27"/>
+    <zplane rmin="0" rmax="34.67" z="7.45+8.2+17.27"/>
+    <zplane rmin="0" rmax="34.67" z="7.45+8.2+17.27+12.7"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="BigPipeEndFlange">
+    <zplane rmin="50.93" rmax="75.82" z="0"/>
+    <zplane rmin="50.93" rmax="75.82" z="8.74"/>
+    <zplane rmin="48.39" rmax="75.82" z="8.74"/>
+    <zplane rmin="48.39" rmax="75.82" z="8.74+9.83"/>
+    <zplane rmin="0" rmax="75.82" z="8.74+9.83"/>
+    <zplane rmin="0" rmax="75.82" z="8.74+9.83+19.81"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="EndFlange1">
+    <zplane rmin="178.05" rmax="209.55" z="0"/>
+    <zplane rmin="178.05" rmax="209.55" z="15.8932"/>
+    <zplane rmin="174.62" rmax="209.55" z="15.8932"/>
+    <zplane rmin="174.62" rmax="209.55" z="15.8932+11.30"/>
+    <zplane rmin="19.93" rmax="209.55" z="15.8932+11.30"/>
+    <zplane rmin="19.93" rmax="209.55" z="15.8932+11.30+28.45"/>
+    <zplane rmin="15.88" rmax="34.92" z="15.8932+11.30+28.45"/>
+    <zplane rmin="15.88" rmax="34.92" z="15.8932+11.30+28.45+12.70"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="EndFlange2">
+    <zplane rmin="178.05" rmax="209.55" z="0"/>
+    <zplane rmin="178.05" rmax="209.55" z="15.8932"/>
+    <zplane rmin="174.62" rmax="209.55" z="15.8932"/>
+    <zplane rmin="174.62" rmax="209.55" z="15.8932+11.30"/>
+    <zplane rmin="48.39" rmax="209.55" z="15.8932+11.30"/>
+    <zplane rmin="48.39" rmax="209.55" z="15.8932+11.30+28.45"/>
+    <zplane rmin="48.39" rmax="75.82" z="15.8932+11.30+28.45"/>
+    <zplane rmin="48.39" rmax="75.82" z="15.8932+11.30+28.45+9.83"/>
+    <zplane rmin="50.93" rmax="75.82" z="15.8932+11.30+28.45+9.83"/>
+    <zplane rmin="50.93" rmax="75.82" z="15.8932+11.30+28.45+9.83+8.71"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="target">
+    <zplane rmin="0" rmax="19" z="0"/>
+    <zplane rmin="0" rmax="19" z="4.0"/>
+    </polycone>
+
+</solids>
+
+
+<structure>
+  
+    <volume name="logicMainCylinder">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="MainCylinder8"/>
+      <auxiliary auxtype="Color" auxvalue="blue"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="1"/>
+    </volume>
+<!--
+    <volume name="logicMainCylinder1">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="SmallSidePipeS1"/>
+      <auxiliary auxtype="Color" auxvalue="magenta"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="700000"/>
     </volume>
 
-    <volume name="coll1SideShield_logic">
-      <materialref ref="Concrete"/>
-      <solidref ref="coll1SideShielding_solid"/>
-      <auxiliary auxtype="Color" auxvalue="green"/>
+    <volume name="logicMainCylinder2">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="SmallSidePipeSub"/>
+      <auxiliary auxtype="Color" auxvalue="blue"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="700001"/>
     </volume>
 
+    <volume name="logicMainCylinder3">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="SmallSidePipeS2"/>
+      <auxiliary auxtype="Color" auxvalue="pink"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="700002"/>
+    </volume>
+-->
 
-    <volume name="pivotIron_logic">
-      <materialref ref="G4_Fe"/>
-      <solidref ref="pivotIron_solid"/>
-      <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    <volume name="logicSmallSidePipe">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="SmallSidePipeS2"/>
+      <auxiliary auxtype="Color" auxvalue="red"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="2"/>
     </volume>
-    
-    <volume name="DSconcreteShielding">
-      <materialref ref="Concrete"/>
-      <solidref ref="DSconcreteShielding_sub"/>
-      <auxiliary auxtype="Color" auxvalue="Green"/>
-      <auxiliary auxtype="Alpha" auxvalue="1.0"/>
-    </volume>
-    
-    <volume name="dsBarite_logic">
-      <materialref ref="barite"/>
-      <solidref ref="dsBarite_solid"/>
-      <auxiliary auxtype="Color" auxvalue="Brown"/>
-      <auxiliary auxtype="Alpha" auxvalue="1.0"/>
-    </volume>
-    
 
-    <volume name="upstream">
-      <materialref ref="G4_AIR"/>  
-      <solidref ref="boxConcreteShielding"/>
+    <volume name="logicBigSidePipe">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="BigSidePipeS2"/>
+      <auxiliary auxtype="Color" auxvalue="red"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="3"/>
+    </volume>
+
+    <volume name="logicBigBottomPipe">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="BigBottomPipeS2"/>
+      <auxiliary auxtype="Color" auxvalue="red"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="4"/>
+    </volume>
+
+    <volume name="logicSmallPipeEndFlange">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="SmallPipeEndFlange"/>
+      <auxiliary auxtype="Color" auxvalue="red"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="5"/>
+    </volume>
+
+    <volume name="logicBigPipeEndFlange">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="BigPipeEndFlange"/>
+      <auxiliary auxtype="Color" auxvalue="red"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="6"/>
+    </volume>
+
+    <volume name="logicEndFlange1">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="EndFlange1"/>
+      <auxiliary auxtype="Color" auxvalue="red"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="7"/>
+    </volume>
+
+    <volume name="logicEndFlange2">
+      <materialref ref="StainlessSteel"/>
+      <solidref ref="EndFlange2"/>
+      <auxiliary auxtype="Color" auxvalue="red"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="8"/>
+    </volume>
+
+    <volume name="logicTarget">
+      <materialref ref="CW90"/>
+      <solidref ref="target"/>
+      <auxiliary auxtype="TargetSamplingVolume" auxvalue=""/>
+      <auxiliary auxtype="Color" auxvalue="magenta"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="9"/>
+    </volume>
+
+    <volume name="logicUpstream">
+      <materialref ref="VacuumColl"/>
+      <solidref ref="boxUpstream"/>
+
+      <physvol name="physMainCylinder">
+        <volumeref ref="logicMainCylinder"/>
+        <position name="pos1" unit="mm" x="406.4" y="0" z="0"/>
+        <rotation name="rot1" x="0" y="90" z="0" unit="deg"/>
+      </physvol>
+<!--
+      <physvol name="physMainCylinder1">
+        <volumeref ref="logicMainCylinder2"/>
+        <position name="pos1" unit="mm" x="35" y="0" z="-150"/>
+        <rotation name="rot1" x="0" y="90" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physMainCylinder2">
+        <volumeref ref="logicMainCylinder3"/>
+        <positionref ref="posMainCylinder"/>
+      </physvol>-->
+
+      <physvol name="physSmallSidePipe1">
+        <volumeref ref="logicSmallSidePipe"/>
+        <position name="pos2" unit="mm" x="406.4- 101.6" y="0" z="sqrt(pow(172,2)-pow(30.16,2))-6"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmallSidePipe2">
+        <volumeref ref="logicSmallSidePipe"/>
+        <position name="pos2" unit="mm" x="406.4-236.2" y="0" z="sqrt(pow(172,2)-pow(30.16,2))-6"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmallSidePipe3">
+        <volumeref ref="logicSmallSidePipe"/>
+        <position name="pos2" unit="mm" x="406.4-236.2" y="0" z="-sqrt(pow(172,2)-pow(30.16,2))+6"/>
+        <rotation name="rot2" x="0" y="180" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmallSidePipe4">
+        <volumeref ref="logicSmallSidePipe"/>
+        <position name="pos2" unit="mm" x="406.4-236.2" y="sqrt(pow(172,2)-pow(30.16,2))-6" z="0"/>
+        <rotation name="rot2" x="90" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physBigSidePipe1">
+        <volumeref ref="logicBigSidePipe"/>
+        <position name="pos2" unit="mm" x="0" y="0" z="sqrt(pow(172,2)-pow(48.4,2))-6"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physBigSidePipe2">
+        <volumeref ref="logicBigSidePipe"/>
+        <position name="pos2" unit="mm" x="0" y="0" z="-sqrt(pow(172,2)-pow(48.4,2))+6"/>
+        <rotation name="rot2" x="0" y="180" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physBigSidePipe3">
+        <volumeref ref="logicBigSidePipe"/>
+        <position name="pos2" unit="mm" x="0" y="sqrt(pow(172,2)-pow(48.4,2))-6" z="0"/>
+        <rotation name="rot2" x="90" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physBigBottomPipe">
+        <volumeref ref="logicBigBottomPipe"/>
+        <position name="pos2" unit="mm" x="406.4-285.8" y="-(sqrt(pow(172,2)-pow(48.4,2))-6)" z="0"/>
+        <rotation name="rot2" x="-90" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmallPipeFlange1">
+        <volumeref ref="logicSmallPipeEndFlange"/>
+        <position name="pos2" unit="mm" x="406.4- 101.6" y="0" z="SmallPipeFlangePosR"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmallPipeFlange2">
+        <volumeref ref="logicSmallPipeEndFlange"/>
+        <position name="pos2" unit="mm" x="406.4- 236.2" y="0" z="SmallPipeFlangePosR"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmallPipeFlange3">
+        <volumeref ref="logicSmallPipeEndFlange"/>
+        <position name="pos2" unit="mm" x="406.4- 236.2" y="0" z="-SmallPipeFlangePosR"/>
+        <rotation name="rot2" x="0" y="180" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmallPipeFlange4">
+        <volumeref ref="logicSmallPipeEndFlange"/>
+        <position name="pos2" unit="mm" x="406.4- 236.2" y="SmallPipeFlangePosR" z="0"/>
+        <rotation name="rot2" x="90" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physBigPipeFlange1">
+        <volumeref ref="logicBigPipeEndFlange"/>
+        <position name="pos2" unit="mm" x="0" y="0" z="BigPipeFlangePosR"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+<!--
+      <physvol name="physBigPipeFlange2">
+        <volumeref ref="logicBigPipeEndFlange"/>
+        <position name="pos2" unit="mm" x="0" y="0" z="-BigPipeFlangePosR"/>
+        <rotation name="rot2" x="0" y="180" z="0" unit="deg"/>
+      </physvol>
+-->
+      <physvol name="physBigPipeFlange3">
+        <volumeref ref="logicBigPipeEndFlange"/>
+        <position name="pos2" unit="mm" x="0" y="BigPipeFlangePosR" z="0"/>
+        <rotation name="rot2" x="90" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physBigPipeFlange4">
+        <volumeref ref="logicBigPipeEndFlange"/>
+        <position name="pos2" unit="mm" x="406.4-285.8" y="-BigPipeFlangePosR" z="0"/>
+        <rotation name="rot2" x="-90" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physEndFlange1">
+        <volumeref ref="logicEndFlange1"/>
+        <position name="pos2" unit="mm" x="406.4-572.0" y="0" z=""/>
+        <rotation name="rot2" x="0" y="90" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physEndFlange2">
+        <volumeref ref="logicEndFlange2"/>
+        <position name="pos2" unit="mm" x="406.4" y="0" z="0"/>
+        <rotation name="rot2" x="0" y="-90" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physTarget">
+        <volumeref ref="logicTarget"/>
+        <position name="pos2" unit="mm" x="0" y="0" z="0"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+
       <auxiliary auxtype="Alpha" auxvalue="0.1"/>
+   </volume>
+</structure>
 
-      <!--shielding placement-->
-      <physvol name="coll1TopShielding">
-        <volumeref ref="coll1TopShield_logic"/>
-        <position name="coll1TopShield_pos" unit="mm" x="0" y="915.67 + 1400/2 - 10 + 12.43" z="1287.5-250/2 - 2000"/>
-      </physvol>
-
-
-      <physvol name="coll1LeftShielding">
-        <volumeref ref="coll1SideShield_logic"/>
-        <position name="coll1LeftShield_pos" unit="mm" x="1331+800/2" y="-368.95" z="1287.5-250/2 - 2000"/>
-      </physvol>
-
-      <physvol name="coll1RightShielding">
-        <volumeref ref="coll1SideShield_logic"/>
-        <position name="coll1RightShield_pos" unit="mm" x="-1331-800/2" y="-368.95" z="1287.5-250/2 - 2000"/>
-      </physvol>
-
-      <physvol name="pivotIron">
-        <volumeref ref="pivotIron_logic"/>
-        <position name="pivotIron_pos" unit="mm" x="0" y="-1700" z="1287.5-250/2 - 2000"/>
-      </physvol>
-      
-      <physvol>
-	<volumeref ref="DSconcreteShielding"/>
-	<position name="DSconcreteShielding_pos" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000"/>
-      </physvol>
-
-      <physvol name="dsBarite">
-	<volumeref ref="dsBarite_logic"/>
-	<position name="dsBarite_pos" unit="mm" x="0" y="0" z="4005-250/2- 2000"/>
-      </physvol>
-
-      <physvol>
-	<file name="upstream/upstreamTorusRegion.gdml"/>
-      </physvol>
-
-
-    </volume>
-
-  </structure>
-
-  <setup name="ConcreteShielding" version="1.0">
-    <world ref="upstream"/>
-  </setup>
+<setup name="Default" version="1.0">
+	<world ref="logicUpstream"/>
+</setup>
 
 </gdml>

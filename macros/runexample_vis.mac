@@ -4,7 +4,8 @@
 /remoll/physlist/optical/enable
 
 # This is the current working geometry
-/remoll/setgeofile geometry/mollerMother.gdml
+#/remoll/setgeofile geometry/mollerMother.gdml
+/remoll/setgeofile geometry/upstream/upstreamDaughter_merged.gdml
 /remoll/parallel/setfile geometry/mollerParallel.gdml 
 
 #/remoll/likekryptonite  true
@@ -27,23 +28,22 @@
 #/gun/momentum 0.5 1.0 2.0 GeV
 
 # Raster is on by default with 5x5mm
-/remoll/rasx 5 mm
-/remoll/rasy 5 mm 
+/remoll/rasx 0 mm
+/remoll/rasy 0 mm 
 
 ## Beam generator
 /remoll/evgen/set beam
 #/remoll/evgen/beam/origin -987.5,0.0,-150.0 mm
-/remoll/evgen/beam/origin -987.5 0.0 -150.0 mm
+/remoll/evgen/beam/origin 0 0 -100 mm
 #/remoll/evgen/beam/x -987.5 mm
-/remoll/evgen/beam/direction -0.0523 0.0 0.9986
-/remoll/evgen/beam/rasx 105.0 mm
-/remoll/evgen/beam/rasy 78.0 mm
+/remoll/evgen/beam/direction 0 0.0 1.0
+/remoll/evgen/beam/rasx 0 mm
+/remoll/evgen/beam/rasy 0 mm
 #/remoll/evgen/beam/x -987.5 mm
 #/remoll/evgen/beam/z -150.0 mm
 #/remoll/evgen/beam/px -0.0523
 #/remoll/evgen/beam/pz 0.9986 
 /remoll/filename remollout_r5o_beam_default.root
-
 
 ## External Generator
 #/remoll/evgen/set external

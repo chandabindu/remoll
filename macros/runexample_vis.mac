@@ -19,7 +19,7 @@
 
 
 #/remoll/beamene 11.0 GeV
-/remoll/beamene 855 MeV
+/remoll/beamene 1 MeV
 /remoll/beamcurr 50 microampere
 #/remoll/optical true
 #/remoll/addfield CLEO_rm.dat

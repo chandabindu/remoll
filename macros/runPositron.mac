@@ -2,20 +2,25 @@
 /remoll/physlist/register QGSP_BERT_HP
 /remoll/physlist/parallel/enable
 /remoll/parallel/setfile geometry/mollerParallel.gdml
+#/remoll/target/mother Optics1
+#/remoll/target/volume PT
 
 /run/initialize
-#/remoll/addfield map_directory/hybridJLAB.txt
-#/remoll/addfield map_directory/upstreamJLAB_1.25.txt
-
+#/remoll/addfield map_directory/V2U.1a.50cm.parallel.txt
+#/remoll/addfield map_directory/subcoil_2_3_3mm_full.txt
+#/remoll/magcurrent map_directory/V2U.1a.50cm.parallel.txt 0.0 A
+#/remoll/magcurrent map_directory/subcoil_2_3_3mm_full.txt 0.0 A
+#/remoll/field/scalefield map_directory/V2U.1a.50cm.parallel.txt 0.0
+#/remoll/field/scalefield map_directory/subcoil_2_3_3mm_full.txt 0.0
 /remoll/evgen/set beam
 
 /remoll/oldras false
 /remoll/evgen/beam/origin 0 0 -0.1 m
 /remoll/evgen/beam/rasx 0 mm
-/remoll/evgen/beam/rasx 0 mm
-/remoll/evgen/beam/corrx 0.0
-/remoll/evgen/beam/corry 0.0
-/remoll/beamene 123 MeV
+/remoll/evgen/beam/rasy 0 mm
+#/remoll/evgen/beam/corrx 0.0
+#/remoll/evgen/beam/corry 0.0
+/remoll/beamene 10 MeV
 /remoll/beamcurr 1000 microampere
 
 /remoll/SD/disable_all
@@ -55,4 +60,4 @@
 #/remoll/kryptonite/enable
 #
 /remoll/filename o_M_pbShield_beam_1e6.root
-/run/beamOn 100000
+/run/beamOn 10000

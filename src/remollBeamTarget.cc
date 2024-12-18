@@ -40,7 +40,7 @@ G4bool remollBeamTarget::fUpdateNeeded = true;
 
 remollBeamTarget::remollBeamTarget()
 : fBeamEnergy(gDefaultBeamE),fBeamCurrent(gDefaultBeamCur),fBeamPolarization(gDefaultBeamPol),
-  fOldRaster(true),fRasterX(5.0*mm),fRasterY(5.0*mm),
+  fOldRaster(true),fRasterX(0.0*mm),fRasterY(0.0*mm),
   fX0(0.0),fY0(0.0),fTh0(0.0),fPh0(0.0),
   fdTh(0.0),fdPh(0.0),fCorrTh(0.0),fCorrPh(0.0)
 {

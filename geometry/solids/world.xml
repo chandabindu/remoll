@@ -1,8 +1,8 @@
 <!-- Physical world extent: 200 m cube around the origin of the world,
      which is picked at the center of the MOLLER target -->
-<box lunit="mm" name="world_solid"    x="1500" y="1500" z="1500"/>
+<box lunit="mm" name="world_solid"    x="2000" y="2000" z="2000"/>
 
 <!-- Parallel world must be smaller than the physical world,
      private communcation with Makoto Asai -->
-<box lunit="mm" name="parallel_solid" x="1449" y="1499" z="1499"/>
+<box lunit="mm" name="parallel_solid" x="1800" y="1800" z="1800"/>
 

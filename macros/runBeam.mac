@@ -4,8 +4,8 @@
 /remoll/parallel/setfile geometry/mollerParallel.gdml
 
 /run/initialize
-/remoll/addfield map_directory/hybridJLAB.txt
-/remoll/addfield map_directory/upstreamJLAB_1.25.txt
+#/remoll/addfield map_directory/hybridJLAB.txt
+#/remoll/addfield map_directory/upstreamJLAB_1.25.txt
 
 /remoll/evgen/set beam
 
@@ -17,35 +17,40 @@
 /remoll/beamcurr 65 microampere
 
 /remoll/SD/disable_all
-/remoll/SD/enable 28
-/remoll/SD/detect lowenergyneutral 28
-/remoll/SD/detect secondaries 28
-/remoll/SD/detect boundaryhits 28
+/remoll/SD/enable 9
+/remoll/SD/detect lowenergyneutral 9
+/remoll/SD/detect secondaries 9
+#/remoll/SD/detect boundaryhits 9
 
-/remoll/SD/enable 91
-/remoll/SD/detect lowenergyneutral 91
-/remoll/SD/detect secondaries 91
-/remoll/SD/detect boundaryhits 91
-
-/remoll/SD/enable 92
-/remoll/SD/detect lowenergyneutral 92
-/remoll/SD/detect secondaries 92
-/remoll/SD/detect boundaryhits 92
-
-/remoll/SD/enable 5547
-/remoll/SD/detect lowenergyneutral 5547
-/remoll/SD/detect secondaries 5547
-/remoll/SD/detect boundaryhits 5547
-
-/remoll/SD/enable 5543
-/remoll/SD/detect lowenergyneutral 5543
-/remoll/SD/detect secondaries 5543
-/remoll/SD/detect boundaryhits 5543
-
-/remoll/kryptonite/volume logicUSTracker
-/remoll/kryptonite/volume logicDSTracker
-/remoll/kryptonite/volume logicWasher_12
-/remoll/kryptonite/enable
-
+#/remoll/SD/enable 28
+#/remoll/SD/detect lowenergyneutral 28
+#/remoll/SD/detect secondaries 28
+#/remoll/SD/detect boundaryhits 28
+#
+#/remoll/SD/enable 91
+#/remoll/SD/detect lowenergyneutral 91
+#/remoll/SD/detect secondaries 91
+#/remoll/SD/detect boundaryhits 91
+#
+#/remoll/SD/enable 92
+#/remoll/SD/detect lowenergyneutral 92
+#/remoll/SD/detect secondaries 92
+#/remoll/SD/detect boundaryhits 92
+#
+#/remoll/SD/enable 5547
+#/remoll/SD/detect lowenergyneutral 5547
+#/remoll/SD/detect secondaries 5547
+#/remoll/SD/detect boundaryhits 5547
+#
+#/remoll/SD/enable 5543
+#/remoll/SD/detect lowenergyneutral 5543
+#/remoll/SD/detect secondaries 5543
+#/remoll/SD/detect boundaryhits 5543
+#
+#/remoll/kryptonite/volume logicUSTracker
+#/remoll/kryptonite/volume logicDSTracker
+#/remoll/kryptonite/volume logicWasher_12
+#/remoll/kryptonite/enable
+#
 /remoll/filename o_M_pbShield_beam_1e6.root
-/run/beamOn 1000000
+/run/beamOn 10000

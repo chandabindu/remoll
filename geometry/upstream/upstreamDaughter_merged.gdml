@@ -17,10 +17,10 @@
     <constant name="MainCylinderLength" value="572"/>
 <!--    <position name="posMainCylinder" unit="mm" x="0" y="0" z="-MainCylinderLength/2"/>--> <!-- upstream end of CW piece is 5250mm with respect to target center -->
     <position name="posMainCylinder" unit="mm" x="0" y="0" z="0"/> <!-- upstream end of CW piece is 5250mm with respect to target center -->
-    <constant name="SmallSidePipeL" value="37.85+6+172-sqrt(pow(172,2)-pow(31.88,2))"/>
-    <constant name="BigSidePipeL" value="37.85+6+172-sqrt(pow(172,2)-pow(51.3,2))"/>
-    <constant name="SmallPipeFlangePosR" value="sqrt(pow(172,2)-pow(30.16,2))-6+SmallSidePipeL"/>
-    <constant name="BigPipeFlangePosR" value="sqrt(pow(172,2)-pow(48.4,2))-6+BigSidePipeL"/>
+    <constant name="SmallSidePipeL" value="37.85+10+258-sqrt(pow(258,2)-pow(31.88,2))"/>
+    <constant name="BigSidePipeL" value="37.85+10+258-sqrt(pow(258,2)-pow(51.3,2))"/>
+    <constant name="SmallPipeFlangePosR" value="sqrt(pow(258,2)-pow(30.16,2))-10+SmallSidePipeL"/>
+    <constant name="BigPipeFlangePosR" value="sqrt(pow(258,2)-pow(51.3,2))-10+BigSidePipeL"/>
     <rotation name="targetRot" unit="deg" x="0" y="0" z="0"/>
 
 
@@ -34,8 +34,8 @@
     <box lunit="mm" name="boxUpstream" x="USBoxmother_width" y="USBoxmother_height" z="USBoxmother_length"/>
 
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="MainCylinder">
-    <zplane rmin="172" rmax="178" z="0"/>
-    <zplane rmin="172" rmax="178" z="MainCylinderLength"/>
+    <zplane rmin="258" rmax="268" z="0"/>
+    <zplane rmin="258" rmax="268" z="MainCylinderLength"/>
     </polycone>
 
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="SideBigHoleSub">
@@ -56,107 +56,107 @@
     <subtraction name ="MainCylinder1">
     <first ref="MainCylinder"/>
     <second ref="SideBigHoleSub"/>
-    <position name="cut_pos1" x="175-30/2" y="0" z="406.4"/>
+    <position name="cut_pos1" x="263-30/2" y="0" z="406.4"/>
     <rotation name="Cut_rot1" x="0" y="90" z="0" unit="deg"/>
     </subtraction>
 
     <subtraction name ="MainCylinder2">
     <first ref="MainCylinder1"/>
     <second ref="SmallHoleSub"/>
-    <position name="cut_pos2" x="175-20/2" y="0" z="236.2"/>
+    <position name="cut_pos2" x="263-20/2" y="0" z="236.2"/>
     <rotation name="Cut_rot2" x="0" y="90" z="0" unit="deg"/>
     </subtraction>
 
     <subtraction name ="MainCylinder3">
     <first ref="MainCylinder2"/>
     <second ref="SmallHoleSub"/>
-    <position name="cut_pos3" x="175-20/2" y="0" z="101.6"/>
+    <position name="cut_pos3" x="263-20/2" y="0" z="101.6"/>
     <rotation name="Cut_rot3" x="0" y="90" z="0" unit="deg"/>
     </subtraction>
 
     <subtraction name ="MainCylinder4">
     <first ref="MainCylinder3"/>
     <second ref="SmallHoleSub"/>
-    <position name="cut_pos4" x="-175+20/2" y="0" z="236.2"/>
+    <position name="cut_pos4" x="-263+20/2" y="0" z="236.2"/>
     <rotation name="Cut_rot4" x="0" y="-90" z="0" unit="deg"/>
     </subtraction>
 
     <subtraction name ="MainCylinder5">
     <first ref="MainCylinder4"/>
     <second ref="SideBigHoleSub"/>
-    <position name="cut_pos5" x="-175+30/2" y="0" z="406.4"/>
+    <position name="cut_pos5" x="-263+30/2" y="0" z="406.4"/>
     <rotation name="Cut_rot5" x="0" y="-90" z="0" unit="deg"/>
     </subtraction>
 
     <subtraction name ="MainCylinder6">
     <first ref="MainCylinder5"/>
     <second ref="SideBigHoleSub"/>
-    <position name="cut_pos6" x="0" y="175-30/2" z="406.4"/>
+    <position name="cut_pos6" x="0" y="263-30/2" z="406.4"/>
     <rotation name="Cut_rot6" x="-90" y="0" z="0" unit="deg"/>
     </subtraction>
 
     <subtraction name ="MainCylinder7">
     <first ref="MainCylinder6"/>
     <second ref="SmallHoleSub"/>
-    <position name="cut_pos7" x="0" y="175-20/2" z="236.2"/>
+    <position name="cut_pos7" x="0" y="263-20/2" z="236.2"/>
     <rotation name="Cut_rot7" x="-90" y="0" z="0" unit="deg"/>
     </subtraction>
 
     <subtraction name ="MainCylinder8">
     <first ref="MainCylinder7"/>
     <second ref="BottomBigHoleSub"/>
-    <position name="cut_pos8" x="0" y="-175+30/2" z="285.8"/>
+    <position name="cut_pos8" x="0" y="-263+30/2" z="285.8"/>
     <rotation name="Cut_rot8" x="90" y="0" z="0" unit="deg"/>
     </subtraction>
 
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="SmallSidePipeS1">
     <zplane rmin="30.16" rmax="31.88" z="0"/>
-    <zplane rmin="30.16" rmax="31.88" z="37.85+6+172-sqrt(pow(172,2)-pow(31.88,2))"/>
+    <zplane rmin="30.16" rmax="31.88" z="37.85+10+258-sqrt(pow(258,2)-pow(31.88,2))"/>
     </polycone>
 
     <polycone aunit="deg" startphi="-13" deltaphi="26" lunit="mm" name="SmallSidePipeSub">
-    <zplane rmin="160" rmax="178" z="0"/>
-    <zplane rmin="160" rmax="178" z="70"/>
+    <zplane rmin="160" rmax="268" z="0"/>
+    <zplane rmin="160" rmax="268" z="70"/>
     </polycone>
 
     <subtraction name ="SmallSidePipeS2">
     <first ref="SmallSidePipeS1"/>
     <second ref="SmallSidePipeSub"/>
-    <position name="cut_pos9" x="35" y="0" z="-sqrt(pow(172,2)-pow(30.16,2))" unit="mm"/>
+    <position name="cut_pos9" x="35" y="0" z="-sqrt(pow(258,2)-pow(30.16,2))" unit="mm"/>
     <rotation name="Cut_rot9" x="0" y="-90" z="0" unit="deg"/>
     </subtraction>
 
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="BigSidePipeS1">
     <zplane rmin="48.4" rmax="51.3" z="0"/>
-    <zplane rmin="48.4" rmax="51.3" z="37.85+6+172-sqrt(pow(172,2)-pow(51.3,2))"/>
+    <zplane rmin="48.4" rmax="51.3" z="37.85+10+258-sqrt(pow(258,2)-pow(51.3,2))"/>
     </polycone>
 
     <polycone aunit="deg" startphi="-20" deltaphi="40" lunit="mm" name="BigSidePipeSub">
-    <zplane rmin="160" rmax="178" z="0"/>
-    <zplane rmin="160" rmax="178" z="110"/>
+    <zplane rmin="160" rmax="268" z="0"/>
+    <zplane rmin="160" rmax="268" z="110"/>
     </polycone>
 
     <subtraction name ="BigSidePipeS2">
     <first ref="BigSidePipeS1"/>
     <second ref="BigSidePipeSub"/>
-    <position name="cut_pos9" x="55" y="0" z="-sqrt(pow(172,2)-pow(48.4,2))" unit="mm"/>
+    <position name="cut_pos9" x="55" y="0" z="-sqrt(pow(258,2)-pow(51.3,2))" unit="mm"/>
     <rotation name="Cut_rot9" x="0" y="-90" z="0" unit="deg"/>
     </subtraction>
 
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="BigBottomPipeS1">
     <zplane rmin="48.4" rmax="50.9" z="0"/>
-    <zplane rmin="48.4" rmax="50.9" z="37.85+6+172-sqrt(pow(172,2)-pow(50.9,2))"/>
+    <zplane rmin="48.4" rmax="50.9" z="37.85+10+258-sqrt(pow(258,2)-pow(50.9,2))"/>
     </polycone>
 
     <polycone aunit="deg" startphi="-20" deltaphi="40" lunit="mm" name="BigBottomPipeSub">
-    <zplane rmin="160" rmax="178" z="0"/>
-    <zplane rmin="160" rmax="178" z="110"/>
+    <zplane rmin="160" rmax="268" z="0"/>
+    <zplane rmin="160" rmax="268" z="110"/>
     </polycone>
 
     <subtraction name ="BigBottomPipeS2">
     <first ref="BigBottomPipeS1"/>
     <second ref="BigBottomPipeSub"/>
-    <position name="cut_pos9" x="55" y="0" z="-sqrt(pow(172,2)-pow(48.4,2))" unit="mm"/>
+    <position name="cut_pos9" x="55" y="0" z="-sqrt(pow(258,2)-pow(48.4,2))" unit="mm"/>
     <rotation name="Cut_rot9" x="0" y="-90" z="0" unit="deg"/>
     </subtraction>
 
@@ -172,8 +172,8 @@
     </polycone>
 
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="BigPipeEndFlange">
-    <zplane rmin="50.93" rmax="75.82" z="0"/>
-    <zplane rmin="50.93" rmax="75.82" z="8.74"/>
+    <zplane rmin="51.3" rmax="75.82" z="0"/>
+    <zplane rmin="51.3" rmax="75.82" z="8.74"/>
     <zplane rmin="48.39" rmax="75.82" z="8.74"/>
     <zplane rmin="48.39" rmax="75.82" z="8.74+9.83"/>
     <zplane rmin="0" rmax="75.82" z="8.74+9.83"/>
@@ -181,23 +181,23 @@
     </polycone>
 
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="EndFlange1">
-    <zplane rmin="178.05" rmax="209.55" z="0"/>
-    <zplane rmin="178.05" rmax="209.55" z="15.8932"/>
-    <zplane rmin="174.62" rmax="209.55" z="15.8932"/>
-    <zplane rmin="174.62" rmax="209.55" z="15.8932+11.30"/>
-    <zplane rmin="19.93" rmax="209.55" z="15.8932+11.30"/>
-    <zplane rmin="19.93" rmax="209.55" z="15.8932+11.30+28.45"/>
+    <zplane rmin="268" rmax="314.3" z="0"/>
+    <zplane rmin="268" rmax="314.3" z="15.8932"/>
+    <zplane rmin="174.62" rmax="314.3" z="15.8932"/>
+    <zplane rmin="174.62" rmax="314.3" z="15.8932+11.30"/>
+    <zplane rmin="19.93" rmax="314.3" z="15.8932+11.30"/>
+    <zplane rmin="19.93" rmax="314.3" z="15.8932+11.30+28.45"/>
     <zplane rmin="15.88" rmax="34.92" z="15.8932+11.30+28.45"/>
     <zplane rmin="15.88" rmax="34.92" z="15.8932+11.30+28.45+12.70"/>
     </polycone>
 
     <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="EndFlange2">
-    <zplane rmin="178.05" rmax="209.55" z="0"/>
-    <zplane rmin="178.05" rmax="209.55" z="15.8932"/>
-    <zplane rmin="174.62" rmax="209.55" z="15.8932"/>
-    <zplane rmin="174.62" rmax="209.55" z="15.8932+11.30"/>
-    <zplane rmin="48.39" rmax="209.55" z="15.8932+11.30"/>
-    <zplane rmin="48.39" rmax="209.55" z="15.8932+11.30+28.45"/>
+    <zplane rmin="268" rmax="314.3" z="0"/>
+    <zplane rmin="268" rmax="314.3" z="15.8932"/>
+    <zplane rmin="174.62" rmax="314.3" z="15.8932"/>
+    <zplane rmin="174.62" rmax="314.3" z="15.8932+11.30"/>
+    <zplane rmin="48.39" rmax="314.3" z="15.8932+11.30"/>
+    <zplane rmin="48.39" rmax="314.3" z="15.8932+11.30+28.45"/>
     <zplane rmin="48.39" rmax="75.82" z="15.8932+11.30+28.45"/>
     <zplane rmin="48.39" rmax="75.82" z="15.8932+11.30+28.45+9.83"/>
     <zplane rmin="50.93" rmax="75.82" z="15.8932+11.30+28.45+9.83"/>
@@ -410,49 +410,49 @@
 
       <physvol name="physSmallSidePipe1">
         <volumeref ref="logicSmallSidePipe"/>
-        <position name="pos2" unit="mm" x="406.4- 101.6" y="0" z="sqrt(pow(172,2)-pow(30.16,2))-6"/>
+        <position name="pos2" unit="mm" x="406.4- 101.6" y="0" z="sqrt(pow(258,2)-pow(30.16,2))-10"/>
         <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
       </physvol>
 
       <physvol name="physSmallSidePipe2">
         <volumeref ref="logicSmallSidePipe"/>
-        <position name="pos2" unit="mm" x="406.4-236.2" y="0" z="sqrt(pow(172,2)-pow(30.16,2))-6"/>
+        <position name="pos2" unit="mm" x="406.4-236.2" y="0" z="sqrt(pow(258,2)-pow(30.16,2))-10"/>
         <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
       </physvol>
 
       <physvol name="physSmallSidePipe3">
         <volumeref ref="logicSmallSidePipe"/>
-        <position name="pos2" unit="mm" x="406.4-236.2" y="0" z="-sqrt(pow(172,2)-pow(30.16,2))+6"/>
+        <position name="pos2" unit="mm" x="406.4-236.2" y="0" z="-sqrt(pow(258,2)-pow(30.16,2))+10"/>
         <rotation name="rot2" x="0" y="180" z="0" unit="deg"/>
       </physvol>
 
       <physvol name="physSmallSidePipe4">
         <volumeref ref="logicSmallSidePipe"/>
-        <position name="pos2" unit="mm" x="406.4-236.2" y="sqrt(pow(172,2)-pow(30.16,2))-6" z="0"/>
+        <position name="pos2" unit="mm" x="406.4-236.2" y="sqrt(pow(258,2)-pow(30.16,2))-10" z="0"/>
         <rotation name="rot2" x="90" y="0" z="0" unit="deg"/>
       </physvol>
 
       <physvol name="physBigSidePipe1">
         <volumeref ref="logicBigSidePipe"/>
-        <position name="pos2" unit="mm" x="0" y="0" z="sqrt(pow(172,2)-pow(48.4,2))-6"/>
+        <position name="pos2" unit="mm" x="0" y="0" z="sqrt(pow(258,2)-pow(48.4,2))-10"/>
         <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
       </physvol>
 
       <physvol name="physBigSidePipe2">
         <volumeref ref="logicBigSidePipe"/>
-        <position name="pos2" unit="mm" x="0" y="0" z="-sqrt(pow(172,2)-pow(48.4,2))+6"/>
+        <position name="pos2" unit="mm" x="0" y="0" z="-sqrt(pow(258,2)-pow(48.4,2))+10"/>
         <rotation name="rot2" x="0" y="180" z="0" unit="deg"/>
       </physvol>
 
       <physvol name="physBigSidePipe3">
         <volumeref ref="logicBigSidePipe"/>
-        <position name="pos2" unit="mm" x="0" y="sqrt(pow(172,2)-pow(48.4,2))-6" z="0"/>
+        <position name="pos2" unit="mm" x="0" y="sqrt(pow(258,2)-pow(48.4,2))-10" z="0"/>
         <rotation name="rot2" x="90" y="0" z="0" unit="deg"/>
       </physvol>
 
       <physvol name="physBigBottomPipe">
         <volumeref ref="logicBigBottomPipe"/>
-        <position name="pos2" unit="mm" x="406.4-285.8" y="-(sqrt(pow(172,2)-pow(48.4,2))-6)" z="0"/>
+        <position name="pos2" unit="mm" x="406.4-285.8" y="-(sqrt(pow(258,2)-pow(48.4,2))-10)" z="0"/>
         <rotation name="rot2" x="-90" y="0" z="0" unit="deg"/>
       </physvol>
 
@@ -484,14 +484,14 @@
         <volumeref ref="logicBigPipeEndFlange"/>
         <position name="pos2" unit="mm" x="0" y="0" z="BigPipeFlangePosR"/>
         <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
-      </physvol>
-<!--
+      </physvol> 
+
       <physvol name="physBigPipeFlange2">
         <volumeref ref="logicBigPipeEndFlange"/>
         <position name="pos2" unit="mm" x="0" y="0" z="-BigPipeFlangePosR"/>
         <rotation name="rot2" x="0" y="180" z="0" unit="deg"/>
       </physvol>
--->
+
       <physvol name="physBigPipeFlange3">
         <volumeref ref="logicBigPipeEndFlange"/>
         <position name="pos2" unit="mm" x="0" y="BigPipeFlangePosR" z="0"/>

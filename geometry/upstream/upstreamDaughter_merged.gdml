@@ -354,7 +354,7 @@
       <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
       <auxiliary auxtype="Color" auxvalue="brown"/>
       <auxiliary auxtype="DetNo" auxvalue="9"/>
-      <physvol name="physChilledWateriTube">
+      <physvol name="physChilledWaterTube">
 	<volumeref ref="logicChilledWaterTube"/>
 	<position name="pos1" unit= "mm" x="0" y="0" z="15"/>
 	<rotationref ref="targetRot"/>
@@ -518,7 +518,7 @@
 
       <physvol name="physTarget">
         <volumeref ref="logicTarget"/>
-        <position name="pos2" unit="mm" x="0" y="0" z="0"/>
+        <position name="pos2" unit="mm" x="180" y="0" z="0"/>
         <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
       </physvol>
 

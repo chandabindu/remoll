@@ -27,6 +27,9 @@
 /remoll/SD/enable 9
 /remoll/SD/detect lowenergyneutral 9
 /remoll/SD/detect secondaries 9
+/remoll/SD/enable 10
+/remoll/SD/detect lowenergyneutral 10
+/remoll/SD/detect secondaries 10
 #/remoll/SD/detect boundaryhits 9
 
 #/remoll/SD/enable 28
@@ -60,4 +63,4 @@
 #/remoll/kryptonite/enable
 #
 /remoll/filename o_M_pbShield_beam_1e6.root
-/run/beamOn 10000
+/run/beamOn 1000

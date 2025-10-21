@@ -12,55 +12,74 @@
 #/remoll/magcurrent map_directory/subcoil_2_3_3mm_full.txt 0.0 A
 #/remoll/field/scalefield map_directory/V2U.1a.50cm.parallel.txt 0.0
 #/remoll/field/scalefield map_directory/subcoil_2_3_3mm_full.txt 0.0
-/remoll/evgen/set beam
-
 /remoll/oldras false
-/remoll/evgen/beam/origin 0 0 -0.1 m
-/remoll/evgen/beam/rasx 0 mm
-/remoll/evgen/beam/rasy 0 mm
-#/remoll/evgen/beam/corrx 0.0
-#/remoll/evgen/beam/corry 0.0
-/remoll/beamene 10 MeV
+/remoll/evgen/beam/xmodel gauss
+/remoll/evgen/beam/ymodel gauss
+#/remoll/evgen/beam/isotropic true
+#/remoll/evgen/beam/isotropic_theta_min 60.9319 deg
+#/remoll/evgen/beam/isotropic_theta_max 60.9589 deg
+#/remoll/evgen/thmax 60.9589 deg
+
+#/remoll/evgen/beam/origin 0 0 -0.1 m
+/remoll/evgen/beam/rasx 0.0 mm
+/remoll/evgen/beam/rasy 0.0 mm
+/remoll/evgen/beam/corrx 0.0
+/remoll/evgen/beam/corry 0.0
+/remoll/evgen/beam/xspread 0.426 mm #0.426 mm #0.849 mm
+/remoll/evgen/beam/yspread 0.426 mm #0.426 mm #0.849 mm
+/remoll/evgen/set beam
+/remoll/beamene 123 MeV
 /remoll/beamcurr 1000 microampere
 
 /remoll/SD/disable_all
 /remoll/SD/enable 9
 /remoll/SD/detect lowenergyneutral 9
 /remoll/SD/detect secondaries 9
+
 /remoll/SD/enable 10
 /remoll/SD/detect lowenergyneutral 10
 /remoll/SD/detect secondaries 10
-#/remoll/SD/detect boundaryhits 9
 
-#/remoll/SD/enable 28
-#/remoll/SD/detect lowenergyneutral 28
-#/remoll/SD/detect secondaries 28
-#/remoll/SD/detect boundaryhits 28
-#
-#/remoll/SD/enable 91
-#/remoll/SD/detect lowenergyneutral 91
-#/remoll/SD/detect secondaries 91
-#/remoll/SD/detect boundaryhits 91
-#
-#/remoll/SD/enable 92
-#/remoll/SD/detect lowenergyneutral 92
-#/remoll/SD/detect secondaries 92
-#/remoll/SD/detect boundaryhits 92
-#
-#/remoll/SD/enable 5547
-#/remoll/SD/detect lowenergyneutral 5547
-#/remoll/SD/detect secondaries 5547
-#/remoll/SD/detect boundaryhits 5547
-#
-#/remoll/SD/enable 5543
-#/remoll/SD/detect lowenergyneutral 5543
-#/remoll/SD/detect secondaries 5543
-#/remoll/SD/detect boundaryhits 5543
+/remoll/SD/enable 11
+/remoll/SD/detect lowenergyneutral 11
+/remoll/SD/detect secondaries 11
+
+/remoll/SD/enable 12
+/remoll/SD/detect lowenergyneutral 12
+/remoll/SD/detect secondaries 12
+/remoll/SD/detect boundaryhits 12
+
+/remoll/SD/enable 13
+/remoll/SD/detect lowenergyneutral 13
+/remoll/SD/detect secondaries 13
+
+/remoll/SD/enable 14
+/remoll/SD/detect lowenergyneutral 14
+/remoll/SD/detect secondaries 14
+
+/remoll/SD/enable 15
+/remoll/SD/detect lowenergyneutral 15
+/remoll/SD/detect secondaries 15
+
+/remoll/SD/enable 16
+/remoll/SD/detect lowenergyneutral 16
+/remoll/SD/detect secondaries 16
+
+/remoll/SD/enable 17
+/remoll/SD/detect lowenergyneutral 17
+/remoll/SD/detect secondaries 17
+
+/remoll/SD/enable 18
+/remoll/SD/detect lowenergyneutral 18
+/remoll/SD/detect secondaries 18
+
 #
 #/remoll/kryptonite/volume logicUSTracker
 #/remoll/kryptonite/volume logicDSTracker
 #/remoll/kryptonite/volume logicWasher_12
 #/remoll/kryptonite/enable
 #
-/remoll/filename o_M_pbShield_beam_1e6.root
-/run/beamOn 1000
+/remoll/seed 123456
+#/remoll/filename Positron_1M_1mmFWHM.root
+/remoll/filename test1.root
+/run/beamOn 10000

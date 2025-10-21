@@ -157,6 +157,15 @@ void remollGenBeam::SamplePhysics(remollVertex * /*vert*/, remollEvent *evt)
     double p = sqrt(E*E - m*m);
 
     // Start from mean position
+    double rad11 = 180; //This is the radius where the beam will hit
+    double phi = 2*acos(-1)*G4RandFlat::shoot(0.,1.);
+    double x11 = rad11*std::cos(phi);
+    double y11 = rad11*std::sin(phi);
+    fOriginMean.setX(x11);
+    fOriginMean.setY(y11);
+    //double rad12 = G4RandFlat::shoot(0.,1.);
+    //rad12 >= 0.5 ? fOriginMean.setY(y11) : fOriginMean.setY(-1*y11);
+    fOriginMean.setZ(-100);
     G4ThreeVector origin(fOriginMean);
 
     // Start from mean direction

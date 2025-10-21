@@ -223,6 +223,13 @@
     <zplane rmin="100" rmax="190" z="4.0"/>
     </polycone>
 
+    <polycone aunit="deg" startphi="-3.01" deltaphi="6.02" lunit="mm" name="targetW1">
+    <zplane rmin="170" rmax="190" z="0"/>
+    <zplane rmin="170" rmax="190" z="4.0"/>
+    </polycone>
+
+<!--    <box lunit="mm" name="targetW1" x="20" y="20" z="4"/>-->
+
     <torus aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="CuTube"
      rmin="0" rmax="6.35" rtor="145"/> 
      <!--rmin="12.929" rmax="15.875" rtor="165"/> -->
@@ -235,6 +242,16 @@
     <tube aunit="deg" lunit="mm" deltaphi="360" name="targetS2" rmax="19" rmin="10" z="4"/>
     <tube aunit="deg" lunit="mm" deltaphi="360" name="targetS2" rmax="19" rmin="10" z="4"/>
 -->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="FerroFluid_S">
+    <zplane rmin="0" rmax="30" z="0"/>
+    <zplane rmin="0" rmax="30" z="2"/>
+    </polycone>
+
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="SmCo_S">
+    <zplane rmin="0" rmax="30" z="0"/>
+    <zplane rmin="0" rmax="30" z="5"/>
+    </polycone>
+
 </solids>
 
 
@@ -361,13 +378,27 @@
     </physvol>
     </volume>
 
+    <volume name="logicTarget1CW90">
+      <materialref ref="CW90"/>
+      <solidref ref="targetW1"/>
+      <auxiliary auxtype="TargetSamplingVolume" auxvalue="PT"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="Color" auxvalue="blue"/>
+      <auxiliary auxtype="DetNo" auxvalue="10"/>
+    </volume>
+
     <volume name="logicTargetCW90">
       <materialref ref="CW90"/>
       <solidref ref="targetW"/>
       <auxiliary auxtype="TargetSamplingVolume" auxvalue="PT"/>
       <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
       <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="DetNo" auxvalue="10"/>
+      <auxiliary auxtype="DetNo" auxvalue="11"/>
+      <!--<physvol name="physTarget1CW90">
+	<volumeref ref="logicTarget1CW90"/>
+	<position name="pos1" unit= "mm" x="0" y="0" z="0"/>
+	<rotation name="tgtr1"  unit="deg" x="0" y="0" z="180"/>
+    </physvol>-->
     </volume>
 
     <volume name="logicTarget">
@@ -385,6 +416,54 @@
 	<position name="pos1" unit= "mm" x="0" y="0" z="30"/>
 	<rotationref ref="targetRot"/>
     </physvol>
+    </volume>
+
+    <volume name="logicFerroFluid1">
+      <materialref ref="FerroFluid"/>
+      <solidref ref="FerroFluid_S"/>
+      <auxiliary auxtype="Color" auxvalue="brown"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="13"/>
+    </volume>
+
+    <volume name="logicFerroFluid2">
+      <materialref ref="FerroFluid"/>
+      <solidref ref="FerroFluid_S"/>
+      <auxiliary auxtype="Color" auxvalue="brown"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="14"/>
+    </volume>
+
+    <volume name="logicFerroFluid3">
+      <materialref ref="FerroFluid"/>
+      <solidref ref="FerroFluid_S"/>
+      <auxiliary auxtype="Color" auxvalue="brown"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="15"/>
+    </volume>
+
+    <volume name="logicSmCo1">
+      <materialref ref="SmCo"/>
+      <solidref ref="SmCo_S"/>
+      <auxiliary auxtype="Color" auxvalue="orange"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="16"/>
+    </volume>
+
+    <volume name="logicSmCo2">
+      <materialref ref="SmCo"/>
+      <solidref ref="SmCo_S"/>
+      <auxiliary auxtype="Color" auxvalue="orange"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="17"/>
+    </volume>
+
+    <volume name="logicSmCo3">
+      <materialref ref="SmCo"/>
+      <solidref ref="SmCo_S"/>
+      <auxiliary auxtype="Color" auxvalue="orange"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="18"/>
     </volume>
 
     <volume name="logicUpstream">
@@ -518,10 +597,45 @@
 
       <physvol name="physTarget">
         <volumeref ref="logicTarget"/>
-        <position name="pos2" unit="mm" x="180" y="0" z="0"/>
+        <position name="pos2" unit="mm" x="0" y="0" z="0"/>
         <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
       </physvol>
 
+      <physvol name="physFerroFluid1">
+        <volumeref ref="logicFerroFluid1"/>
+        <position name="pos2" unit="mm" x="406.4-236.2" y="0" z="-258-30.16"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physFerroFluid2">
+        <volumeref ref="logicFerroFluid2"/>
+        <position name="pos2" unit="mm" x="406.4-406.4" y="0" z="-258-30.16"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physFerroFluid3">
+        <volumeref ref="logicFerroFluid3"/>
+        <position name="pos2" unit="mm" x="390" y="0" z="-10"/>
+        <rotation name="rot2" x="0" y="90" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmCo1">
+        <volumeref ref="logicSmCo1"/>
+        <position name="pos2" unit="mm" x="406.4-236.2" y="0" z="-258-30.16-5"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmCo2">
+        <volumeref ref="logicSmCo2"/>
+        <position name="pos2" unit="mm" x="406.4-406.4" y="0" z="-258-30.16-5"/>
+        <rotation name="rot2" x="0" y="0" z="0" unit="deg"/>
+      </physvol>
+
+      <physvol name="physSmCo3">
+        <volumeref ref="logicSmCo3"/>
+        <position name="pos2" unit="mm" x="395" y="0" z="-10"/>
+        <rotation name="rot2" x="0" y="90" z="0" unit="deg"/>
+      </physvol>
 
       <auxiliary auxtype="Alpha" auxvalue="0.1"/>
    </volume>

@@ -18,25 +18,39 @@
 /run/initialize
 
 
+## Beam generator
+/remoll/evgen/set beam
 #/remoll/beamene 11.0 GeV
-/remoll/beamene 1 MeV
+/remoll/beamene 123 MeV
 /remoll/beamcurr 50 microampere
 #/remoll/optical true
 #/remoll/addfield CLEO_rm.dat
 /control/execute vis/vis.mac
 #/gun/position 0.0 0.0 -0.1 m
 #/gun/momentum 0.5 1.0 2.0 GeV
+#/remoll/beam_x0 0 mm
+#/remoll/beam_y0 0 mm
+/remoll/evgen/beam/origin 0 0 -100 mm
 
 # Raster is on by default with 5x5mm
-/remoll/rasx 0 mm
-/remoll/rasy 0 mm 
+# initial angle
+#/remoll/beam_th0 0 mrad
+#/remoll/beam_ph0 0 mrad
+# gaussian spread widths
+#/remoll/beam_dth 0 mrad
+#/remoll/beam_dph 0 mrad
+#/remoll/evgen/beam/rasx 0 mm
+#/remoll/evgen/beam/rasy 0 mm 
 
-## Beam generator
-/remoll/evgen/set beam
+#/remoll/evgen/beam/isotropic true
+#/remoll/evgen/beam/isotropic_theta_min 54.1 deg
+#/remoll/evgen/beam/isotropic_theta_max 52.2 deg
+#/remoll/evgen/beam/isotropic_theta_min 60.9319 deg
+#/remoll/evgen/beam/isotropic_theta_max 60.9589 deg
 #/remoll/evgen/beam/origin -987.5,0.0,-150.0 mm
-/remoll/evgen/beam/origin 0 0 -100 mm
+#/remoll/evgen/beam/origin 0 0 -100 mm
 #/remoll/evgen/beam/x -987.5 mm
-/remoll/evgen/beam/direction 0 0.0 1.0
+#/remoll/evgen/beam/direction 0 0.0 1.0
 /remoll/evgen/beam/rasx 0 mm
 /remoll/evgen/beam/rasy 0 mm
 #/remoll/evgen/beam/x -987.5 mm

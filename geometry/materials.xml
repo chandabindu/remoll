@@ -568,4 +568,18 @@
         <fraction n="0.68" ref="Fe"/>
   </material>
 
+  <material name="FerroFluid" state="liquid">
+        <D value="5" unit="g/cm3"/>
+        <fraction n="0.3" ref="G4_H"/>
+        <fraction n="0.3" ref="G4_C"/>
+        <fraction n="0.2" ref="G4_O"/>
+        <fraction n="0.2" ref="Fe"/>
+  </material>
+
+  <material name="SmCo" state="solid">
+        <D value="8.5" unit="g/cm3"/>
+        <fraction n="0.36" ref="G4_Sm"/>
+        <fraction n="0.64" ref="G4_Co"/>
+  </material>
+
 </materials>

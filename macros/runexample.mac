@@ -22,8 +22,8 @@
 
 # Raster and initial angle stuff
 /remoll/oldras true
-/remoll/rasx 5 mm
-/remoll/rasy 5 mm
+/remoll/rasx 0 mm
+/remoll/rasy 0 mm
 #/remoll/beam_x0 0 mm
 #/remoll/beam_y0 0 mm
 # initial angle

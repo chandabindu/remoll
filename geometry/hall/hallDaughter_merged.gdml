@@ -146,6 +146,129 @@
       <rotationref ref="scRot_1"/>
   </subtraction>
 
+<!-- Hall C small Beam pipe-->
+<!--Drawing 67175-00038-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe1_solid"> 
+      <zplane rmin="19.05" rmax="35.052" z="0"/> 
+      <zplane rmin="19.05" rmax="35.052" z="13.005"/> 
+      <zplane rmin="19.05" rmax="22.225" z="13.005"/> 
+      <zplane rmin="19.05" rmax="22.225" z="13.005+75.692"/> 
+      <zplane rmin="20.574" rmax="25.4" z="13.005+75.692"/> 
+      <zplane rmin="20.574" rmax="25.4" z="13.005+75.692+1697.99"/> 
+      <zplane rmin="20.574" rmax="36.576" z="13.005+75.692+1697.99"/> 
+      <zplane rmin="20.574" rmax="36.576" z="13.005+75.692+1697.99+11.938"/> 
+      <zplane rmin="31.356" rmax="36.512" z="13.005+75.692+1697.99+11.938"/> 
+      <zplane rmin="31.356" rmax="36.512" z="13.005+75.692+1697.99+11.938+1577.34"/> 
+      <zplane rmin="31.356" rmax="66.75" z="13.005+75.692+1697.99+11.938+1577.34"/> 
+      <zplane rmin="31.356" rmax="66.75" z="13.005+75.692+1697.99+11.938+1577.34+17.272"/> <!-- sum 3393.237 mm--> 
+    </polycone>
+<!--Drawing 67175-00031-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe2_solid"> 
+      <zplane rmin="38.1" rmax="66.675" z="0"/> 
+      <zplane rmin="38.1" rmax="66.675" z="19.05"/> 
+      <zplane rmin="47.625" rmax="66.675" z="19.05"/> 
+      <zplane rmin="47.625" rmax="63.500" z="19.05+16.002"/> 
+      <zplane rmin="57.150" rmax="63.500" z="19.05+16.002"/> 
+      <zplane rmin="57.150" rmax="63.500" z="19.05+16.002+3819.398"/> 
+      <zplane rmin="57.150" rmax="88.900" z="19.05+16.002+3819.398"/> 
+      <zplane rmin="57.150" rmax="88.900" z="19.05+16.002+3819.398+22.352"/> 
+      <zplane rmin="82.55" rmax="88.900" z="19.05+16.002+3819.398+22.352"/> 
+      <zplane rmin="82.55" rmax="88.900" z="19.05+16.002+3819.398+22.352+615.696"/> 
+      <zplane rmin="82.55" rmax="136.525" z="19.05+16.002+3819.398+22.352+615.696"/> 
+      <zplane rmin="82.55" rmax="136.525" z="19.05+16.002+3819.398+22.352+615.696+22.352"/> <!-- sum 4514.8500 mm-->
+    </polycone>
+<!--Drawing 67175-00016(Rev)-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe3_solid"> 
+      <zplane rmin="99.441" rmax="136.525" z="0"/> 
+      <zplane rmin="99.441" rmax="136.525" z="25.4"/> 
+      <zplane rmin="99.441" rmax="101.549" z="25.4"/> 
+      <zplane rmin="99.441" rmax="101.549" z="25.4+31.75"/> 
+      <zplane rmin="99.441" rmax="120.650" z="25.4+31.75"/> 
+      <zplane rmin="99.441" rmax="120.650" z="25.4+31.75+2.108"/> 
+      <zplane rmin="107.95" rmax="120.650" z="25.4+31.75+2.108"/> 
+      <zplane rmin="107.95" rmax="120.650" z="25.4+31.75+2.108+61.316"/> 
+      <zplane rmin="99.441" rmax="120.650" z="25.4+31.75+2.108+61.316"/> 
+      <zplane rmin="99.441" rmax="120.650" z="25.4+31.75+2.108+61.316+2.108"/> 
+      <zplane rmin="99.441" rmax="101.549" z="25.4+31.75+2.108+61.316+2.108"/> 
+      <zplane rmin="99.441" rmax="101.549" z="25.4+31.75+2.108+61.316+2.108+31.75"/> 
+      <zplane rmin="99.441" rmax="136.525" z="25.4+31.75+2.108+61.316+2.108+31.75"/> 
+      <zplane rmin="99.441" rmax="136.525" z="25.4+31.75+2.108+61.316+2.108+31.75+25.4"/> <!-- sum 179.83200 mm -->
+    </polycone>
+<!--Drawing 67175-00032-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe4_solid"> 
+      <zplane rmin="107.950" rmax="136.525" z="0"/> 
+      <zplane rmin="107.950" rmax="136.525" z="28.448"/> 
+      <zplane rmin="127.254" rmax="136.525" z="28.448"/> 
+      <zplane rmin="127.254" rmax="136.525" z="28.448+1955.673"/> 
+      <zplane rmin="127.254" rmax="228.600" z="28.448+1955.673"/> 
+      <zplane rmin="127.254" rmax="228.600" z="28.448+1955.673+28.448"/>  <!-- sum 2012.569  mm -->
+    </polycone>
+<!--Drawing 67175-00015-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe5_solid"> 
+      <zplane rmin="152.4" rmax="298.45" z="0"/> 
+      <zplane rmin="152.4" rmax="298.45" z="38.1"/> 
+    </polycone>
+<!--Drawing 67175-00009-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe6_solid"> 
+      <zplane rmin="151.613" rmax="298.450" z="0"/> 
+      <zplane rmin="151.613" rmax="298.450" z="38.100"/> 
+      <zplane rmin="151.613" rmax="161.925" z="38.100"/> 
+      <zplane rmin="151.613" rmax="161.925" z="38.100+1511.554"/> 
+      <zplane rmin="151.613" rmax="228.600" z="38.100+1511.554"/> 
+      <zplane rmin="151.613" rmax="228.600" z="38.100+1511.554+28.448"/>  <!-- sum 1578.1020  mm -->
+    </polycone>
+<!--Drawing 67503-00095-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe7_solid"> 
+      <zplane rmin="158.750" rmax="228.600" z="0"/> 
+      <zplane rmin="158.750" rmax="228.600" z="50.8"/> 
+      <zplane rmin="219.075" rmax="228.600" z="50.8"/> 
+      <zplane rmin="219.075" rmax="228.600" z="50.8+3746.5"/> 
+      <zplane rmin="219.075" rmax="304.800" z="50.8+3746.5"/> 
+      <zplane rmin="219.075" rmax="304.800" z="50.8+3746.5+50.8"/>  <!-- sum 3848.1000 mm -->
+    </polycone>
+<!--Drawing 67503-00096-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe8_solid"> 
+      <zplane rmin="228.6" rmax="304.8" z="0"/> 
+      <zplane rmin="228.6" rmax="304.8" z="50.8"/> 
+      <zplane rmin="295.275" rmax="304.8" z="50.8"/> 
+      <zplane rmin="295.275" rmax="304.8" z="50.8+2384.425"/> 
+      <zplane rmin="295.275" rmax="406.4" z="50.8+2384.425"/> 
+      <zplane rmin="295.275" rmax="406.4" z="50.8+2384.425+47.625"/> <!-- sum 2482.85  mm --> 
+    </polycone>
+<!--Drawing 67175-00013-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe9_solid"> 
+      <zplane rmin="295.275" rmax="406.4" z="0"/> 
+      <zplane rmin="295.275" rmax="406.4" z="47.625"/> 
+      <zplane rmin="295.275" rmax="304.8" z="47.625"/> 
+      <zplane rmin="295.275" rmax="304.8" z="47.625+1518.920"/> 
+      <zplane rmin="295.275" rmax="406.4" z="47.625+1518.920"/> 
+      <zplane rmin="295.275" rmax="406.4" z="47.625+1518.920+47.625"/> <!-- sum 1614.1700  mm --> 
+    </polycone>
+<!--Drawing 67175-00027-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe10_solid"> 
+      <zplane rmin="314.325" rmax="406.4" z="0"/> 
+      <zplane rmin="314.325" rmax="406.4" z="60.452"/>  <!-- sum 60.452 mm -->
+    </polycone>
+<!--Drawing 67229-56071-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe11_solid"> 
+      <zplane rmin="295.148" rmax="406.4" z="0"/>  <!--This OR set arbitarity as I couldn't find the details-->
+      <zplane rmin="295.148" rmax="406.4" z="47.752"/>  <!--This OR set arbitarity as I couldn't find the details-->
+      <zplane rmin="295.148" rmax="304.8" z="47.752"/> 
+      <zplane rmin="295.148" rmax="304.8" z="47.752+3793.998"/>
+      <zplane rmin="295.148" rmax="406.4" z="47.752+3793.998"/>
+      <zplane rmin="295.148" rmax="406.4" z="47.752+3793.998+47.752"/> <!-- sum 3889.5020 mm -->
+    </polycone>
+<!--Drawing 67175-00013-->
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="pipe12_solid"> 
+      <zplane rmin="295.275" rmax="406.4" z="0"/> 
+      <zplane rmin="295.275" rmax="406.4" z="47.625"/> 
+      <zplane rmin="295.275" rmax="304.8" z="47.625"/> 
+      <zplane rmin="295.275" rmax="304.8" z="47.625+1518.920"/> 
+      <zplane rmin="295.275" rmax="406.4" z="47.625+1518.920"/> 
+      <zplane rmin="295.275" rmax="406.4" z="47.625+1518.920+47.625"/>  <!-- sum 1614.1700 mm -->
+    </polycone>
+
+    <cone aunit="deg" deltaphi="360" lunit="mm" name="pbtgt_s" rmax1="20" rmax2="20" rmin1="0" rmin2="0" startphi="0" z="2.168"/>
 
 
 </solids>
@@ -211,6 +334,123 @@
       <!-- <auxiliary auxtype="SensDet" auxvalue="volumeN5009"/> -->
     </volume>
 
+    <volume name="HC_beampipe1_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe1_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5901"/>
+    </volume>
+
+    <volume name="HC_beampipe2_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe2_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5902"/>
+    </volume>
+
+    <volume name="HC_beampipe3_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe3_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5903"/>
+    </volume>
+
+    <volume name="HC_beampipe4_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe4_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5904"/>
+    </volume>
+
+    <volume name="HC_beampipe5_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe5_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5905"/>
+    </volume>
+
+    <volume name="HC_beampipe6_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe6_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5906"/>
+    </volume>
+
+    <volume name="HC_beampipe7_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe7_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5907"/>
+    </volume>
+
+    <volume name="HC_beampipe8_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe8_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5908"/>
+    </volume>
+
+    <volume name="HC_beampipe9_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe9_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5909"/>
+    </volume>
+
+    <volume name="HC_beampipe10_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe10_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5910"/>
+    </volume>
+
+    <volume name="HC_beampipe11_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe11_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5911"/>
+    </volume>
+
+    <volume name="HC_beampipe12_logic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="pipe12_solid"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5912"/>
+    </volume>
+
+    <volume name="tgt_logic">
+      <materialref ref="G4_Pb"/>
+      <solidref ref="pbtgt_s"/>
+      <auxiliary auxtype="SensDet" auxvalue="CollDet"/>
+      <auxiliary auxtype="DetType" auxvalue="lowenergyneutral"/>
+      <auxiliary auxtype="DetType" auxvalue="secondaries"/>
+      <auxiliary auxtype="DetNo" auxvalue="5913"/>
+    </volume>
+
     <volume name="logicHall">
       <materialref ref="Vacuum"/>  <!-- air ??? -->
       <solidref ref="boxHallMother"/>
@@ -259,6 +499,70 @@
 	<rotationref ref="scRot_1"/>
       </physvol>
 -->
+      <physvol name="HC_beampipe1_PV">
+        <volumeref ref="HC_beampipe1_logic"/>
+        <position name="pipe1_pos" x="0" y="0" z="710.2856-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe2_PV">
+        <volumeref ref="HC_beampipe2_logic"/>
+        <position name="pipe2_pos" x="0" y="0" z="710.2856+3393.237-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe3_PV">
+        <volumeref ref="HC_beampipe3_logic"/>
+        <position name="pipe3_pos" x="0" y="0" z="710.2856+3393.237+4514.8500-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe4_PV">
+        <volumeref ref="HC_beampipe4_logic"/>
+        <position name="pipe4_pos" x="0" y="0" z="710.2856+3393.237+4514.8500+179.83200-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe5_PV">
+        <volumeref ref="HC_beampipe5_logic"/>
+        <position name="pipe5_pos" x="0" y="0" z="710.2856+3393.237+4514.8500+179.83200+2012.569-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe6_PV">
+        <volumeref ref="HC_beampipe6_logic"/>
+        <position name="pipe6_pos" x="0" y="0" z="710.2856+3393.237+4514.8500+179.83200+2012.569+38.1+345.186-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe7_PV">
+        <volumeref ref="HC_beampipe7_logic"/>
+        <position name="pipe7_pos" x="0" y="0" z="710.2856+3393.237+4514.8500+179.83200+2012.569+38.1+345.186+1578.1020-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe8_PV">
+        <volumeref ref="HC_beampipe8_logic"/>
+        <position name="pipe8_pos" x="0" y="0" z="710.2856+3393.237+4514.8500+179.83200+2012.569+38.1+345.186+1578.1020+3848.1000-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe9_PV">
+        <volumeref ref="HC_beampipe9_logic"/>
+        <position name="pipe9_pos" x="0" y="0" z="710.2856+3393.237+4514.8500+179.83200+2012.569+38.1+345.186+1578.1020+3848.1000+2482.85-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe10_PV">
+        <volumeref ref="HC_beampipe10_logic"/>
+        <position name="pipe10_pos" x="0" y="0" z="710.2856+3393.237+4514.8500+179.83200+2012.569+38.1+345.186+1578.1020+3848.1000+2482.85+1614.1700-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe11_PV">
+        <volumeref ref="HC_beampipe11_logic"/>
+        <position name="pipe11_pos" x="0" y="0" z="710.2856+3393.237+4514.8500+179.83200+2012.569+38.1+345.186+1578.1020+3848.1000+2482.85+1614.1700+60.452-4500"/>
+      </physvol>
+
+      <physvol name="HC_beampipe12_PV">
+        <volumeref ref="HC_beampipe12_logic"/>
+        <position name="pipe12_pos" x="0" y="0" z="710.2856+3393.237+4514.8500+179.83200+2012.569+38.1+345.186+1578.1020+3848.1000+2482.85+1614.1700+60.452+3889.5020-4500"/>
+      </physvol>
+
+      <physvol name="tgt_PV">
+        <volumeref ref="tgt_logic"/>
+        <position name="pipe13_pos" x="0" y="0" z="0-4500"/>
+      </physvol>
 
       <physvol name="topwall">
         <volumeref ref="topwall_logic"/>

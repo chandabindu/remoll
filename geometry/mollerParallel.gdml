@@ -104,6 +104,16 @@
 
 
   <box name="Showermax_stack_VirtualPlane_solid" lunit="mm" x="155" y="260" z="0.5"/>
+       
+      <tube   
+        name="tgtupstream"
+        startphi="0" deltaphi="360" aunit="deg"
+        rmin="0" rmax="10" z="1" lunit="mm"/>
+       
+      <tube   
+        name="tgtdownstream"
+        startphi="0" deltaphi="360" aunit="deg"
+        rmin="0" rmax="100" z="1" lunit="mm"/>
 
 </solids>
 
@@ -954,11 +964,31 @@
     <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
     <auxiliary auxtype="DetNo" auxvalue="5845"/>
   </volume>
+  
+  <volume name="tgtupstream_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="tgtupstream"/>
+    <auxiliary auxtype="Visibility" auxvalue="true"/>
+    <auxiliary auxtype="Color" auxvalue="yellow"/>
+    <auxiliary auxtype="Alpha" auxvalue="1"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="5914"/>
+  </volume>
+  
+  <volume name="tgtdownstream_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="tgtdownstream"/>
+    <auxiliary auxtype="Visibility" auxvalue="true"/>
+    <auxiliary auxtype="Color" auxvalue="yellow"/>
+    <auxiliary auxtype="Alpha" auxvalue="1"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="5915"/>
+  </volume>
 
   <volume name="ParallelWorld_logical">
     <materialref ref="G4_Galactic"/>
     <solidref ref="parallel_solid"/>
-
+<!--
     <physvol name="hallVerticalWallDet">
       <volumeref ref="hallVerticalWallDet_logic"/>
       <position name="hallVerticalWallDet_pos" unit="mm" x="0" y="(17770.0/2-4470.0) + 1487.0/2" z="0"/>
@@ -1206,8 +1236,6 @@
       <volumeref ref="DSCoil12_log"/>
       <position  name="DSCoil12_pos" unit="mm" x="0" y="0" z="9200+0.5"/>
     </physvol>
-
- <!--RR changed these positions to reflect Lintel move from Prakash-->
     <physvol name="LintelEnt_phys">
       <volumeref ref="LintelEnt_log"/>
       <position name="LintelEnt_pos" unit="mm" x="0" y="0" z="9643.99-0.5"/>
@@ -1293,36 +1321,7 @@
       <position name="collar1Exit_pos" unit="mm" x="0" y="0" z="11966.4958+1"/>
     </physvol> 
 
-  <physvol name="vacWallUp_phys">
-      <volumeref ref="vacWallUp_log"/>
-      <position name="vacWallUp_pos" unit="mm" x="0" y="0" z="12030-1"/>
-    </physvol>
 
-
-   <physvol name="vacWallEnt_phys">
-      <volumeref ref="vacWallEnt_log"/>
-      <position name="vacWallEnt_pos" unit="mm" x="0" y="0" z="12115-1"/>
-    </physvol>
-
-    <physvol name="vacWallExit_phys">
-      <volumeref ref="vacWallExit_log"/>
-      <position name="vacWall1Exit_pos" unit="mm" x="0" y="0" z="12150+1"/>
-    </physvol>
-
-
-<!--
-    <physvol name="Bellows4US_phys">
-      <volumeref ref="Bellows4US_log"/>
-      <position name="Bellows4US_pos" unit="mm" x="0" y="0" z="11287.5+(12328.144-11287.5)+31.75/2"/>
-    </physvol>
-
-    <physvol name="Bellows4DS_phys">
-      <volumeref ref="Bellows4DS_log"/>
-      <position name="Bellows4DS_pos" unit="mm" x="0" y="0" z="11287.5+(12639.294-11287.5)+31.75/2"/>
-    </physvol>
--->
-
- <!--RR bellows4 pos -->
  <physvol name="Bellows4USflange_Vphys">
       <volumeref ref="Bellows4USflange_Virtuallog"/>
       <position name="Bellows4USflange_pos" unit="mm" x="0" y="0" z="12443.714-369.57/2-15.24/2"/>
@@ -1339,7 +1338,6 @@
       <position name="Bellows4DSflange_pos" unit="mm" x="0" y="0" z="12443.714+369.57/2+15.24/2"/>
     </physvol>
 
-    <!--RR aluminum DS bellows 4 before Drift pipe -->
 
  <physvol name="DSendtubeDSflange_Vphys">
       <volumeref ref="DSendtubeDSflange_Virtuallog"/>
@@ -1379,7 +1377,6 @@
       <position name="collar2Exit_pos" unit="mm" x="0" y="0" z="19132.69+150+0.6"/>
     </physvol>
 
-    <!-- Tracking planes -->
     <physvol name="trackingDetectorVirtualPlaneFront1_phys">
       <volumeref ref="gemVirtualPlane1_log"/>
       <positionref ref="trackingDetectorVirtualPlaneFront1_pos"/>
@@ -1397,138 +1394,15 @@
       <positionref ref="trackingDetectorVirtualPlaneBack2_pos"/>
     </physvol>
     
-    <!-- Main detector plane -->
-    <physvol name="mainDetectorVirtualPlane_phys">
-      <volumeref ref="mainDetectorVirtualPlane_log"/>
-      <positionref ref="mainDetectorVirtualPlane_pos"/>
-    </physvol>
-    
-    <physvol name="Ring1Front_phys">
-      <volumeref ref="Ring1Front_log"/>
-      <position name="Ring1Front_pos" unit="mm" z="22198.00 + 1070.8 + 21"/>
+-->
+    <physvol name="tgtupstream_phys">
+      <volumeref ref="tgtupstream_log"/>
+      <position name="tgtupstream_pos" unit="mm" x="0" y="0" z="-4502.5"/>
     </physvol>
 
-    <physvol name="showerMaxStackVirtualPlaneOpen_phys">
-      <volumeref ref="showerMaxStackVirtualPlaneOpen_log"/>
-      <positionref ref="showerMaxStackVirtualPlaneOpen_pos"/>
-    </physvol>
-
-    <physvol name="showerMaxStackVirtualPlaneClosed_phys">
-      <volumeref ref="showerMaxStackVirtualPlaneClosed_log"/>
-      <positionref ref="showerMaxStackVirtualPlaneClosed_pos"/>
-    </physvol>
-
-    <physvol name="showerMaxStackVirtualPlaneTrans_phys">
-      <volumeref ref="showerMaxStackVirtualPlaneTrans_log"/>
-      <positionref ref="showerMaxStackVirtualPlaneTrans_pos"/>
-      <rotation name="showerMaxStackVirtualPlaneTrans_rot" unit="deg" z="90"/>
-    </physvol>
-    
-    <physvol name="Ring1Back_phys">
-      <volumeref ref="Ring1Back_log"/>
-      <position name="Ring1Back_pos" unit="mm" z="22198.00 + 1204.94 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring2Front_phys">
-      <volumeref ref="Ring2Front_log"/>
-      <position name="Ring2Front_pos" unit="mm" z="22198.00 + 798.78 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring2Back_phys">
-      <volumeref ref="Ring2Back_log"/>
-      <position name="Ring2Back_pos" unit="mm" z="22198.00 + 932.92 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring3Front_phys">
-      <volumeref ref="Ring3Front_log"/>
-      <position name="Ring3Front_pos" unit="mm" z="22198.00 + 525.97 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring3Back_phys">
-      <volumeref ref="Ring3Back_log"/>
-      <position name="Ring3Back_pos" unit="mm" z="22198.00 + 660.12 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring4Front_phys">
-      <volumeref ref="Ring4Front_log"/>
-      <position name="Ring4Front_pos" unit="mm" z="22198.00 + 248.47 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring4Back_phys">
-      <volumeref ref="Ring4Back_log"/>
-      <position name="Ring4Back_pos" unit="mm" z="22198.00 + 382.61 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring5Front_phys">
-      <volumeref ref="Ring5Front_log"/>
-      <position name="Ring5Front_pos" unit="mm" z="22198.00 - 78.11 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring5Back_phys">
-      <volumeref ref="Ring5Back_log"/>
-      <position name="Ring5Back_pos" unit="mm" z="22198.00 + 78.08 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring6Front_phys">
-      <volumeref ref="Ring6Front_log"/>
-      <position name="Ring6Front_pos" unit="mm" z="22198.00 - 364.35 + 21"/>
-    </physvol>
-    
-    <physvol name="Ring6Back_phys">
-      <volumeref ref="Ring6Back_log"/>
-      <position name="Ring6Back_pos" unit="mm" z="22198.00 - 230.22 + 21"/>
-    </physvol>
-    
-    <!-- ShowerMax detector plane -->
-    <physvol name="showerMaxVirtualPlane_phys">
-      <volumeref ref="showerMaxVirtualPlane_log"/>
-      <positionref ref="showerMaxVirtualPlane_pos"/>
-    </physvol>
-
-    <!-- Pion detector plane -->
-    <physvol name="pionDetectorVirtualPlane_phys">
-      <volumeref ref="pionDetectorVirtualPlane_log"/>
-      <positionref ref="pionDetectorVirtualPlane_pos"/>
-    </physvol>
-  
-    <physvol name="HallExit_phys">
-      <volumeref ref="HallExit_log"/>
-      <position  name="HallExit_pos" unit="mm" x="0" y="0" z="26200"/>
-    </physvol>
-
-    <physvol name="PSbunkerOuterFrontVP_phys">
-      <volumeref ref="PSbunkerOuterFrontVP_log"/>
-      <position name="PSbunkerOuterFrontVP_pos" unit="mm" x="4123.944+4" y="-948.86+75+2571/2-786/2" z="279.5+19054/2"/>
-    </physvol>
-    
-    <physvol name="PSbunkerOuterSideLeftVP_phys">
-      <volumeref ref="PSbunkerOuterSideLeftVP_log"/>
-      <position name="PSbunkerOuterSideLeftVP_pos" unit="mm" x="4123.944+4+14551.94534/2" y="-948.86+75-786/2" z="10447.957+13119.354/2-1869.44/2+1524/2+50-1524-10071.354-5-1524-4"/>
-    </physvol>
-    
-    <physvol name="PSbunkerOuterSideRightVP_phys">
-      <volumeref ref="PSbunkerOuterSideRightVP_log"/>
-      <position name="PSbunkerOuterSideRightVP_pos" unit="mm" x="4123.944+4+14551.94534/2" y="-948.86+75-786/2" z="10447.957+13119.354/2-1869.44/2+1524/2+50"/>
-    </physvol>
-    
-    <physvol name="PSbunkerInnerFrontVP_phys">
-      <volumeref ref="PSbunkerInnerFrontVP_log"/>
-      <position name="PSbunkerInnerFrontVP_pos" unit="mm" x="4123.944+1524+5" y="-948.86+75-786/2" z="10447.957-2000+3659.35/2"/>
-    </physvol>
-    
-    <physvol name="PSbunkerInnerSideLeftVP_phys">
-      <volumeref ref="PSbunkerInnerSideLeftVP_log"/>
-      <position name="PSbunkerInnerSideLeftVP_pos" unit="mm" x="4123.944+4+1524+12927.94534/2+100/2" y="-948.86+75-786/2" z="10447.957+13119.354/2-1869.44/2+1524/2+50-1524-10071.354-6"/>
-    </physvol>
-    
-    <physvol name="PSbunkerInnerSideRightVP_phys">
-      <volumeref ref="PSbunkerInnerSideRightVP_log"/>
-      <position name="PSbunkerInnerSideRightVP_pos" unit="mm" x="4123.944+4+1524+12927.94534/2+100/2" y="-948.86+75-786/2" z="10447.957+13119.354/2-1869.44/2+1524/2+50-1524-11"/>
-    </physvol>
-    
-    <physvol name="PSbunkerTopVP_phys">
-      <volumeref ref="PSbunkerTopVP_log"/>
-      <position name="PSbunkerTopVP_pos" unit="mm" x="4123.944+4+14551.94534/2" y="-948.86+75+3429/2+10-786/2" z="279.5+19054/2"/>
+    <physvol name="tgtdownstream_phys">
+      <volumeref ref="tgtdownstream_log"/>
+      <position name="tgtdownstream_pos" unit="mm" x="0" y="0" z="-4497"/>
     </physvol>
     
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>

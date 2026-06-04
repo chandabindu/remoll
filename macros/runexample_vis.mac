@@ -5,7 +5,7 @@
 
 # This is the current working geometry
 /remoll/setgeofile geometry/mollerMother.gdml
-/remoll/parallel/setfile geometry/mollerParallel.gdml 
+#/remoll/parallel/setfile geometry/mollerParallel.gdml 
 
 #/remoll/likekryptonite  true
 
@@ -18,7 +18,7 @@
 
 
 #/remoll/beamene 11.0 GeV
-/remoll/beamene 855 MeV
+/remoll/beamene 100 MeV
 /remoll/beamcurr 50 microampere
 #/remoll/optical true
 #/remoll/addfield CLEO_rm.dat
@@ -27,17 +27,17 @@
 #/gun/momentum 0.5 1.0 2.0 GeV
 
 # Raster is on by default with 5x5mm
-/remoll/rasx 5 mm
-/remoll/rasy 5 mm 
+/remoll/evgen/beam/rasx 1 mm
+/remoll/evgen/beam/rasy 1 mm 
 
 ## Beam generator
 /remoll/evgen/set beam
 #/remoll/evgen/beam/origin -987.5,0.0,-150.0 mm
-/remoll/evgen/beam/origin -987.5 0.0 -150.0 mm
+#/remoll/evgen/beam/origin 0 0.0 -4501.0 mm
 #/remoll/evgen/beam/x -987.5 mm
-/remoll/evgen/beam/direction -0.0523 0.0 0.9986
-/remoll/evgen/beam/rasx 105.0 mm
-/remoll/evgen/beam/rasy 78.0 mm
+/remoll/evgen/beam/direction 0 0.0 1
+#/remoll/evgen/beam/rasx 105.0 mm
+#/remoll/evgen/beam/rasy 78.0 mm
 #/remoll/evgen/beam/x -987.5 mm
 #/remoll/evgen/beam/z -150.0 mm
 #/remoll/evgen/beam/px -0.0523

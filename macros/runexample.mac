@@ -18,12 +18,13 @@
 
 /remoll/printgeometry true
 
-/control/execute macros/load_magnetic_fieldmaps.mac
+#/control/execute macros/load_magnetic_fieldmaps.mac
 
+/remoll/evgen/set beam
 # Raster and initial angle stuff
-/remoll/oldras true
-/remoll/rasx 5 mm
-/remoll/rasy 5 mm
+/remoll/oldras false
+/remoll/evgen/beam/rasx 2 mm
+/remoll/evgen/beam/rasy 2 mm
 #/remoll/beam_x0 0 mm
 #/remoll/beam_y0 0 mm
 # initial angle
@@ -37,12 +38,11 @@
 # To hit Ring 5 open in septant 4
 #/remoll/evgen/beam/x -1300 mm
 #/remoll/evgen/beam/rasx -30 mm
-#/remoll/evgen/beam/origin -987.5 0 -50 mm
-#/remoll/evgen/beam/direction (-0.0523,0,0.9986)
+#/remoll/evgen/beam/origin -0 0 -4505 mm
+#/remoll/evgen/beam/direction 0 0 1 
 # Mainz test energy
 #/remoll/beamene 855 MeV
 
-/remoll/evgen/set moller
 #/remoll/evgen/thcommin 30.0 deg
 #/remoll/evgen/thcommax 150.0 deg
 #/remoll/evgen/set elastic 
@@ -60,23 +60,81 @@
 #/remoll/externalfile remollout.root
 #/remoll/externaldetid 4051
 
-/remoll/evgen/beamPolarization +L
-/remoll/field/equationtype 2
-/remoll/field/steppertype 2
-/remoll/field/print
+#/remoll/evgen/beamPolarization +L
+#/remoll/field/equationtype 2
+#/remoll/field/steppertype 2
+#/remoll/field/print
 
-/remoll/beamene 11 GeV
+/remoll/beamene 1 GeV
 /remoll/beamcurr 65 microampere
 
 /remoll/SD/disable_all
-/remoll/SD/enable 28
-/remoll/SD/detect lowenergyneutral 28
-/remoll/SD/detect secondaries 28
-/remoll/SD/detect boundaryhits 28
+/remoll/SD/enable 5910
+/remoll/SD/detect lowenergyneutral 5901
+/remoll/SD/detect secondaries 5901
+
+/remoll/SD/enable 5902
+/remoll/SD/detect lowenergyneutral 5902
+/remoll/SD/detect secondaries 5902
+
+/remoll/SD/enable 5903
+/remoll/SD/detect lowenergyneutral 5903
+/remoll/SD/detect secondaries 5903
+
+/remoll/SD/enable 5904
+/remoll/SD/detect lowenergyneutral 5904
+/remoll/SD/detect secondaries 5904
+
+/remoll/SD/enable 5905
+/remoll/SD/detect lowenergyneutral 5905
+/remoll/SD/detect secondaries 5905
+
+/remoll/SD/enable 5906
+/remoll/SD/detect lowenergyneutral 5906
+/remoll/SD/detect secondaries 5906
+
+/remoll/SD/enable 5907
+/remoll/SD/detect lowenergyneutral 5907
+/remoll/SD/detect secondaries 5907
+
+/remoll/SD/enable 5908
+/remoll/SD/detect lowenergyneutral 5908
+/remoll/SD/detect secondaries 5908
+
+/remoll/SD/enable 5909
+/remoll/SD/detect lowenergyneutral 5909
+/remoll/SD/detect secondaries 5909
+
+/remoll/SD/enable 5910
+/remoll/SD/detect lowenergyneutral 5910
+/remoll/SD/detect secondaries 5910
+
+/remoll/SD/enable 5911
+/remoll/SD/detect lowenergyneutral 5911
+/remoll/SD/detect secondaries 5911
+
+/remoll/SD/enable 5912
+/remoll/SD/detect lowenergyneutral 5912
+/remoll/SD/detect secondaries 5912
+
+/remoll/SD/enable 5913
+/remoll/SD/detect lowenergyneutral 5913
+/remoll/SD/detect secondaries 5913
+/remoll/SD/detect boundaryhits 5913
+
+/remoll/SD/enable 5914
+/remoll/SD/detect lowenergyneutral 5914
+/remoll/SD/detect secondaries 5914
+/remoll/SD/detect boundaryhits 5914
+
+/remoll/SD/enable 5915
+/remoll/SD/detect lowenergyneutral 5915
+/remoll/SD/detect secondaries 5915
+/remoll/SD/detect boundaryhits 5915
 
 # Make interactions with W, Cu, and Pb
 # realistic rather than pure absorbers
-/control/execute macros/kryptonite.mac
+#/control/execute macros/kryptonite.mac
 
 /process/list
 
@@ -88,4 +146,4 @@
 #/tracking/verbose 2
 
 #/remoll/printtargetinfo
-/run/beamOn 100
+/run/beamOn 1000
